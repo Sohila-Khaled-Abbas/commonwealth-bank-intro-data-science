@@ -24,7 +24,7 @@
 
 **A task-by-task learning and portfolio project focused on practical data analysis, data handling, business reasoning, and reproducible documentation.**
 
-[Simulation Brief](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t) · [Task 01 Guide](docs/task-01-data-aggregation-analysis.md) · [Task 02 Guide](docs/task-02-data-anonymisation.md) · [Privacy Techniques](docs/data-privacy-techniques.md) · [CV / LinkedIn Positioning](docs/project-experience-positioning.md) · [Local Setup](docs/local-setup-windows.md) · [Learning Log](LEARNING_LOG.md)
+[Simulation Brief](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t) · [Task 01 Guide](docs/task-01-data-aggregation-analysis.md) · [Task 02 Guide](docs/task-02-data-anonymisation.md) · [Task 03 Guide](docs/task-03-propose-data-analysis-approaches.md) · [Privacy Techniques](docs/data-privacy-techniques.md) · [CV / LinkedIn Positioning](docs/project-experience-positioning.md) · [Local Setup](docs/local-setup-windows.md) · [Learning Log](LEARNING_LOG.md)
 
 </div>
 
@@ -70,7 +70,7 @@ flowchart TD
 |:---:|---|---|:---:|
 | **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
 | **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, age/salary banding, k-anonymity-style and salary-diversity checks, CSV validation | <img src="https://img.shields.io/badge/CSV%20READY-2563EB?style=flat-square" alt="CSV ready; Forage upload not verified" /> |
-| **03** | Social Media Data and Business Insights | Data-source research, engagement metrics, insight proposal | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
+| **03** | Propose Data Analysis Approaches | Social-media topic, sentiment, engagement, trend, customer-support analysis, X API mapping, proposal writing | <img src="https://img.shields.io/badge/IN%20PROGRESS-D97706?style=flat-square" alt="In progress" /> |
 | **04** | Database Design | Entities, attributes, keys, relationships, analytical data design | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 
 ---
@@ -145,6 +145,14 @@ This task was completed independently: no Task 01 transaction data was joined or
 - [Anonymisation techniques, linkage attacks, and k-anonymity limitations](docs/data-privacy-techniques.md)
 
 Keep the source workbook, working workbook, customer-level CSV, and any identifier mappings outside this public repository.
+
+## Task 03 — Propose Data Analysis Approaches
+
+Task 03 is now in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. The initial profile and field inventory are documented in the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md).
+
+Initial analysis confirms that digital banking (13 posts), fraud & scams (11), and financial wellbeing (9) are the most frequent curated topics. The workbook includes sentiment labels, engagement metrics, author/post types, customer intent, and response-needed flags. Because the sample is explicitly fictional and only 60 records, results are for learning and method demonstration, not evidence of real CommBank customer opinion or campaign performance.
+
+The next work is to reproduce the profile in Excel, build topic / engagement / sentiment / customer-support analyses, review current X API field and access limitations, and prepare the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
 
 ## Repository structure
 
