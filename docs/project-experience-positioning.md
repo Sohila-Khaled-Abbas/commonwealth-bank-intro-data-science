@@ -15,9 +15,9 @@ For an honest CV, place it under **Project-Based Experience**, **Virtual Experie
 
 - Analysed **50,783 supermarket transaction records** in Microsoft Excel, completing data-quality checks for completeness, duplicates, numeric anomalies, text hygiene, and arithmetic consistency.
 - Used Excel Tables, structured references, SUMIFS, and COUNTIFS to answer business questions, then reconciled five calculated metrics through two PivotTables.
-- Documenting a privacy-aware customer-data de-identification workflow for Task 02, including direct-identifier removal, quasi-identifier generalisation, linkage risk, and data-utility validation.
+- Prepared a 10,000-record customer dataset for a privacy-conscious release by removing direct identifiers and unnecessary sensitive fields, generalising registration dates to years, and converting age and salary into bands. Validated a four-column values-only output with 40 quasi-identifier profiles, a minimum group size of 111, and salary-band diversity checks. Forage submission acceptance has not yet been verified.
 
-The third bullet describes work in progress. Keep it that way until the actual Task 02 file has been transformed, checked, and submitted.
+**Current learning activity — Task 03:** profiling a 60-record fictional social-media dataset and developing an analysis proposal for InsightSpark. This remains in progress and should not be described as a completed project deliverable yet.
 
 ## Shorter one-line CV version
 
@@ -29,19 +29,17 @@ The third bullet describes work in progress. Keep it that way until the actual T
 
 **Description:**
 
-Completed the transaction-analysis exercise using Microsoft Excel Desktop, working with 50,783 supermarket records. Performed data-quality checks, built conditional aggregations with Excel Tables and structured references, and independently reconciled the business results using PivotTables. The project repository documents the workflow, formulas, validation, privacy considerations, and learning progress across the simulation tasks. Currently progressing through the customer-data anonymisation exercise.
+Completed the transaction-analysis exercise using Microsoft Excel Desktop, working with 50,783 records, data-quality checks, conditional aggregations, and PivotTable reconciliation. Completed the workbook analysis and privacy review for a 10,000-record customer dataset, preparing a four-field values-only CSV and documenting the disclosure-risk checks; Forage acceptance remains to be confirmed. Currently working through Task 03, analysing a curated fictional social-media dataset and proposing how an organisation could use topic, sentiment, engagement, and customer-support insights.
 
-**Skills to list now:** Microsoft Excel, Data Analysis, Data Quality, Data Aggregation, PivotTables, Data Validation, Data Privacy (learning / in progress).
-
-Add additional skills only after the corresponding task is actually completed.
+**Skills demonstrated / currently developing:** Microsoft Excel, Data Analysis, Data Quality, Data Aggregation, PivotTables, Data Privacy, Data Generalisation, Social Media Analytics, Sentiment Analysis, API Data Concepts, Business Analysis.
 
 ## Portfolio project card
 
 **Title:** Commonwealth Bank — Data Science Virtual Experience
 
-**Subtitle:** Excel analytics, privacy-aware data preparation, business insights, and database design.
+**Subtitle:** Excel analytics, privacy-aware data preparation, social-media insights, and database design.
 
-**Summary:** A task-by-task independent project based on a Forage virtual experience. Task 01 is complete and validated; Task 02 is in preparation. The public repository shares methods, decisions, and aggregate findings while keeping the Forage source workbooks and customer-level deliverables private.
+**Summary:** A task-by-task independent project based on a Forage virtual experience. Task 01 analysis is complete and reconciled. Task 02's workbook transformations, QA checks, and CSV preparation are complete, with platform submission pending confirmation. Task 03's sample dataset has been profiled and its analysis/proposal are in progress. The public repository shares methods, decisions, and aggregate findings while keeping Forage source workbooks and customer-level deliverables private.
 
 **Repository:** https://github.com/Sohila-Khaled-Abbas/commonwealth-bank-intro-data-science
 
@@ -56,7 +54,8 @@ Add additional skills only after the corresponding task is actually completed.
 ## Update rules
 
 1. Keep Task 01 as complete because its five metrics were reconciled.
-2. Keep Task 02 marked in preparation until the source fields have been inspected and transformations validated.
-3. Do not claim Task 02 anonymisation, Task 03 social-media analysis, or Task 04 database design as completed before doing the work.
-4. Do not describe this simulation as paid freelance work, employment, or a direct engagement with Commonwealth Bank.
-5. When all tasks are complete, update the bullets to reflect the work actually delivered and the tools actually used.
+2. Task 02 workbook analysis, transformation, and release QA are complete; do not say Forage accepted the CSV until the platform confirms it.
+3. Keep Task 03 in progress until the analysis and InsightSpark proposal are completed and submitted.
+4. Do not claim Task 04 database design as completed before doing the work.
+5. Do not describe this simulation as paid freelance work, employment, or a direct engagement with Commonwealth Bank.
+6. When tasks are complete, update the bullets to reflect the work actually delivered and the tools actually used.
