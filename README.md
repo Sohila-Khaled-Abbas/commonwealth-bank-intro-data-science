@@ -204,11 +204,11 @@ See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) f
 
 ## Project-based experience
 
-This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled; Task 02 is being prepared. It is not employment at Commonwealth Bank or a paid freelance engagement.
+This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 dataset profiling is complete and its analysis/proposal are in progress. It is not employment at Commonwealth Bank or a paid freelance engagement.
 
 **CV-ready title:** Data Analytics & Data Science Virtual Experience | Forage — Commonwealth Bank Simulation
 
-The current verified scope includes analysis of 50,783 supermarket records in Excel, data-quality checks, SUMIFS / COUNTIFS calculations, and reconciliation of five metrics using two PivotTables. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
+The verified scope includes analysis of 50,783 supermarket records in Excel, conditional aggregation and PivotTable reconciliation, plus a 10,000-record customer-data de-identification exercise with aggregate privacy checks. Task 03 is currently exploring a 60-record fictional social-media sample; do not claim it as completed until the analysis and Forage proposal submission are done. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
 
 ## Quality and portfolio standards
 
