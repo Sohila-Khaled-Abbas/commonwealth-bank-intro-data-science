@@ -3,8 +3,8 @@
 This guide uses the requested parent directory:
 
 ~~~text
-D:\\courses\\Data Analysis 26-27\\
-└── commonwealth-bank-intro-data-science\\
+D:\courses\Data Analysis 26-27\
+└── commonwealth-bank-intro-data-science\
 ~~~
 
 ## 1. Clone the repository
@@ -12,7 +12,7 @@ D:\\courses\\Data Analysis 26-27\\
 Open PowerShell and run:
 
 ~~~powershell
-$Parent = "D:\\courses\\Data Analysis 26-27"
+$Parent = "D:\courses\Data Analysis 26-27"
 $RepoPath = Join-Path $Parent "commonwealth-bank-intro-data-science"
 
 New-Item -ItemType Directory -Force -Path $Parent | Out-Null
@@ -50,8 +50,8 @@ The current branch should be `main` and the working tree should be clean immedia
 
 1. Open the [official Commonwealth Bank simulation](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t).
 2. Open the Resources section for Task 01 and download `supermarket_transactions.xlsx`.
-3. Save the original file to `data\\raw\\supermarket_transactions.xlsx`.
-4. Keep the original unchanged. Make a working copy at `data\\working\\supermarket_transactions_working.xlsx`.
+3. Save the original file to `data\raw\supermarket_transactions.xlsx`.
+4. Keep the original unchanged. Make a working copy at `data\working\supermarket_transactions_working.xlsx`.
 5. Open the working copy in Microsoft Excel Desktop.
 
 > [!CAUTION]
@@ -59,14 +59,14 @@ The current branch should be `main` and the working tree should be clean immedia
 
 ## 4. Start Task 01 in Excel
 
-1. Open `workbooks\\Task_01_Excel_Practice_Starter.xlsx` alongside the transaction workbook.
+1. Open `workbooks\Task_01_Excel_Practice_Starter.xlsx` alongside the transaction workbook.
 2. Inspect the headers, sample rows, and data types. Confirm what one row represents and whether a quantity field exists.
 3. Select the transaction range and press `Ctrl + T`; enable **My table has headers**.
 4. In **Table Design → Table Name**, set the name to `Transactions`.
 5. Add an `Analysis` sheet to the working copy.
 6. Use the formula patterns in the starter workbook, adjusting structured references to match the exact source headers.
 7. Build the PivotTables described in the `PIVOT_GUIDE` sheet and reconcile the results.
-8. Save the private deliverable as `outputs\\task-01\\Task_01_Analysis_Completed.xlsx`.
+8. Save the private deliverable as `outputs\task-01\Task_01_Analysis_Completed.xlsx`.
 
 ## 5. Commit only safe project materials
 
@@ -84,7 +84,7 @@ Review `git status` before every commit. Do not use `git add -f` on ignored sour
 ## 6. Update the local clone later
 
 ~~~powershell
-Set-Location "D:\\courses\\Data Analysis 26-27\\commonwealth-bank-intro-data-science"
+Set-Location "D:\courses\Data Analysis 26-27\commonwealth-bank-intro-data-science"
 git pull --ff-only
 ~~~
 
