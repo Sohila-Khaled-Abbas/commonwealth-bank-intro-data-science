@@ -172,7 +172,19 @@ The topic-level engagement PivotTable reconciles to **125,989 total engagements*
 
 Fraud & scams has the highest total engagements and topic-level weighted rate. Security education has the highest average engagements per post (4,472), based on 22,360 engagements across five posts. Digital banking appears most often but its weighted rate (3.92%) is below the overall 4.34%. These are descriptive results from a small fictional sample, not evidence of real CommBank campaign performance or customer opinion. The workbook's total-engagement measure includes link clicks; the guide explains why this should not be assumed to be a generally available public X metric.
 
-Next: compare engagement by content format and post type, analyse sentiment and customer-only conversations, review response-needed records, complete the current X API review, and draft the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
+### Engagement by content format
+
+The format PivotTable also reconciles to the QA totals. Text + video has the highest weighted engagement rate (5.17%) across four posts; Text + image has the highest total engagement (73,358) across 14 posts and a 4.61% weighted rate. Text-only is the most common format (36 posts, 60% of the sample), but its weighted rate is 1.44%. The small video sample and differences in topic, purpose, author and reach mean these are descriptive associations, not evidence that format alone caused engagement.
+
+| Content format | Posts | Total engagements | Views | Weighted rate |
+|---|---:|---:|---:|---:|
+| Link | 6 | 21,738 | 526,900 | 4.13% |
+| Text | 36 | 3,809 | 264,990 | 1.44% |
+| Text + image | 14 | 73,358 | 1,590,300 | 4.61% |
+| Text + video | 4 | 27,084 | 524,000 | 5.17% |
+| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
+
+Next: compare engagement by post type, analyse sentiment and customer-only conversations, review response-needed records, complete the current X API review, and draft the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
 
 See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for formulas, complete topic-level results, interpretation, API mapping, limitations, and the step-by-step workflow.
 
