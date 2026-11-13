@@ -134,6 +134,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 | Topic analysis | Frequency and theme interpretation | 11 topics; 60 posts; Digital banking 13, Fraud & scams 11, Financial wellbeing 9; matches baseline QA | Complete |
 | Engagement analysis by topic | Sum engagements and views; weighted engagement rate; derive engagements per post | Topic totals reconcile to 125,989 engagements and 2,906,190 views; overall weighted rate 4.34% | Complete |
 | Engagement analysis by content format | Compare post count, engagements, views, weighted rate, and average engagements per post | Four formats reconcile to QA totals; video 5.17%, text + image 4.61%, link 4.13%, text 1.44% | Complete |
+| Engagement analysis by post type | Compare counts, total engagements, views, weighted rates, and average engagement volume | Four post types reconcile to QA totals; original posts 4.52%, replies 1.60%, mentions 1.51%, quote posts 1.39% | Complete |
 | Engagement by content format and post type | Compare post counts, reach, totals, and weighted rates | Not yet analysed | Pending |
 | Sentiment analysis | Overall and customer-only sentiment; text review | All-post labels: 26 positive, 15 neutral, 11 negative, 8 mixed; Customer-only subset: 11 negative, 8 positive, 7 mixed, 2 neutral | Pending Excel reproduction |
 | Customer support analysis | Response-needed flags and recurring intents | 11 records flagged Yes, with complaints, questions and one scam report | Pending Excel reproduction |
@@ -198,6 +199,25 @@ Interpretation:
 - Text is the most frequent format (36 posts, 60%) but has the lowest weighted rate and average engagement volume per post.
 - These results do not establish that format causes engagement. Topic, purpose, author, audience size, and timing may confound the comparison.
 - The total-engagement measure includes link clicks in this simulated dataset; production X API availability is not equivalent for all posts.
+
+### Task 03 — validated engagement-by-post-type PivotTable results
+
+The post-type PivotTable used `post_type` as rows and Count of `post_id`, Sum of `total_engagements`, and Sum of `views` as values. Weighted engagement rates were calculated as total engagements divided by total views.
+
+| Post type | Posts | Total engagements | Total views | Weighted rate | Avg. engagements / post |
+|---|---:|---:|---:|---:|---:|
+| Mention | 17 | 1,112 | 73,530 | 1.51% | 65.4 |
+| Original post | 24 | 123,337 | 2,730,800 | 4.52% | 5,139.0 |
+| Quote post | 3 | 621 | 44,600 | 1.39% | 207.0 |
+| Reply | 16 | 919 | 57,260 | 1.60% | 57.4 |
+| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+
+Interpretation:
+- Original posts are 40% of records but account for about 97.9% of total engagements in this curated sample.
+- Mentions and replies have far lower per-record engagement volume; their function is often conversational or service-oriented, not broadcast.
+- Quote posts have only three records, so their rate is particularly unstable.
+- Post type must not be confused with author type; analyse `author_type` separately before assigning posts to the bank or customers.
+- The simulated total-engagement measure includes link clicks, which should not be assumed to be universally available as a public X metric.
 
 ### Task 03 reflection prompts
 
