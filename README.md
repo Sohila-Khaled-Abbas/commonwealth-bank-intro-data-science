@@ -184,6 +184,18 @@ The format PivotTable also reconciles to the QA totals. Text + video has the hig
 | Text + video | 4 | 27,084 | 524,000 | 5.17% |
 | **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
 
+### Engagement by post type
+
+The post-type PivotTable reconciles to the same 60 posts, 125,989 engagements, and 2,906,190 views. Original posts account for 123,337 engagements (about 97.9%) from 24 records, with a 4.52% weighted rate. Mentions (17 posts) and replies (16 posts) have weighted rates of 1.51% and 1.60%; quote posts are represented by only three records. Because post types have different purposes, and post type does not itself identify the author, these results should be interpreted alongside `author_type` rather than as a direct content-quality ranking.
+
+| Post type | Posts | Total engagements | Views | Weighted rate |
+|---|---:|---:|---:|---:|
+| Original post | 24 | 123,337 | 2,730,800 | 4.52% |
+| Mention | 17 | 1,112 | 73,530 | 1.51% |
+| Reply | 16 | 919 | 57,260 | 1.60% |
+| Quote post | 3 | 621 | 44,600 | 1.39% |
+| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
+
 Next: compare engagement by post type, analyse sentiment and customer-only conversations, review response-needed records, complete the current X API review, and draft the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
 
 See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for formulas, complete topic-level results, interpretation, API mapping, limitations, and the step-by-step workflow.
