@@ -120,6 +120,43 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 5. A group-size result alone is not proof of anonymity. The release still needs a recipient-context and external-linkage risk review.
 6. The CSV content was checked for exactly four columns, 10,000 data rows, and no formulas, blanks, or REVIEW values; Forage submission remains to be confirmed.
 
+## Task 03 — Propose Data Analysis Approaches
+
+**Start date:** 2026-11-14  
+**Status:** In progress — dataset profiling complete; analysis and proposal pending  
+**Required deliverable:** Written proposal submitted in Forage Task 03 response field
+
+| Activity | Techniques / focus | Validation / evidence | Status |
+|---|---|---|---|
+| Inspect supplied workbook | Worksheet inventory, table structure, data dictionary | Five sheets; SocialMediaPosts table; 60 records; 24 fields | Complete |
+| Profile the sample | Missingness, dates, post types, authors, topic/sentiment distributions | 60 unique IDs; date range 2026-04-15 to 2026-06-12; 29 blank hashtag cells; other fields populated | Complete |
+| Inspect formula-derived metrics | Formula review and arithmetic reconciliation | 180 formulas across total_engagements, engagement_rate, day_of_week; cached values reconcile with source metrics and timestamps | Complete |
+| Topic analysis | Frequency and theme interpretation | Digital banking 13; Fraud & scams 11; Financial wellbeing 9 | Pending Excel reproduction |
+| Engagement analysis | Volume, reach, weighted rate, compare post types/formats | Sample contains 125,989 engagements incl. link clicks and 2,906,190 views | Pending Excel analysis |
+| Sentiment analysis | Overall and customer-only sentiment; text review | All-post labels: 26 positive, 15 neutral, 11 negative, 8 mixed; Customer-only subset: 11 negative, 8 positive, 7 mixed, 2 neutral | Pending Excel reproduction |
+| Customer support analysis | Response-needed flags and recurring intents | 11 records flagged Yes, with complaints, questions and one scam report | Pending Excel reproduction |
+| Review X API | Field mappings, recent/full archive, public/non-public metrics | Official X API references added to Task 03 guide | In progress |
+| Draft and submit proposal | Business value, data flow, KPIs, privacy, limitations | Forage proposal response field | Pending |
+
+### Task 03 data observations
+
+- The dataset is explicitly fictional and intended for educational use.
+- Post types: 24 original posts, 17 mentions, 16 replies, and 3 quote posts.
+- Author categories: 28 Customer, 26 CommBank, 2 Business customer, 2 Community org, 1 Scam awareness org, and 1 News/media.
+- The three most common curated topics account for 33 of 60 records (55%).
+- The sample's weighted engagement rate is approximately 4.34% (125,989 engagements / 2,906,190 views). The unweighted mean row-level rate is approximately 2.76%; these are different calculations.
+- Total engagements in the workbook include link clicks. For actual X API access, link clicks are non-public metrics requiring user-context access to the authenticated account's own content; they are not a generally available public metric.
+- Do not pool brand-authored and customer-authored sentiment when drawing customer-opinion conclusions.
+- The sample only spans part of April, May and part of June 2026; do not infer long-term seasonality from it.
+
+### Task 03 reflection prompts
+
+1. Why should sentiment be interpreted separately for CommBank-authored posts and customer-authored posts?
+2. Why does a weighted engagement rate answer a different question from the average of row-level rates?
+3. What operational value could come from identifying recurring complaints and posts flagged as requiring a response?
+4. Which fields are directly available from the official X API, and which metrics require account-owner authentication or separate analytics?
+5. What limitations arise from using 60 fictional, curated records?
+
 ## Remaining simulation tasks
 
 - [ ] Task 03 — Social Media Data and Business Insights.
