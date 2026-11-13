@@ -24,7 +24,7 @@
 
 **A task-by-task learning and portfolio project focused on practical data analysis, data handling, business reasoning, and reproducible documentation.**
 
-[Simulation Brief](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t) · [Task 01 Guide](docs/task-01-data-aggregation-analysis.md) · [Local Setup](docs/local-setup-windows.md) · [Learning Log](LEARNING_LOG.md)
+[Simulation Brief](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t) · [Task 01 Guide](docs/task-01-data-aggregation-analysis.md) · [Task 02 Guide](docs/task-02-data-anonymisation.md) · [Privacy Techniques](docs/data-privacy-techniques.md) · [CV / LinkedIn Positioning](docs/project-experience-positioning.md) · [Local Setup](docs/local-setup-windows.md) · [Learning Log](LEARNING_LOG.md)
 
 </div>
 
@@ -38,7 +38,7 @@
 
 ## Project overview
 
-The simulation uses practical business scenarios to develop data-science and data-management skills. This repository keeps each exercise reviewable through task guides, working notes, documented methods, and permitted evidence.
+The simulation uses practical business scenarios to develop data-science and data-management skills. This repository keeps each exercise reviewable through task guides, privacy references, working notes, documented methods, and validation decisions. Source workbooks, customer-level data, and private deliverables remain local.
 
 | Project detail | Description |
 |---|---|
@@ -47,7 +47,7 @@ The simulation uses practical business scenarios to develop data-science and dat
 | **Format** | Self-paced virtual job simulation |
 | **Primary practice tool** | Microsoft Excel Desktop for Task 01 |
 | **Analytical methods** | Data inspection, conditional aggregation, PivotTables, validation, business interpretation |
-| **Current focus** | Task 01 — Data Aggregation and Analysis |
+| **Completed task** | Task 01 — Data Aggregation and Analysis |\n| **Current focus** | Task 02 — Data Anonymisation |
 
 ## Learning roadmap
 
@@ -59,7 +59,7 @@ flowchart TD
     B2 --> B3[COUNTIFS and SUMIFS]
     B3 --> B4[PivotTable cross-checks]
     B4 --> B5[Document findings]
-    B5 --> C[Task 02 · Data anonymisation]
+    B5 --> C[Task 02 · Data anonymisation and privacy review]
     C --> D[Task 03 · Social media insights]
     D --> E[Task 04 · Database design]
     E --> F([Consolidated learning portfolio])
@@ -68,7 +68,7 @@ flowchart TD
 | Task | Topic | Skills / methods | Status |
 |:---:|---|---|:---:|
 | **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
-| **02** | Data Anonymisation | Data privacy, PII identification, masking, generalisation | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
+| **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, suppression, linkage risk, CSV validation | <img src="https://img.shields.io/badge/PREPARATION-2563EB?style=flat-square" alt="Preparation" /> |
 | **03** | Social Media Data and Business Insights | Data-source research, engagement metrics, insight proposal | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 | **04** | Database Design | Entities, attributes, keys, relationships, analytical data design | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 
@@ -131,6 +131,18 @@ The source table contained **50,783** records. The formula outputs matched the c
 
 </details>
 
+## Task 02 — Data Anonymisation
+
+The next exercise is to prepare mobile-app customer data for controlled analytical use while reducing re-identification risk. The task requires a CSV deliverable. The download linked by Forage is an Excel workbook (mobile_customers.xlsx), despite the task text referring to a CSV input.
+
+**Preparation resources:**
+- [Task 02 workflow and Excel checklist](docs/task-02-data-anonymisation.md)
+- [Anonymisation techniques, linkage attacks, and k-anonymity limitations](docs/data-privacy-techniques.md)
+
+**Key design consideration:** the task background mentions combining customer data with supermarket transactions. Confirm whether a person-level join is required before changing the customer identifier. Consistent tokenisation can retain join utility, but that is pseudonymisation and requires the mapping to stay protected. Do not claim irreversible anonymisation without a suitable risk assessment.
+
+Do not publish the source workbook, transformed customer-level CSV, or any identifier mapping in this repository.
+
 ## Repository structure
 
 ~~~text
@@ -139,16 +151,16 @@ commonwealth-bank-intro-data-science/
 ├── LEARNING_LOG.md
 ├── .gitignore
 ├── docs/
+│   ├── data-privacy-techniques.md
 │   ├── local-setup-windows.md
-│   └── task-01-data-aggregation-analysis.md
+│   ├── project-experience-positioning.md
+│   ├── task-01-data-aggregation-analysis.md
+│   └── task-02-data-anonymisation.md
 ├── workbooks/
 │   └── Task_01_Excel_Practice_Starter.xlsx
-├── data/
-│   ├── raw/          # Local-only source data (ignored by Git)
-│   └── working/      # Local-only working copies (ignored by Git)
-├── outputs/          # Local-only deliverables (ignored by Git)
-└── evidence/
-    └── task-01/      # Add only evidence permitted for public sharing
+└── data/                 # Local-only; ignored by Git
+    ├── raw/
+    └── working/
 ~~~
 
 ## Work locally
@@ -167,14 +179,25 @@ git status
 
 See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) for the full workflow, including where to place the private Forage workbook.
 
-## Documentation and learning evidence
+## Documentation and learning resources
 
 | Resource | Description |
 |---|---|
-| [Task 01 guide](docs/task-01-data-aggregation-analysis.md) | Step-by-step workflow, formulas, PivotTable configurations, and validation checklist |
+| [Task 01 guide](docs/task-01-data-aggregation-analysis.md) | Completed Excel analysis, formulas, PivotTables, data-quality checks, and reconciliation |
+| [Task 02 guide](docs/task-02-data-anonymisation.md) | Data inventory, transformation decisions, linkage, privacy checks, and CSV delivery |
+| [Privacy techniques](docs/data-privacy-techniques.md) | Direct identifiers, quasi-identifiers, pseudonymisation, linkage attacks, and k-anonymity |
+| [Project positioning](docs/project-experience-positioning.md) | Accurate CV, LinkedIn, portfolio, and interview wording |
 | [Excel starter workbook](workbooks/Task_01_Excel_Practice_Starter.xlsx) | Practice sheets, formula reference, PivotTable guide, and blank analysis area |
-| [Learning log](LEARNING_LOG.md) | Dated progress, skills practiced, validation, and reflection prompts |
-| [Windows setup](docs/local-setup-windows.md) | Clone, local folder structure, dataset handling, and Excel workflow |
+| [Learning log](LEARNING_LOG.md) | Task progress, verified results, decisions, and reflection prompts |
+| [Windows setup](docs/local-setup-windows.md) | Clone, private data folders, Excel workflow, and safe Git practices |
+
+## Project-based experience
+
+This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled; Task 02 is being prepared. It is not employment at Commonwealth Bank or a paid freelance engagement.
+
+**CV-ready title:** Data Analytics & Data Science Virtual Experience | Forage — Commonwealth Bank Simulation
+
+The current verified scope includes analysis of 50,783 supermarket records in Excel, data-quality checks, SUMIFS / COUNTIFS calculations, and reconciliation of five metrics using two PivotTables. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
 
 ## Quality and portfolio standards
 
