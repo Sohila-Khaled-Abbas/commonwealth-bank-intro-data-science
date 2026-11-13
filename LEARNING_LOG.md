@@ -43,39 +43,82 @@ Use this log to document the analytical process, decisions, validation, and refl
 
 ## Task 02 — Data Anonymisation
 
-**Preparation date:** 2026-11-13  
-**Status:** Research and workflow documented; source workbook schema still needs inspection  
-**Required output:** CSV file submitted through Forage
+**Work date:** 2026-11-13  
+**Workbook analysis:** Complete  
+**Values-only release:** Validated  
+**CSV export:** Created and structurally validated  
+**Forage submission:** Not yet verified
 
-| Activity | Techniques / focus | Status |
-|---|---|---|
-| Review the Task 02 business purpose and output format | Data minimisation, data utility, CSV delivery | Complete |
-| Research de-identification concepts and linkage risk | Direct identifiers, quasi-identifiers, pseudonymisation, generalisation, suppression, k-anonymity limitations | Complete |
-| Document a field-inventory and transformation workflow | Privacy-by-design, purpose limitation, risk assessment | Complete |
-| Download and inspect mobile_customers.xlsx locally | Row grain, schema, missingness, uniqueness, distributions | Pending |
-| Classify each actual source column | Direct ID / quasi-ID / sensitive / linkage key / analytical attribute | Pending |
-| Decide whether a consistent cross-dataset token is required | Linkage utility versus residual re-identification risk | Pending |
-| Apply justified transformations | Removal, generalisation, banding, suppression or controlled tokenisation | Pending |
-| Validate disclosure risk and analytical utility | Rare combinations, group sizes, row counts, retained fields | Pending |
-| Export and reopen the CSV | UTF-8 CSV, structure and data checks | Pending |
-| Submit the CSV through Forage | Required Task 02 deliverable | Pending |
+| Activity | Techniques / focus | Validation / evidence | Status |
+|---|---|---|---|
+| Inspect source workbook | Excel Table structure and row grain | MobileCustomers; 10,000 records; 19 source fields | Complete |
+| Profile source data | ID uniqueness, ranges, distributions, category cardinality | 10,000 unique nonblank customer IDs; age 18–65; salary 20,014–244,926; 639 job categories; 8,645 employer categories | Complete |
+| Build field inventory and transformation log | Direct identifiers, quasi-identifiers, sensitive attributes, utility | All 19 source fields classified in the private workbook | Complete |
+| Create transformed release | Removal, date generalisation, age and salary banding | Registration_Year, Gender, Age_Band, Salary_Band | Complete |
+| Check quasi-identifier combinations | Group-size / k-anonymity-style screening | 40 profiles; minimum group size 111; zero records below 5; zero singleton records | Passed |
+| Review sensitive salary disclosure | Distinct salary bands within each profile | Every profile has all five salary bands; 200 profile-band cells; minimum cell count 12 | Passed |
+| Validate values-only output | Row count, columns, blanks, review values | Final_Export: 10,000 records, four columns, zero formulas, zero blanks, zero REVIEW values | Passed |
+| Generate and reopen CSV | UTF-8 export and structural checks | 10,000 data rows; four columns; no blank cells | Complete |
+| Submit through Forage | Required Task 02 upload | Acceptance not confirmed | Pending |
 
-### Task 02 decision notes
+### Task 02 final output distributions
 
-- The Forage page describes the input as mobile_customers.csv, but the provided download is an .xlsx workbook. Keep the source extension unchanged; the required output is CSV.
-- Do not assume the source column names before inspecting the workbook.
-- Because the background mentions joining customer data and supermarket transaction data, confirm whether a record-level join is required before removing or changing a customer identifier.
-- A stable surrogate token can preserve a join only when the same mapping is applied to both datasets. If a mapping exists, the data is pseudonymised rather than proven irreversibly anonymous.
-- Keep raw source files, working copies, mapping tables and customer-level outputs outside the public repository.
+**Registration year**
 
-### Task 02 reflection prompts
+| Year | Records |
+|---|---:|
+| 2019 | 1,786 |
+| 2020 | 3,300 |
+| 2021 | 3,349 |
+| 2022 | 1,565 |
+| **Total** | **10,000** |
 
-1. Which fields are direct identifiers, and which combinations of quasi-identifiers could still identify a person?
-2. Which columns are essential for InsightSpark's analysis, and which can be removed without losing the required utility?
-3. Is record-level linkage to supermarket transactions required? What evidence confirms the join key?
-4. How did the transformations change row uniqueness and group sizes?
-5. What risks remain after transformation, including linkage and sensitive-attribute inference?
-6. How did the exported CSV get validated after reopening it?
+**Gender**
+
+| Category | Records |
+|---|---:|
+| F | 4,951 |
+| M | 5,049 |
+| **Total** | **10,000** |
+
+**Age band**
+
+| Age band | Records |
+|---|---:|
+| 18–24 | 1,446 |
+| 25–34 | 2,044 |
+| 35–44 | 2,123 |
+| 45–54 | 2,049 |
+| 55–65 | 2,338 |
+| **Total** | **10,000** |
+
+**Salary band**
+
+| Salary band | Records |
+|---|---:|
+| 20,000–49,999 | 1,267 |
+| 50,000–99,999 | 2,200 |
+| 100,000–149,999 | 2,293 |
+| 150,000–199,999 | 2,209 |
+| 200,000+ | 2,031 |
+| **Total** | **10,000** |
+
+### Task 02 privacy review
+
+The equivalence groups were defined by Registration_Year + Gender + Age_Band. There were 40 profiles, with a minimum group size of 111 and no groups smaller than five. Salary was then assessed within each profile: all five salary categories appeared in every profile, and the smallest profile-by-salary count was 12. This supports a distinct 5-diversity-style check for the grouped salary attribute.
+
+These are useful dataset-level screening results, not a guarantee against re-identification. External information, recipient context, and future data releases can change risk. The work was standalone: no Task 01 transaction data was joined and the original customer_id was removed because no person-level linkage requirement was established.
+
+The values-only CSV was generated from Final_Export and structurally reopened. The source workbook, working workbook, and customer-level CSV remain outside the public repository. The workbook's preliminary inventory and transformation-log notes still refer to month/quarter treatment for date_registered; update those notes to registration year before archiving the workbook as a fully reconciled audit artifact.
+
+### Task 02 reflection
+
+1. Removing direct identifiers was necessary but not sufficient; the combined year/gender/age profile needed a group-size assessment.
+2. Generalising registration dates to year was the first tested level that eliminated all small profiles in the selected quasi-identifier combination.
+3. High-cardinality employer and job fields offered unnecessary identification risk for this release and were removed rather than mapped without evidence.
+4. Salary was retained only after checking that every quasi-identifier profile contained all five salary bands; the smallest cell count was 12.
+5. A group-size result alone is not proof of anonymity. The release still needs a recipient-context and external-linkage risk review.
+6. The CSV content was checked for exactly four columns, 10,000 data rows, and no formulas, blanks, or REVIEW values; Forage submission remains to be confirmed.
 
 ## Remaining simulation tasks
 
