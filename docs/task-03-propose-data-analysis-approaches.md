@@ -1,6 +1,6 @@
 # Task 03 — Propose Data Analysis Approaches
 
-> **Status:** In progress — source dataset inspected; analysis and final proposal are not yet complete.  
+> **Status:** In progress — dataset profiling, topic frequency, and engagement-by-topic analysis are complete; content-format/post-type, sentiment, support, API review, and proposal work remain.  
 > **Required Forage deliverable:** A written proposal submitted in the Task 03 text field.  
 > **Dataset:** Forage-provided fictional Commonwealth Bank social-media sample. Keep the workbook private; it is marked for simulation use only.
 
@@ -138,6 +138,47 @@ The weighted overall engagement rate is total engagements divided by total views
 
 The highest total-engagement record is `SM048` (Fraud & scams), with **12,165** total engagements and **210,000** views. The highest row-level engagement rate is `SM004` (Financial wellbeing), at approximately **7.01%** (5,902 engagements / 84,200 views).
 
+### Excel checkpoint: topic frequency and engagement by topic
+
+The topic PivotTable was reproduced in Excel and reconciled to the baseline QA totals:
+
+- **11 distinct topics**
+- **60 posts**
+- **Digital banking** is the most frequent topic, with 13 posts (21.7%).
+- The three most frequent topics (Digital banking, Fraud & scams, and Financial wellbeing) account for 33 posts (55%).
+
+A second PivotTable grouped the engagement measures by topic. Weighted engagement rate is calculated as topic total engagements divided by topic total views. In this supplied workbook, `total_engagements` includes likes, replies, reposts, quote posts, and link clicks.
+
+| Topic | Posts | Total engagements | Total views | Weighted engagement rate | Avg. engagements / post |
+|---|---:|---:|---:|---:|---:|
+| Fraud & scams | 11 | 36,283 | 680,750 | 5.33% | 3,298.5 |
+| Financial wellbeing | 9 | 23,309 | 513,500 | 4.54% | 2,589.9 |
+| Security education | 5 | 22,360 | 439,800 | 5.08% | 4,472.0 |
+| Digital banking | 13 | 21,176 | 540,300 | 3.92% | 1,628.9 |
+| Card services | 4 | 8,303 | 192,450 | 4.31% | 2,075.8 |
+| Community | 4 | 8,279 | 238,100 | 3.48% | 2,069.8 |
+| Business banking | 3 | 2,671 | 59,900 | 4.46% | 890.3 |
+| Sustainability | 2 | 1,787 | 101,400 | 1.76% | 893.5 |
+| Outage/service issue | 5 | 1,714 | 132,140 | 1.30% | 342.8 |
+| Branch/ATM | 3 | 90 | 5,750 | 1.57% | 30.0 |
+| Customer support | 1 | 17 | 2,100 | 0.81% | 17.0 |
+| **Total / overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+
+The derived average engagements per post is total topic engagements divided by topic post count. It is a volume-per-post measure, not a rate adjusted for views.
+
+#### Interpretation
+
+1. **Most frequent does not mean most engaging:** Digital banking has the highest post count (13), but its 3.92% weighted engagement rate is below the 4.34% overall rate.
+2. **Fraud & scams leads total engagement:** It contributes 36,283 engagements and has the highest topic-level weighted rate (5.33%). This is a strong candidate for closer content and customer-conversation review within the sample.
+3. **Security education has the highest average engagements per post:** 22,360 engagements across five posts, or 4,472 per post, with a 5.08% weighted rate. The small post count means the result should be treated as directional.
+4. **Financial wellbeing also performs above the overall rate:** 4.54% across nine posts.
+5. **Outage/service issue has a low observed rate (1.30%):** Do not interpret this as low business importance. Service-issue posts may be operationally important even when they attract fewer interactions.
+6. The smallest topic groups (one customer-support post, two sustainability posts, and three business-banking / branch posts) are too small for strong comparative conclusions.
+
+The topic-level weighted rates reconcile to the supplied totals. The sum of topic engagements is 125,989 and the sum of topic views is 2,906,190, matching `QA_Overview`. The overall 4.34% is a **weighted** rate (`125,989 / 2,906,190`), not the unweighted mean of the 60 row-level rates.
+
+These are results from a small, fictional, curated learning dataset. They do not establish actual CommBank campaign performance or real customer preferences.
+
 ### Customer support signals
 
 There are **11 records** with `response_needed = Yes`. These are customer-authored interactions and include complaints, questions, and a scam report. The sample highlights issues around:
@@ -264,8 +305,9 @@ For production X API use, calculate metrics from fields actually returned and au
 
 - [x] Inspect the supplied workbook and its data dictionary.
 - [x] Confirm the 60-row sample structure and baseline profile.
-- [ ] Reproduce topic frequencies in Excel.
-- [ ] Compare engagement by topic, format, and post type.
+- [x] Reproduce topic frequencies in Excel (11 topics; 60 posts; totals reconciled).
+- [x] Compare engagement by topic (topic-level engagement, views, and weighted rates reconciled to QA_Overview).
+- [ ] Compare engagement by content format and post type.
 - [ ] Analyse sentiment, including customer-authored records separately.
 - [ ] Review support flags and recurring pain points.
 - [ ] Document the current X API fields, access and metric restrictions.
