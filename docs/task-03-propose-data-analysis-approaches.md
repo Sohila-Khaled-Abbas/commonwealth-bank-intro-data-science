@@ -1,6 +1,6 @@
 # Task 03 — Propose Data Analysis Approaches
 
-> **Status:** In progress — dataset profiling, topic frequency, engagement-by-topic, and engagement-by-content-format analyses are complete; post-type, sentiment, support, API review, and proposal work remain.  
+> **Status:** In progress — dataset profiling, topic frequency, and engagement comparisons by topic, content format, and post type are complete; sentiment, support, API review, and proposal work remain.  
 > **Required Forage deliverable:** A written proposal submitted in the Task 03 text field.  
 > **Dataset:** Forage-provided fictional Commonwealth Bank social-media sample. Keep the workbook private; it is marked for simulation use only.
 
@@ -256,6 +256,31 @@ Build a PivotTable:
 
 Then create a second analysis of Customer-authored records only. Review the text for negative or mixed conversations and distinguish genuine complaints from questions, scam reports, and feature feedback.
 
+#### Excel checkpoint: engagement by post type
+
+A third engagement PivotTable was completed with:
+- **Rows:** `post_type`
+- **Values:** Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
+- **Weighted engagement rate:** Sum of total engagements / Sum of views
+
+The PivotTable reconciles to the baseline QA totals (60 posts, 125,989 engagements, 2,906,190 views).
+
+| Post type | Posts | Total engagements | Total views | Weighted engagement rate | Average engagements / post |
+|---|---:|---:|---:|---:|---:|
+| Mention | 17 | 1,112 | 73,530 | 1.51% | 65.4 |
+| Original post | 24 | 123,337 | 2,730,800 | 4.52% | 5,139.0 |
+| Quote post | 3 | 621 | 44,600 | 1.39% | 207.0 |
+| Reply | 16 | 919 | 57,260 | 1.60% | 57.4 |
+| **Total / overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+
+Interpretation:
+1. Original posts represent 24 of 60 records (40%) but account for 123,337 of 125,989 engagements (about 97.9%). Their weighted rate is 4.52%, slightly above the 4.34% overall rate.
+2. Mentions and replies have much lower observed engagement volume per record and weighted rates (1.51% and 1.60%). These records often represent conversation or service interactions rather than broadcast content, so the metrics should not be treated as a like-for-like content-quality ranking.
+3. Quote posts number only three; their 1.39% rate is too small a sample for a stable conclusion.
+4. Post type alone does not establish who authored a post. Cross-tabulate with `author_type` before describing original posts as CommBank-authored or mentions/replies as customer-authored.
+5. Engagement differences are descriptive, not causal. Topic, format, audience size, follower bucket, and timing may differ by post type.
+6. The workbook's simulated `total_engagements` includes link clicks. Do not assume this composite metric maps directly to universally available public X API metrics.
+
 ### Step 5 — Time and customer-support analysis
 
 - Group post counts by month and day of week.
@@ -333,7 +358,7 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Reproduce topic frequencies in Excel (11 topics; 60 posts; totals reconciled).
 - [x] Compare engagement by topic (topic-level engagement, views, and weighted rates reconciled to QA_Overview).
 - [x] Compare engagement by content format (weighted rates reconcile to QA_Overview).
-- [ ] Compare engagement by post type.
+- [x] Compare engagement by post type (counts and weighted rates reconcile to QA_Overview).
 - [ ] Analyse sentiment, including customer-authored records separately.
 - [ ] Review support flags and recurring pain points.
 - [ ] Document the current X API fields, access and metric restrictions.
