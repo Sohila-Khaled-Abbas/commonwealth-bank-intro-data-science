@@ -131,8 +131,9 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 | Inspect supplied workbook | Worksheet inventory, table structure, data dictionary | Five sheets; SocialMediaPosts table; 60 records; 24 fields | Complete |
 | Profile the sample | Missingness, dates, post types, authors, topic/sentiment distributions | 60 unique IDs; date range 2026-04-15 to 2026-06-12; 29 blank hashtag cells; other fields populated | Complete |
 | Inspect formula-derived metrics | Formula review and arithmetic reconciliation | 180 formulas across total_engagements, engagement_rate, day_of_week; cached values reconcile with source metrics and timestamps | Complete |
-| Topic analysis | Frequency and theme interpretation | Digital banking 13; Fraud & scams 11; Financial wellbeing 9 | Pending Excel reproduction |
-| Engagement analysis | Volume, reach, weighted rate, compare post types/formats | Sample contains 125,989 engagements incl. link clicks and 2,906,190 views | Pending Excel analysis |
+| Topic analysis | Frequency and theme interpretation | 11 topics; 60 posts; Digital banking 13, Fraud & scams 11, Financial wellbeing 9; matches baseline QA | Complete |
+| Engagement analysis by topic | Sum engagements and views; weighted engagement rate; derive engagements per post | Topic totals reconcile to 125,989 engagements and 2,906,190 views; overall weighted rate 4.34% | Complete |
+| Engagement by content format and post type | Compare post counts, reach, totals, and weighted rates | Not yet analysed | Pending |
 | Sentiment analysis | Overall and customer-only sentiment; text review | All-post labels: 26 positive, 15 neutral, 11 negative, 8 mixed; Customer-only subset: 11 negative, 8 positive, 7 mixed, 2 neutral | Pending Excel reproduction |
 | Customer support analysis | Response-needed flags and recurring intents | 11 records flagged Yes, with complaints, questions and one scam report | Pending Excel reproduction |
 | Review X API | Field mappings, recent/full archive, public/non-public metrics | Official X API references added to Task 03 guide | In progress |
@@ -148,6 +149,35 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 - Total engagements in the workbook include link clicks. For actual X API access, link clicks are non-public metrics requiring user-context access to the authenticated account's own content; they are not a generally available public metric.
 - Do not pool brand-authored and customer-authored sentiment when drawing customer-opinion conclusions.
 - The sample only spans part of April, May and part of June 2026; do not infer long-term seasonality from it.
+
+### Task 03 — validated topic and engagement PivotTable results
+
+The Excel topic-frequency PivotTable was validated against the 60-record baseline. A second PivotTable grouped post count, total engagements, total views, and weighted engagement rate by topic.
+
+| Topic | Posts | Total engagements | Total views | Weighted rate | Avg. engagements / post |
+|---|---:|---:|---:|---:|---:|
+| Fraud & scams | 11 | 36,283 | 680,750 | 5.33% | 3,298.5 |
+| Financial wellbeing | 9 | 23,309 | 513,500 | 4.54% | 2,589.9 |
+| Security education | 5 | 22,360 | 439,800 | 5.08% | 4,472.0 |
+| Digital banking | 13 | 21,176 | 540,300 | 3.92% | 1,628.9 |
+| Card services | 4 | 8,303 | 192,450 | 4.31% | 2,075.8 |
+| Community | 4 | 8,279 | 238,100 | 3.48% | 2,069.8 |
+| Business banking | 3 | 2,671 | 59,900 | 4.46% | 890.3 |
+| Sustainability | 2 | 1,787 | 101,400 | 1.76% | 893.5 |
+| Outage/service issue | 5 | 1,714 | 132,140 | 1.30% | 342.8 |
+| Branch/ATM | 3 | 90 | 5,750 | 1.57% | 30.0 |
+| Customer support | 1 | 17 | 2,100 | 0.81% | 17.0 |
+| **Total / overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+
+Interpretation recorded:
+- Digital banking is most frequent (13/60, 21.7%), but not the engagement leader.
+- Fraud & scams has the most total engagements (36,283) and the highest topic-level weighted engagement rate (5.33%).
+- Security education has the highest average engagements per post (4,472) and a 5.08% weighted rate, but is based on only five posts.
+- The overall weighted rate is total engagements divided by total views (125,989 / 2,906,190 = 4.34%). It is not the unweighted average of the 60 row-level rates.
+- Small topic groups require caution; the single customer-support post cannot support a stable comparative conclusion.
+- All findings are descriptive of the fictional, curated Forage dataset only.
+
+The workbook's total-engagement formula includes link clicks. This is a simulation-specific combined measure; the public X API does not expose every metric for every public post. Keep that distinction in the final proposal.
 
 ### Task 03 reflection prompts
 
