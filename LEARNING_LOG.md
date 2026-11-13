@@ -4,30 +4,56 @@ Use this log to document the analytical process, decisions, validation, and refl
 
 ## Task 01 — Data Aggregation and Analysis
 
+**Work date:** 2026-11-13  
+**Analysis status:** Complete  
+**Formula/PivotTable reconciliation:** Passed  
+**Forage submission:** Not yet recorded
+
 | Date | Activity | Techniques practiced | Validation / evidence | Status |
 |---|---|---|---|---|
-| 2026-11-13 | Created repository structure and Excel practice companion | Excel Tables, conditional aggregation, PivotTable planning, Git documentation | Starter workbook and task guide added; actual transaction analysis not yet completed | In progress |
+| 2026-11-13 | Completed Task 01 supermarket transaction analysis in Excel | Excel Tables, structured references, data-quality checks, `SUMIFS`, `COUNTIFS`, PivotTables, result interpretation | 50,783 rows audited; five formula metrics matched two PivotTables; findings documented in the Task 01 guide | Analysis complete |
 
 ### Work log
 
 - [x] Set up the public project documentation and local folder structure.
 - [x] Create an Excel practice companion with formula and PivotTable guidance.
-- [ ] Download and inspect the original Forage workbook locally.
-- [ ] Confirm source headers, data types, row grain, and quantity field.
-- [ ] Convert the source table into an Excel Table named `Transactions`.
-- [ ] Calculate the three requested business answers.
-- [ ] Validate formula outputs with PivotTables.
-- [ ] Complete and submit the workbook through Forage.
-- [ ] Add permitted evidence and final reflections.
+- [x] Download and inspect the original Forage workbook locally.
+- [x] Confirm source headers, data types, row grain, and quantity field.
+- [x] Convert the source data into an Excel Table named `Transactions`.
+- [x] Review completeness, duplicate IDs, numeric values, arithmetic consistency, numeric anomalies, and selected text hygiene checks.
+- [x] Calculate the three requested business answers with Excel formulas.
+- [x] Validate formula outputs with PivotTables.
+- [x] Document the formulas, criteria, results, reconciliation, and limitations in [the Task 01 guide](docs/task-01-data-aggregation-analysis.md).
+- [ ] Save and submit the completed analysis workbook through Forage.
+- [ ] Add any permitted, non-restricted visual evidence after reviewing the simulation's sharing rules.
 
-### Reflection prompts
+### Task 01 result snapshot
 
-1. What does one row represent in the source data?
-2. Why is `COUNTIFS` appropriate for a record count, and when would `SUMIFS` over a quantity field be more accurate?
-3. How did you independently validate formula results using PivotTables?
-4. Which data-quality issue could change the interpretation of the answers?
-5. How would you explain the three results to a non-technical stakeholder?
+| Business metric | Validated result |
+|---|---:|
+| Apple units purchased in cash | 117 |
+| Cash-paid apple transaction records | 20 |
+| Total cash spent on apples | $537.03 |
+| Bakershire non-member spending | $2,857.51 |
+| Bakershire non-member transaction records | 179 |
 
-## Future tasks
+### Reflection
 
-Add one dated section per task after completing it. Record the problem, your approach, what you learned, the validation performed, and what you would improve next time.
+1. **Why did the first question need `SUMIFS` rather than only `COUNTIFS`?**  
+   The table contains a `quantity` field, so counting matching rows would count purchase records rather than individual apple units. `SUMIFS` over `quantity` returned the requested unit total; `COUNTIFS` was retained as a supporting record count.
+
+2. **How were the results validated?**  
+   Two PivotTables independently grouped the same transaction table. The apple PivotTable filtered to the exact product `apple` and broke results down by payment method. The Bakershire PivotTable filtered to Bakershire and grouped by customer type. All five formula-based metrics matched the corresponding PivotTable values.
+
+3. **Why was `id` used for the transaction count?**  
+   `id` identifies transaction records. `customer_id` identifies customers and counting it does not produce a distinct-customer count; it is not the correct field for counting transaction rows.
+
+4. **What is the most important scope detail in the third question?**  
+   The calculation includes every payment method. Only the store and customer-type criteria were applied.
+
+5. **What does the arithmetic check establish—and what does it not establish?**  
+   It establishes that `quantity × unit_price`, rounded to two decimal places, agrees with `total_amount` for each checked record. It does not prove the original quantity or price was correct.
+
+## Next task
+
+Proceed to **Task 02 — Data Anonymisation** after saving and submitting the Task 01 workbook through Forage. Keep the overall repository status as in progress until the remaining simulation tasks are completed.
