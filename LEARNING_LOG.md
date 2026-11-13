@@ -133,6 +133,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 | Inspect formula-derived metrics | Formula review and arithmetic reconciliation | 180 formulas across total_engagements, engagement_rate, day_of_week; cached values reconcile with source metrics and timestamps | Complete |
 | Topic analysis | Frequency and theme interpretation | 11 topics; 60 posts; Digital banking 13, Fraud & scams 11, Financial wellbeing 9; matches baseline QA | Complete |
 | Engagement analysis by topic | Sum engagements and views; weighted engagement rate; derive engagements per post | Topic totals reconcile to 125,989 engagements and 2,906,190 views; overall weighted rate 4.34% | Complete |
+| Engagement analysis by content format | Compare post count, engagements, views, weighted rate, and average engagements per post | Four formats reconcile to QA totals; video 5.17%, text + image 4.61%, link 4.13%, text 1.44% | Complete |
 | Engagement by content format and post type | Compare post counts, reach, totals, and weighted rates | Not yet analysed | Pending |
 | Sentiment analysis | Overall and customer-only sentiment; text review | All-post labels: 26 positive, 15 neutral, 11 negative, 8 mixed; Customer-only subset: 11 negative, 8 positive, 7 mixed, 2 neutral | Pending Excel reproduction |
 | Customer support analysis | Response-needed flags and recurring intents | 11 records flagged Yes, with complaints, questions and one scam report | Pending Excel reproduction |
@@ -178,6 +179,25 @@ Interpretation recorded:
 - All findings are descriptive of the fictional, curated Forage dataset only.
 
 The workbook's total-engagement formula includes link clicks. This is a simulation-specific combined measure; the public X API does not expose every metric for every public post. Keep that distinction in the final proposal.
+
+### Task 03 — validated engagement-by-format PivotTable results
+
+The format PivotTable used `content_format` as rows and Count of `post_id`, Sum of `total_engagements`, and Sum of `views` as values. Weighted rates were calculated as total engagements divided by total views.
+
+| Content format | Posts | Total engagements | Total views | Weighted rate | Avg. engagements / post |
+|---|---:|---:|---:|---:|---:|
+| Link | 6 | 21,738 | 526,900 | 4.13% | 3,623.0 |
+| Text | 36 | 3,809 | 264,990 | 1.44% | 105.8 |
+| Text + image | 14 | 73,358 | 1,590,300 | 4.61% | 5,239.9 |
+| Text + video | 4 | 27,084 | 524,000 | 5.17% | 6,771.0 |
+| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+
+Interpretation:
+- Text + video has the highest weighted rate and average engagement volume per post, but only four observations.
+- Text + image has the highest total engagement volume and a weighted rate above the overall average.
+- Text is the most frequent format (36 posts, 60%) but has the lowest weighted rate and average engagement volume per post.
+- These results do not establish that format causes engagement. Topic, purpose, author, audience size, and timing may confound the comparison.
+- The total-engagement measure includes link clicks in this simulated dataset; production X API availability is not equivalent for all posts.
 
 ### Task 03 reflection prompts
 
