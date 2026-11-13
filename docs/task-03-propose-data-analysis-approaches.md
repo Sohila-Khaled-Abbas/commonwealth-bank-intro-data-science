@@ -1,6 +1,6 @@
 # Task 03 — Propose Data Analysis Approaches
 
-> **Status:** In progress — dataset profiling, topic frequency, and engagement-by-topic analysis are complete; content-format/post-type, sentiment, support, API review, and proposal work remain.  
+> **Status:** In progress — dataset profiling, topic frequency, engagement-by-topic, and engagement-by-content-format analyses are complete; post-type, sentiment, support, API review, and proposal work remain.  
 > **Required Forage deliverable:** A written proposal submitted in the Task 03 text field.  
 > **Dataset:** Forage-provided fictional Commonwealth Bank social-media sample. Keep the workbook private; it is marked for simulation use only.
 
@@ -222,6 +222,31 @@ Compare:
 
 Do not compare only total engagement counts: high-reach posts naturally have more opportunities to receive interactions. Separate original CommBank posts from customer replies, mentions, and quotes. Small groups (for example, four video posts) should be interpreted cautiously.
 
+#### Excel checkpoint: engagement by content format
+
+A second engagement PivotTable was completed with:
+- **Rows:** `content_format`
+- **Values:** Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
+- **Weighted engagement rate:** Sum of total engagements / Sum of views
+
+The Excel results reconcile to the QA_Overview totals (60 posts, 125,989 engagements, and 2,906,190 views).
+
+| Content format | Posts | Total engagements | Total views | Weighted engagement rate | Average engagements / post |
+|---|---:|---:|---:|---:|---:|
+| Link | 6 | 21,738 | 526,900 | 4.13% | 3,623.0 |
+| Text | 36 | 3,809 | 264,990 | 1.44% | 105.8 |
+| Text + image | 14 | 73,358 | 1,590,300 | 4.61% | 5,239.9 |
+| Text + video | 4 | 27,084 | 524,000 | 5.17% | 6,771.0 |
+| **Total / overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+
+Interpretation:
+1. **Text + video** has the highest weighted rate (5.17%) and average engagement volume per post (6,771), but it is based on only four posts.
+2. **Text + image** produces the highest total engagements (73,358) across 14 posts and a 4.61% weighted rate, above the 4.34% overall baseline.
+3. **Link** posts have a 4.13% weighted rate across six posts.
+4. **Text-only** is the most frequent format (36 of 60 posts, 60%) but has the lowest weighted rate (1.44%) and the lowest average engagement volume per post (about 106).
+5. These comparisons are descriptive, not causal. Topic, post purpose, author type, audience size, timing, and distribution may differ by format. The four-video sample is too small to declare video the universally best format.
+6. The simulated `total_engagements` field includes link clicks. Treat these results as the workbook's defined measure and do not assume all components are available as public metrics for every post through the production X API.
+
 ### Step 4 — Sentiment analysis
 
 Build a PivotTable:
@@ -307,7 +332,8 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Confirm the 60-row sample structure and baseline profile.
 - [x] Reproduce topic frequencies in Excel (11 topics; 60 posts; totals reconciled).
 - [x] Compare engagement by topic (topic-level engagement, views, and weighted rates reconciled to QA_Overview).
-- [ ] Compare engagement by content format and post type.
+- [x] Compare engagement by content format (weighted rates reconcile to QA_Overview).
+- [ ] Compare engagement by post type.
 - [ ] Analyse sentiment, including customer-authored records separately.
 - [ ] Review support flags and recurring pain points.
 - [ ] Document the current X API fields, access and metric restrictions.
