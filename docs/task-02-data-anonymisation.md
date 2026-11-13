@@ -14,7 +14,7 @@ The job is not simply to delete names. The combination of demographic, geographi
 
 The Task 02 page describes the input as **mobile_customers.csv**, but the supplied download URL points to an Excel workbook named **mobile_customers.xlsx**. Keep its real file extension.
 
-1. Open the [Forage simulation](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t) and download the Task 02 resource.
+1. Download the [Task 02 source workbook — mobile_customers.xlsx](https://cdn.theforage.com/vinternships/companyassets/2sNmYuurxgpFYawco/y2NzZJASdgERdYR4S/1675678382479/mobile_customers.xlsx) from the Forage resources. The [simulation page](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t) contains the task instructions.
 2. Save the original workbook locally as **data/raw/mobile_customers.xlsx**.
 3. Keep the original unchanged.
 4. Create a working copy named **data/working/mobile_customers_working.xlsx**.
