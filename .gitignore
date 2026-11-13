@@ -1,0 +1,19 @@
+# Forage source data and private workbooks — never publish these
+/data/raw/*
+!/data/raw/.gitkeep
+/data/working/*
+!/data/working/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+/evidence/task-01/*
+!/evidence/task-01/.gitkeep
+
+# Excel temporary / lock files
+~$*.xls*
+*.tmp
+*.bak
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
