@@ -148,11 +148,33 @@ Keep the source workbook, working workbook, customer-level CSV, and any identifi
 
 ## Task 03 — Propose Data Analysis Approaches
 
-Task 03 is now in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. The initial profile and field inventory are documented in the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md).
+Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling, topic frequency, and engagement-by-topic analysis are complete. Sentiment, customer-support, post-format/post-type analysis, API review, and the InsightSpark proposal remain in progress.
 
-Initial analysis confirms that digital banking (13 posts), fraud & scams (11), and financial wellbeing (9) are the most frequent curated topics. The workbook includes sentiment labels, engagement metrics, author/post types, customer intent, and response-needed flags. Because the sample is explicitly fictional and only 60 records, results are for learning and method demonstration, not evidence of real CommBank customer opinion or campaign performance.
+### Validated topic and engagement results
 
-The next work is to reproduce the profile in Excel, build topic / engagement / sentiment / customer-support analyses, review current X API field and access limitations, and prepare the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
+The topic PivotTable contains 11 categories and reconciles to 60 records. Digital banking is the most frequent topic (13 posts), followed by Fraud & scams (11) and Financial wellbeing (9). These three categories represent 33 of 60 records (55%).
+
+The topic-level engagement PivotTable reconciles to **125,989 total engagements** and **2,906,190 views**. The overall weighted engagement rate is **4.34%**.
+
+| Topic | Posts | Total engagements | Weighted engagement rate |
+|---|---:|---:|---:|
+| Fraud & scams | 11 | 36,283 | 5.33% |
+| Financial wellbeing | 9 | 23,309 | 4.54% |
+| Security education | 5 | 22,360 | 5.08% |
+| Digital banking | 13 | 21,176 | 3.92% |
+| Card services | 4 | 8,303 | 4.31% |
+| Community | 4 | 8,279 | 3.48% |
+| Business banking | 3 | 2,671 | 4.46% |
+| Sustainability | 2 | 1,787 | 1.76% |
+| Outage/service issue | 5 | 1,714 | 1.30% |
+| Branch/ATM | 3 | 90 | 1.57% |
+| Customer support | 1 | 17 | 0.81% |
+
+Fraud & scams has the highest total engagements and topic-level weighted rate. Security education has the highest average engagements per post (4,472), based on 22,360 engagements across five posts. Digital banking appears most often but its weighted rate (3.92%) is below the overall 4.34%. These are descriptive results from a small fictional sample, not evidence of real CommBank campaign performance or customer opinion. The workbook's total-engagement measure includes link clicks; the guide explains why this should not be assumed to be a generally available public X metric.
+
+Next: compare engagement by content format and post type, analyse sentiment and customer-only conversations, review response-needed records, complete the current X API review, and draft the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
+
+See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for formulas, complete topic-level results, interpretation, API mapping, limitations, and the step-by-step workflow.
 
 ## Repository structure
 
