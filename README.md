@@ -45,10 +45,10 @@ The simulation uses practical business scenarios to develop data-science and dat
 | **Program** | Commonwealth Bank — Introduction to Data Science |
 | **Provider** | Forage |
 | **Format** | Self-paced virtual job simulation |
-| **Primary practice tool** | Microsoft Excel Desktop for Task 01 |
-| **Analytical methods** | Data inspection, conditional aggregation, PivotTables, validation, business interpretation |
-| **Completed task** | Task 01 — Data Aggregation and Analysis |
-| **Current focus** | Task 02 — Data Anonymisation |
+| **Primary practice tool** | Microsoft Excel Desktop for Tasks 01 and 02 |
+| **Analytical methods** | Excel Tables, SUMIFS, COUNTIFS, PivotTables, data minimisation, generalisation, banding, disclosure-risk checks, CSV validation |
+| **Completed analyses** | Task 01 — Data Aggregation and Analysis; Task 02 — Data Anonymisation workbook analysis and CSV preparation |
+| **Current focus** | Task 03 — Social Media Data and Business Insights |
 
 ## Learning roadmap
 
@@ -69,7 +69,7 @@ flowchart TD
 | Task | Topic | Skills / methods | Status |
 |:---:|---|---|:---:|
 | **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
-| **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, suppression, linkage risk, CSV validation | <img src="https://img.shields.io/badge/PREPARATION-2563EB?style=flat-square" alt="Preparation" /> |
+| **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, age/salary banding, k-anonymity-style and salary-diversity checks, CSV validation | <img src="https://img.shields.io/badge/CSV%20READY-2563EB?style=flat-square" alt="CSV ready; Forage upload not verified" /> |
 | **03** | Social Media Data and Business Insights | Data-source research, engagement metrics, insight proposal | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 | **04** | Database Design | Entities, attributes, keys, relationships, analytical data design | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 
@@ -134,15 +134,17 @@ The source table contained **50,783** records. The formula outputs matched the c
 
 ## Task 02 — Data Anonymisation
 
-The next exercise is to prepare mobile-app customer data for controlled analytical use while reducing re-identification risk. The task requires a CSV deliverable. The download linked by Forage is an Excel workbook (mobile_customers.xlsx), despite the task text referring to a CSV input.
+The workbook analysis, transformation workflow, privacy checks, and values-only CSV export are complete. The 10,000-record source was reduced to four fields: `Registration_Year`, `Gender`, `Age_Band`, and `Salary_Band`. Direct identifiers, exact dates of birth, precise location data, the customer linkage key, high-cardinality employer/job fields, and unnecessary card details were removed.
 
-**Preparation resources:**
-- [Task 02 workflow and Excel checklist](docs/task-02-data-anonymisation.md)
+**Verified aggregate results:** 10,000 release rows; four columns; zero blanks or `REVIEW` values; 40 quasi-identifier profiles; minimum profile size 111; zero records in groups smaller than five; all 40 profiles contain all five salary bands, with a minimum profile-by-salary count of 12. These are screening results, not a guarantee that re-identification is impossible.
+
+This task was completed independently: no Task 01 transaction data was joined or used. The CSV has been generated and structurally validated; Forage upload/acceptance has not yet been verified.
+
+**Resources:**
+- [Task 02 completed workflow, field decisions, and QA results](docs/task-02-data-anonymisation.md)
 - [Anonymisation techniques, linkage attacks, and k-anonymity limitations](docs/data-privacy-techniques.md)
 
-**Key design consideration:** the task background mentions combining customer data with supermarket transactions. Confirm whether a person-level join is required before changing the customer identifier. Consistent tokenisation can retain join utility, but that is pseudonymisation and requires the mapping to stay protected. Do not claim irreversible anonymisation without a suitable risk assessment.
-
-Do not publish the source workbook, transformed customer-level CSV, or any identifier mapping in this repository.
+Keep the source workbook, working workbook, customer-level CSV, and any identifier mappings outside this public repository.
 
 ## Repository structure
 
