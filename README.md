@@ -67,7 +67,7 @@ flowchart TD
 
 | Task | Topic | Skills / methods | Status |
 |:---:|---|---|:---:|
-| **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/IN%20PROGRESS-D97706?style=flat-square" alt="In progress" /> |
+| **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
 | **02** | Data Anonymisation | Data privacy, PII identification, masking, generalisation | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 | **03** | Social Media Data and Business Insights | Data-source research, engagement metrics, insight proposal | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 | **04** | Database Design | Entities, attributes, keys, relationships, analytical data design | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
@@ -111,6 +111,20 @@ After importing the source workbook and converting the dataset into an Excel Tab
 5. Build PivotTables with the field layouts in the [Task 01 guide](docs/task-01-data-aggregation-analysis.md).
 6. Reconcile formula outputs with the PivotTable results.
 7. Document formulas, values, validation evidence, and business interpretation.
+
+### Validated Task 01 results
+
+The completed Excel analysis used `SUMIFS` and `COUNTIFS` and was independently reconciled with two PivotTables.
+
+| Business metric | Validated result |
+|---|---:|
+| Apple units purchased in cash | **117** |
+| Cash-paid apple transaction records | **20** |
+| Total cash spent on apples | **$537.03** |
+| Bakershire non-member spending (all payment methods) | **$2,857.51** |
+| Bakershire non-member transaction records | **179** |
+
+The source table contained **50,783** records. The formula outputs matched the corresponding PivotTable values. See the [Task 01 analysis guide](docs/task-01-data-aggregation-analysis.md) for data-quality checks, exact formulas, full PivotTable breakdowns, and limitations.
 
 **Practice workbook:** [Task 01 Excel Practice Starter](workbooks/Task_01_Excel_Practice_Starter.xlsx)  
 **Step-by-step instructions:** [Task 01 — Data Aggregation and Analysis](docs/task-01-data-aggregation-analysis.md)
