@@ -3,10 +3,6 @@
 !/data/raw/.gitkeep
 /data/working/*
 !/data/working/.gitkeep
-/outputs/*
-!/outputs/.gitkeep
-/evidence/task-01/*
-!/evidence/task-01/.gitkeep
 
 # Excel temporary / lock files
 ~$*.xls*
