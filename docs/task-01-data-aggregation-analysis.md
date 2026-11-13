@@ -234,7 +234,7 @@ Recommended local workbook layout:
 Recommended private output path:
 
 ```text
-outputs/task-01/Task_01_Analysis_Completed.xlsx
+data/working/Task_01_Analysis_Completed.xlsx
 ```
 
 Keep the downloaded source workbook and any workbook containing the full Forage dataset out of the public repository. Submit the completed workbook through the Forage simulation interface. This repository contains the methodology and aggregate findings, not the restricted source data.
