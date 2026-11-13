@@ -47,7 +47,8 @@ The simulation uses practical business scenarios to develop data-science and dat
 | **Format** | Self-paced virtual job simulation |
 | **Primary practice tool** | Microsoft Excel Desktop for Task 01 |
 | **Analytical methods** | Data inspection, conditional aggregation, PivotTables, validation, business interpretation |
-| **Completed task** | Task 01 — Data Aggregation and Analysis |\n| **Current focus** | Task 02 — Data Anonymisation |
+| **Completed task** | Task 01 — Data Aggregation and Analysis |
+| **Current focus** | Task 02 — Data Anonymisation |
 
 ## Learning roadmap
 
