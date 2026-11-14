@@ -3,7 +3,8 @@
 > **Workbook analysis:** Complete  
 > **Final values-only release:** Validated  
 > **CSV export:** Created and structurally validated  
-> **Forage submission:** Not yet verified
+> **Overall Forage simulation:** Completed 14 November 2026 (100%, 10/10 assessment result).  
+> **Evidence note:** The completion page verifies the overall simulation; a separate Task 02 CSV receipt is not archived here.
 
 This guide records the completed Task 02 work using the private Forage workbook and the values-only Final_Export sheet. The source workbook and row-level CSV must remain private and must not be committed to this repository.
 
@@ -227,7 +228,7 @@ For export, the Release_Ready range was copied into Final_Export with **Paste Sp
 - [x] Review quasi-identifier group sizes.
 - [x] Review salary diversity within each profile.
 - [x] Generate and structurally validate the UTF-8 CSV.
-- [ ] Upload the CSV to Forage and record the accepted submission status.
+- [x] Complete the Task 02 workflow within the Forage simulation; overall completion confirmed 14 November 2026. A separate CSV upload receipt is not archived in this repository.
 
 Do not commit the source workbook, working workbook, CSV, customer-level output, or identifier mappings. The repository should contain methodology and aggregate validation results only.
 
