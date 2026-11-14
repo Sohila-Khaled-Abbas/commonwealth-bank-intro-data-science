@@ -27,10 +27,30 @@ Set-Location $RepoPath
 git status
 ~~~
 
-If this is already a clone, update it safely with:
+If this is already a clone, inspect it before pulling remote commits:
 
 ~~~powershell
-git pull --ff-only
+Set-Location $RepoPath
+git status --short
+git branch --show-current
+git remote -v
+git fetch origin
+git status -sb
+~~~
+
+If the working tree is clean and the current branch is `main`, fast-forward it:
+
+~~~powershell
+git pull --ff-only origin main
+~~~
+
+If `git status --short` shows local changes, do not overwrite them or pull blindly. Review them with `git diff` and `git status`; commit intended documentation/code changes first, or stash them deliberately before pulling. Keep the private Forage workbooks under the ignored `data/raw/` and `data/working/` folders.
+
+To confirm the Task 03 documentation arrived:
+
+~~~powershell
+git log -1 --oneline
+git diff HEAD~1 -- docs/task-03-propose-data-analysis-approaches.md
 ~~~
 
 ## 2. Confirm the repository connection

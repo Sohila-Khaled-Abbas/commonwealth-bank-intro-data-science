@@ -159,7 +159,7 @@ Keep the source workbook, working workbook, customer-level CSV, and any identifi
 
 ## Task 03 — Propose Data Analysis Approaches
 
-Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling, engagement comparisons by topic, content format, post type, and author type, and both sentiment PivotTables are validated. Time analysis is also validated: 25 posts in April, 27 in May, and 8 in June 2026 (the sample ends on June 12); weekday counts are Tuesday 11, Wednesday 11, Thursday 10, Friday 8, Saturday 7, Sunday 7, and Monday 6. The response-needed PivotTable reconciles to 11 records: 10 Negative and 1 Neutral. The flagged records group into five complaints, five questions, and one scam report. Row-level qualitative review, current X API feasibility review, and the InsightSpark proposal remain.
+Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling, engagement comparisons by topic, content format, post type, and author type, and both sentiment PivotTables are validated. Time analysis is also validated: 25 posts in April, 27 in May, and 8 in June 2026 (the sample ends on June 12); weekday counts are Tuesday 11, Wednesday 11, Thursday 10, Friday 8, Saturday 7, Sunday 7, and Monday 6. The response-needed PivotTable reconciles to 11 records: 10 Negative and 1 Neutral. The flagged records group into five complaints, five questions, and one scam report. The official X API field, search-access, metrics, and published pricing documentation has been reviewed and documented. The private row-level qualitative review and InsightSpark proposal remain open.
 
 ### Validated topic and engagement results
 
@@ -227,7 +227,7 @@ The monthly PivotTable reconciles to 60 posts: April 25 (41.7%), May 27 (45.0%),
 
 The `response_needed = Yes` PivotTable reconciles to 11 records: 10 Negative and one Neutral. Customer intent consists of five Complaints, five Questions, and one Scam report. The topic split is Branch/ATM (3), Digital banking (3), Fraud & scams (2), Outage/service issue (2), and Card services (1). The row-level `Customer_Support_Review` worksheet and manual theme/action review are the next checkpoint; do not infer the content or urgency of an individual post from aggregate counts.
 
-**Remaining Task 03 work:** complete the private row-level customer/support review, document current X API access and metric restrictions, and write and submit the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
+**Remaining Task 03 work:** complete the private row-level customer/support review, summarise recurring themes from the actual post text, and write and submit the InsightSpark proposal. The current X API technical review is documented in the Task 03 guide; account-specific access, budget, and production approvals are not assumed. Do not mark Task 03 complete until the proposal is submitted through Forage.
 
 See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for formulas, complete topic-level results, interpretation, API mapping, limitations, and the step-by-step workflow.
 

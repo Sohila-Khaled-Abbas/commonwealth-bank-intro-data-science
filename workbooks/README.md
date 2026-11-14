@@ -20,6 +20,6 @@ The templates support reproducible practice and documentation. They contain aggr
 | Workbook | Purpose | Current state |
 |---|---|---|
 | Task 02 | Field inventory, anonymisation decisions, QA reference, release schema | Template aligned to the documented Registration_Year, Gender, Age_Band, and Salary_Band release |
-| Task 03 | Source-data template, QA baseline, topic/format/post-type summaries, author analysis, sentiment, time, support flags, API mapping, proposal outline | Topic, engagement, author, sentiment, month, weekday, and 11-row support-flag aggregates validated; private row-level support review and proposal remain |
+| Task 03 | Source-data template, QA baseline, topic/format/post-type summaries, author analysis, sentiment, time, support flags, API mapping, proposal outline | Topic, engagement, author, sentiment, month, weekday, and 11-row support-flag aggregates validated; current X API fields/access/metrics review documented; private row-level support review and proposal remain |
 
 All three generic companion workbooks are present in this folder. They are practice templates, not copies of Forage source files. Before updating or committing any workbook, inspect its sheets and hidden content to confirm it contains no source dataset, post text, customer-level records, or private exports.
