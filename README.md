@@ -45,7 +45,7 @@ The simulation uses practical business scenarios to develop data-science and dat
 | **Program** | Commonwealth Bank — Introduction to Data Science |
 | **Provider** | Forage |
 | **Format** | Self-paced virtual job simulation |
-| **Primary practice tool** | Microsoft Excel Desktop for Tasks 01 and 02 |
+| **Primary practice tool** | Microsoft Excel Desktop for Tasks 01–03 |
 | **Analytical methods** | Excel Tables, SUMIFS, COUNTIFS, PivotTables, data minimisation, generalisation, banding, disclosure-risk checks, CSV validation |
 | **Completed analyses** | Task 01 — Data Aggregation and Analysis; Task 02 — Data Anonymisation workbook analysis and CSV preparation |
 | **Current focus** | Task 03 — Social Media Data and Business Insights |
@@ -148,7 +148,7 @@ Keep the source workbook, working workbook, customer-level CSV, and any identifi
 
 ## Task 03 — Propose Data Analysis Approaches
 
-Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling, topic frequency, and engagement comparisons by topic, content format, and post type are complete. The next Excel checkpoint is author-type analysis; sentiment, customer-support, X API review, and the InsightSpark proposal remain in progress.
+Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling and engagement comparisons by topic, content format, post type, and author type are complete. The next analysis is sentiment, followed by time/customer-support analysis, current X API review, and the InsightSpark proposal.
 
 ### Validated topic and engagement results
 
@@ -196,7 +196,21 @@ The post-type PivotTable reconciles to the same 60 posts, 125,989 engagements, a
 | Quote post | 3 | 621 | 44,600 | 1.39% |
 | **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
 
-Next: validate the author-type PivotTable (expected profile counts: Customer 28, CommBank 26, Business customer 2, Community org 2, Scam awareness org 1, News/media 1), then analyse sentiment and customer-only conversations, review response-needed records, complete the current X API review, and draft the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
+### Engagement by author type
+
+The author-type PivotTable was validated across all six categories. CommBank-authored records account for 123,593 engagements across 26 posts and 2,754,800 views (4.49% weighted rate). Customer-authored records account for 1,597 engagements across 28 posts and 96,990 views (1.65%). CommBank posts contributed about 98.1% of recorded engagements in this sample. This is not a customer-satisfaction comparison: author groups have different purposes, content types, and reach. The smaller non-core author groups have only one or two records.
+
+| Author type | Posts | Total engagements | Views | Weighted rate |
+|---|---:|---:|---:|---:|
+| Customer | 28 | 1,597 | 96,990 | 1.65% |
+| CommBank | 26 | 123,593 | 2,754,800 | 4.49% |
+| Business customer | 2 | 97 | 5,600 | 1.73% |
+| Community org | 2 | 237 | 11,100 | 2.14% |
+| Scam awareness org | 1 | 137 | 6,700 | 2.04% |
+| News/media | 1 | 328 | 31,000 | 1.06% |
+| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
+
+Next: complete Step 7 sentiment analysis, including a customer-only view and text review; then review response-needed records, complete the current X API review, and draft the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
 
 See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for formulas, complete topic-level results, interpretation, API mapping, limitations, and the step-by-step workflow.
 
@@ -252,11 +266,11 @@ See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) f
 
 ## Project-based experience
 
-This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 dataset profiling and engagement comparisons by topic, content format, and post type are complete; author-type analysis is the next checkpoint, with sentiment, support, API review, and proposal work still in progress. It is not employment at Commonwealth Bank or a paid freelance engagement.
+This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 dataset profiling and engagement comparisons by topic, content format, and post type are complete; author-type analysis is complete; sentiment, support, API review, and proposal work are still in progress. It is not employment at Commonwealth Bank or a paid freelance engagement.
 
 **CV-ready title:** Data Analytics & Data Science Virtual Experience | Forage — Commonwealth Bank Simulation
 
-The verified scope includes analysis of 50,783 supermarket records in Excel, conditional aggregation and PivotTable reconciliation, plus a 10,000-record customer-data de-identification exercise with 40 generalised profiles, minimum group size 111, and salary-diversity checks. Task 03 includes validated topic, format, and post-type comparisons for a 60-record fictional social-media sample (125,989 engagements, 2,906,190 views, 4.34% weighted rate); author-type analysis and the remaining sentiment, support, API, and proposal work are still pending. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
+The verified scope includes analysis of 50,783 supermarket records in Excel, conditional aggregation and PivotTable reconciliation, plus a 10,000-record customer-data de-identification exercise with 40 generalised profiles, minimum group size 111, and salary-diversity checks. Task 03 includes validated topic, format, post-type, and author-type comparisons for a 60-record fictional social-media sample (125,989 engagements, 2,906,190 views, 4.34% weighted rate); sentiment, support, API, and proposal work remain pending. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
 
 ## Quality and portfolio standards
 
