@@ -123,7 +123,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 ## Task 03 — Propose Data Analysis Approaches
 
 **Start date:** 2026-11-14  
-**Status:** In progress — dataset profiling and topic, format, post-type, and author-type PivotTables validated; sentiment is the next checkpoint  
+**Status:** In progress — profiling and engagement PivotTables validated; all-posts and Customer-only sentiment PivotTables reproduced; qualitative customer-text review and support analysis remain  
 **Required deliverable:** Written proposal submitted in Forage Task 03 response field
 
 | Activity | Techniques / focus | Validation / evidence | Status |
@@ -136,7 +136,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 | Engagement analysis by content format | Compare post count, engagements, views, weighted rate, and average engagements per post | Four formats reconcile to QA totals; video 5.17%, text + image 4.61%, link 4.13%, text 1.44% | Complete |
 | Engagement analysis by post type | Compare counts, total engagements, views, weighted rates, and average engagement volume | Four post types reconcile to QA totals; original posts 4.52%, replies 1.60%, mentions 1.51%, quote posts 1.39% | Complete |
 | Author-type analysis | Count posts and compare engagement by author group; weighted rate; validate six categories | 60 posts; totals reconcile to QA_Overview; CommBank 26 posts / 123,593 engagements / 2,754,800 views / 4.49%; Customer 28 / 1,597 / 96,990 / 1.65% | Complete |
-| Sentiment analysis | Overall and customer-only sentiment; text review | All-post labels: 26 positive, 15 neutral, 11 negative, 8 mixed; Customer-only subset: 11 negative, 8 positive, 7 mixed, 2 neutral | Pending Excel reproduction |
+| Sentiment PivotTables | Overall sentiment by author type and Customer-only sentiment | All-posts: 26 positive, 15 neutral, 11 negative, 8 mixed (60 total); Customer-only: 11 negative (39.29%), 8 positive (28.57%), 7 mixed (25.00%), 2 neutral (7.14%) (28 total) | PivotTables validated; qualitative text review pending |
 | Customer support analysis | Response-needed flags and recurring intents | 11 records flagged Yes, with complaints, questions and one scam report | Pending Excel reproduction |
 | Review X API | Field mappings, recent/full archive, public/non-public metrics | Official X API references added to Task 03 guide | In progress |
 | Draft and submit proposal | Business value, data flow, KPIs, privacy, limitations | Forage proposal response field | Pending |
@@ -148,7 +148,17 @@ Three engagement comparisons plus author-type analysis have now been reproduced 
 - By content format: Text + video has the highest weighted rate (5.17%) across four posts; Text + image has the highest total engagements (73,358) and a 4.61% weighted rate.
 - By post type: Original posts contribute 123,337 engagements (about 97.9% of the total) across 24 records, with a 4.52% weighted rate. Mentions, replies, and quote posts have lower rates and different conversational purposes.
 
-Each PivotTable reconciles to 60 posts, 125,989 total engagements, 2,906,190 views, and a 4.34% overall weighted engagement rate. The author_type PivotTable is now also validated. The next learner checkpoint is sentiment analysis with a separate Customer-authored view.
+Each PivotTable reconciles to 60 posts, 125,989 total engagements, 2,906,190 views, and a 4.34% overall weighted engagement rate. The author_type PivotTable is now also validated. The all-posts and Customer-only sentiment PivotTables have since been reproduced in Excel and reconciled:
+
+| Sentiment | Business customer | CommBank | Community org | Customer | News/media | Scam awareness org | All posts |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Mixed | 1 | 0 | 0 | 7 | 0 | 0 | 8 |
+| Negative | 0 | 0 | 0 | 11 | 0 | 0 | 11 |
+| Neutral | 0 | 13 | 0 | 2 | 0 | 0 | 15 |
+| Positive | 1 | 13 | 2 | 8 | 1 | 1 | 26 |
+| **All posts** | **2** | **26** | **2** | **28** | **1** | **1** | **60** |
+
+For Customer-authored posts only: Mixed 7 (25.00%), Negative 11 (39.29%), Neutral 2 (7.14%), and Positive 8 (28.57%), totalling 28 (100%). All 11 Negative labels are Customer-authored. The quantitative PivotTable checkpoint is validated; the separate review of negative/mixed post text and issue themes remains to be documented.
 
 ### Task 03 data observations
 
