@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Database design</title><desc id="desc">Database cylinder icon.</desc>
+  <ellipse cx="32" cy="13" rx="21" ry="8" fill="#F3F4F6" stroke="#475569" stroke-width="2.3"/>
+  <path d="M11 13v37c0 4.4 9.4 8 21 8s21-3.6 21-8V13" fill="#F3F4F6" stroke="#475569" stroke-width="2.3"/>
+  <path d="M11 25c0 4.4 9.4 8 21 8s21-3.6 21-8M11 38c0 4.4 9.4 8 21 8s21-3.6 21-8" fill="none" stroke="#475569" stroke-width="2.3"/>
+  <path d="M27 13v7m10-7v7" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+</svg>
