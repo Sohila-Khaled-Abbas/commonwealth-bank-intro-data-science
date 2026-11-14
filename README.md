@@ -28,6 +28,17 @@
 
 </div>
 
+<p align="center">
+  <img src="assets/workflow.svg" alt="Four-task roadmap: data aggregation, anonymisation, social insights, and database design" width="100%" />
+</p>
+
+<p align="center">
+  <img src="assets/icons/excel.svg" alt="Excel analysis icon" width="54" />
+  <img src="assets/icons/privacy.svg" alt="Privacy icon" width="54" />
+  <img src="assets/icons/social-analytics.svg" alt="Social analytics icon" width="54" />
+  <img src="assets/icons/database.svg" alt="Database design icon" width="54" />
+</p>
+
 ---
 
 > [!IMPORTANT]
@@ -70,7 +81,8 @@ flowchart TD
 |:---:|---|---|:---:|
 | **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
 | **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, age/salary banding, k-anonymity-style and salary-diversity checks, CSV validation | <img src="https://img.shields.io/badge/CSV%20READY-2563EB?style=flat-square" alt="CSV ready; Forage upload not verified" /> |
-| **03** | Propose Data Analysis Approaches | Social-media topic, sentiment, engagement, trend, customer-support analysis, X API mapping, proposal writing | <img src="https://img.shields.io/badge/IN%20PROGRESS-D97706?style=flat-square" alt="In progress" /> |
+| **03** | Propose Data Analysis Approaches | Social-media topic, sentiment, engagement, trend, customer-support analysis, X API mapping, proposal writing | <img src="https://img.shields.io/badge/ANALYSIS%20IN%20PROGRESS-D97706?style=flat-square" alt="Analysis in progress" /> |
+| **04** | Designing a Database | Database structure, entities, attributes, relationships, and schema communication | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 | **04** | Database Design | Entities, attributes, keys, relationships, analytical data design | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
 
 ---
@@ -148,7 +160,7 @@ Keep the source workbook, working workbook, customer-level CSV, and any identifi
 
 ## Task 03 — Propose Data Analysis Approaches
 
-Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling and engagement comparisons by topic, content format, post type, and author type are complete. The all-posts and Customer-only sentiment PivotTables are now validated: 26 positive, 15 neutral, 11 negative, and 8 mixed labels overall; the 28 Customer-authored records comprise 11 negative, 8 positive, 7 mixed, and 2 neutral. Qualitative review of negative/mixed customer text remains before time/customer-support analysis, the current X API review, and the InsightSpark proposal.
+Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling, engagement comparisons by topic, content format, post type, and author type, and both sentiment PivotTables are validated. Time analysis is also validated: 25 posts in April, 27 in May, and 8 in June 2026 (the sample ends on June 12); weekday counts are Tuesday 11, Wednesday 11, Thursday 10, Friday 8, Saturday 7, Sunday 7, and Monday 6. The response-needed PivotTable reconciles to 11 records: 10 Negative and 1 Neutral. The flagged records group into five complaints, five questions, and one scam report. Row-level qualitative review, current X API feasibility review, and the InsightSpark proposal remain.
 
 ### Validated topic and engagement results
 
@@ -210,7 +222,13 @@ The author-type PivotTable was validated across all six categories. CommBank-aut
 | News/media | 1 | 328 | 31,000 | 1.06% |
 | **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
 
-Next: complete Step 7 sentiment analysis, including a customer-only view and text review; then review response-needed records, complete the current X API review, and draft the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
+### Time and customer-support findings
+
+The monthly PivotTable reconciles to 60 posts: April 25 (41.7%), May 27 (45.0%), and June 8 (13.3%). June is partial because the sample ends on June 12, 2026. Weekday counts are Tuesday 11, Wednesday 11, Thursday 10, Friday 8, Saturday 7, Sunday 7, and Monday 6. These are descriptive counts from a short simulated sample, not evidence of long-term seasonality or an optimal publishing schedule.
+
+The `response_needed = Yes` PivotTable reconciles to 11 records: 10 Negative and one Neutral. Customer intent consists of five Complaints, five Questions, and one Scam report. The topic split is Branch/ATM (3), Digital banking (3), Fraud & scams (2), Outage/service issue (2), and Card services (1). The row-level `Customer_Support_Review` worksheet and manual theme/action review are the next checkpoint; do not infer the content or urgency of an individual post from aggregate counts.
+
+**Remaining Task 03 work:** complete the private row-level customer/support review, document current X API access and metric restrictions, and write and submit the InsightSpark proposal. Do not mark Task 03 complete until the proposal is submitted through Forage.
 
 See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for formulas, complete topic-level results, interpretation, API mapping, limitations, and the step-by-step workflow.
 
@@ -218,19 +236,27 @@ See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for fo
 
 ~~~text
 commonwealth-bank-intro-data-science/
-├── README.md
-├── LEARNING_LOG.md
-├── .gitignore
+├── .github/
+│   ├── ISSUE_TEMPLATE/analysis-checkpoint.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── assets/
+│   ├── icons/                 # Accessible, original SVG task icons
+│   └── workflow.svg           # Four-task roadmap graphic
 ├── docs/
 │   ├── data-privacy-techniques.md
 │   ├── local-setup-windows.md
 │   ├── project-experience-positioning.md
+│   ├── repository-maintenance.md
 │   ├── task-01-data-aggregation-analysis.md
-│   └── task-02-data-anonymisation.md
-├── workbooks/
-│   ├── Task_01_Excel_Practice_Starter.xlsx
-│   └── README.md              # Companion workbook notes and privacy rules
-└── data/                 # Local-only; ignored by Git
+│   ├── task-02-data-anonymisation.md
+│   ├── task-03-propose-data-analysis-approaches.md
+│   └── task-04-designing-a-database.md
+├── workbooks/                 # Generic practice templates only
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── LEARNING_LOG.md
+├── README.md
+└── data/                      # Local-only; ignored by Git
     ├── raw/
     └── working/
 ~~~
@@ -257,6 +283,8 @@ See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) f
 |---|---|
 | [Task 01 guide](docs/task-01-data-aggregation-analysis.md) | Completed Excel analysis, formulas, PivotTables, data-quality checks, and reconciliation |
 | [Task 02 guide](docs/task-02-data-anonymisation.md) | Data inventory, transformation decisions, linkage, privacy checks, and CSV delivery |
+| [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) | Social-media profiling, engagement, sentiment, support review, X API feasibility, and proposal |
+| [Task 04 starter guide](docs/task-04-designing-a-database.md) | Database-design workflow and evidence checklist; refine against the exact Forage prompt |
 | [Privacy techniques](docs/data-privacy-techniques.md) | Direct identifiers, quasi-identifiers, pseudonymisation, linkage attacks, and k-anonymity |
 | [Project positioning](docs/project-experience-positioning.md) | Accurate CV, LinkedIn, portfolio, and interview wording |
 | [Excel starter workbook](workbooks/Task_01_Excel_Practice_Starter.xlsx) | Task 01 practice sheets, formula reference, PivotTable guide, and blank analysis area |
