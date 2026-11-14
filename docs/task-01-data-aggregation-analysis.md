@@ -2,7 +2,8 @@
 
 > **Analysis status:** Complete  
 > **Validation status:** Formula results reconciled against two PivotTables  
-> **Forage submission:** Not recorded in this repository; upload the completed workbook through the simulation when ready.
+> **Overall Forage simulation:** Completed 14 November 2026 (100%, 10/10 assessment result).  
+> **Evidence note:** The Forage completion page confirms the overall simulation; a separate Task 01 workbook receipt is not archived here.
 
 ## 1. Business context
 
