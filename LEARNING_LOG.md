@@ -123,7 +123,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 ## Task 03 — Propose Data Analysis Approaches
 
 **Start date:** 2026-11-14  
-**Status:** In progress — dataset profiling and engagement analysis by topic, content format, and post type complete; author-type PivotTable is the next checkpoint  
+**Status:** In progress — dataset profiling and topic, format, post-type, and author-type PivotTables validated; sentiment is the next checkpoint  
 **Required deliverable:** Written proposal submitted in Forage Task 03 response field
 
 | Activity | Techniques / focus | Validation / evidence | Status |
@@ -135,7 +135,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 | Engagement analysis by topic | Sum engagements and views; weighted engagement rate; derive engagements per post | Topic totals reconcile to 125,989 engagements and 2,906,190 views; overall weighted rate 4.34% | Complete |
 | Engagement analysis by content format | Compare post count, engagements, views, weighted rate, and average engagements per post | Four formats reconcile to QA totals; video 5.17%, text + image 4.61%, link 4.13%, text 1.44% | Complete |
 | Engagement analysis by post type | Compare counts, total engagements, views, weighted rates, and average engagement volume | Four post types reconcile to QA totals; original posts 4.52%, replies 1.60%, mentions 1.51%, quote posts 1.39% | Complete |
-| Author-type analysis | Count posts and compare engagement by author group; validate six categories | Source profile counts: Customer 28, CommBank 26, Business customer 2, Community org 2, Scam awareness org 1, News/media 1; PivotTable result awaited | Pending Excel validation |
+| Author-type analysis | Count posts and compare engagement by author group; weighted rate; validate six categories | 60 posts; totals reconcile to QA_Overview; CommBank 26 posts / 123,593 engagements / 2,754,800 views / 4.49%; Customer 28 / 1,597 / 96,990 / 1.65% | Complete |
 | Sentiment analysis | Overall and customer-only sentiment; text review | All-post labels: 26 positive, 15 neutral, 11 negative, 8 mixed; Customer-only subset: 11 negative, 8 positive, 7 mixed, 2 neutral | Pending Excel reproduction |
 | Customer support analysis | Response-needed flags and recurring intents | 11 records flagged Yes, with complaints, questions and one scam report | Pending Excel reproduction |
 | Review X API | Field mappings, recent/full archive, public/non-public metrics | Official X API references added to Task 03 guide | In progress |
@@ -143,12 +143,12 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 
 ### Task 03 — progress update through engagement-by-post-type analysis
 
-Three engagement comparisons have now been reproduced and validated in Excel:
+Three engagement comparisons plus author-type analysis have now been reproduced and validated in Excel:
 - By topic: 11 topics; Digital banking is most frequent (13 posts); Fraud & scams leads total engagements (36,283) and weighted rate (5.33%).
 - By content format: Text + video has the highest weighted rate (5.17%) across four posts; Text + image has the highest total engagements (73,358) and a 4.61% weighted rate.
 - By post type: Original posts contribute 123,337 engagements (about 97.9% of the total) across 24 records, with a 4.52% weighted rate. Mentions, replies, and quote posts have lower rates and different conversational purposes.
 
-Each PivotTable reconciles to 60 posts, 125,989 total engagements, 2,906,190 views, and a 4.34% overall weighted engagement rate. The next learner checkpoint is to reproduce the author_type PivotTable. The known source distribution is recorded below but is not yet a learner-validated PivotTable result.
+Each PivotTable reconciles to 60 posts, 125,989 total engagements, 2,906,190 views, and a 4.34% overall weighted engagement rate. The author_type PivotTable is now also validated. The next learner checkpoint is sentiment analysis with a separate Customer-authored view.
 
 ### Task 03 data observations
 
@@ -227,6 +227,26 @@ Interpretation:
 - Quote posts have only three records, so their rate is particularly unstable.
 - Post type must not be confused with author type; analyse `author_type` separately before assigning posts to the bank or customers.
 - The simulated total-engagement measure includes link clicks, which should not be assumed to be universally available as a public X metric.
+
+### Task 03 — validated author-type PivotTable results
+
+The author-type PivotTable used `author_type` as rows and Count of `post_id`, Sum of `total_engagements`, and Sum of `views` as values. The `post_type` report filter was left at All.
+
+| Author type | Posts | Total engagements | Total views | Weighted rate |
+|---|---:|---:|---:|---:|
+| Customer | 28 | 1,597 | 96,990 | 1.65% |
+| CommBank | 26 | 123,593 | 2,754,800 | 4.49% |
+| Business customer | 2 | 97 | 5,600 | 1.73% |
+| Community org | 2 | 237 | 11,100 | 2.14% |
+| News/media | 1 | 328 | 31,000 | 1.06% |
+| Scam awareness org | 1 | 137 | 6,700 | 2.04% |
+| **Grand Total** | **60** | **125,989** | **2,906,190** | **4.34%** |
+
+Interpretation:
+- CommBank-authored records contribute about 98.1% of total engagements in the sample and have a 4.49% weighted rate.
+- Customer-authored records have a 1.65% weighted rate. This does not measure satisfaction or customer interest; the author groups have different post purposes, formats, and reach.
+- Business customer, community organisation, news/media, and scam-awareness organisation groups are very small (one or two records each).
+- Author type is essential context for the next sentiment analysis. Customer-authored sentiment should be analysed separately from bank-authored posts.
 
 ### Task 03 reflection prompts
 
