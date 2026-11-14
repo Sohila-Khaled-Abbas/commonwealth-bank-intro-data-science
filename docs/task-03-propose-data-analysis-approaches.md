@@ -1,6 +1,6 @@
 # Task 03 — Propose Data Analysis Approaches
 
-> **Status:** In progress — dataset profiling, topic frequency, and engagement comparisons by topic, content format, and post type are complete; sentiment, support, API review, and proposal work remain.  
+> **Status:** In progress — dataset profiling, topic frequency, and engagement comparisons by topic, content format, and post type are complete; author-type analysis is the next Excel checkpoint; sentiment, support, API review, and proposal work remain.  
 > **Required Forage deliverable:** A written proposal submitted in the Task 03 text field.  
 > **Dataset:** Forage-provided fictional Commonwealth Bank social-media sample. Keep the workbook private; it is marked for simulation use only.
 
@@ -191,6 +191,10 @@ These records can support a proposed service-triage workflow, but the synthetic 
 
 ## 4. Guided analysis workflow
 
+A companion Task 03 workbook template is available separately. It contains the validated aggregate summaries from the completed topic, format, and post-type PivotTables, a source-data input template, QA baseline, author-type worksheet, sentiment worksheet, API field mapping, and proposal outline. The Forage source workbook is not embedded; retain it locally because it is marked for simulation use only.
+
+## 4. Guided analysis workflow
+
 Complete the steps in order and record your own Excel outputs. Keep the original workbook unchanged and work only in a separate copy.
 
 ### Step 1 — Protect and profile the workbook
@@ -247,7 +251,18 @@ Interpretation:
 5. These comparisons are descriptive, not causal. Topic, post purpose, author type, audience size, timing, and distribution may differ by format. The four-video sample is too small to declare video the universally best format.
 6. The simulated `total_engagements` field includes link clicks. Treat these results as the workbook's defined measure and do not assume all components are available as public metrics for every post through the production X API.
 
-### Step 4 — Sentiment analysis
+### Step 4 — Author-type analysis
+
+Create a PivotTable using:
+- Rows: `author_type`
+- Values: Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
+- Optional filter: `post_type`
+
+Calculate weighted engagement rate as Sum of total engagements / Sum of views. The source profile indicates expected author counts of Customer 28, CommBank 26, Business customer 2, Community org 2, Scam awareness org 1, and News/media 1. These are source-profile counts; reproduce and validate them in Excel before treating the PivotTable as complete.
+
+Do not automatically equate author type with customer sentiment. Analyse customer-authored records separately from CommBank-authored content and keep the small organisation groups descriptive only.
+
+### Step 5 — Sentiment analysis
 
 Build a PivotTable:
 - Rows: `sentiment_label`
@@ -281,7 +296,7 @@ Interpretation:
 5. Engagement differences are descriptive, not causal. Topic, format, audience size, follower bucket, and timing may differ by post type.
 6. The workbook's simulated `total_engagements` includes link clicks. Do not assume this composite metric maps directly to universally available public X API metrics.
 
-### Step 5 — Time and customer-support analysis
+### Step 6 — Time and customer-support analysis
 
 - Group post counts by month and day of week.
 - Compare topic and sentiment across time.
@@ -291,7 +306,7 @@ Interpretation:
 
 The sample covers only part of April, May, and part of June 2026. Do not make strong seasonal or long-term trend claims from this short window.
 
-### Step 6 — Review the X API and operational feasibility
+### Step 7 — Review the X API and operational feasibility
 
 Use the current official documentation, not only the older Forage PDF:
 - Search Posts: https://docs.x.com/x-api/posts/search/introduction
@@ -313,7 +328,7 @@ Important API limitation: recent search covers the last seven days. Full-archive
 
 The sample's `link_clicks` field should not be assumed to be universally available for all public posts. X documents URL clicks as non-public metrics and requires user-context authentication for the account's own content. Impressions, likes, reposts, and replies are listed as public metrics.
 
-### Step 7 — Draft the InsightSpark proposal
+### Step 8 — Draft the InsightSpark proposal
 
 The proposal should cover:
 1. Business objective and use cases.
@@ -359,6 +374,7 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Compare engagement by topic (topic-level engagement, views, and weighted rates reconciled to QA_Overview).
 - [x] Compare engagement by content format (weighted rates reconcile to QA_Overview).
 - [x] Compare engagement by post type (counts and weighted rates reconcile to QA_Overview).
+- [ ] Validate the author_type PivotTable (six categories; 60 posts; compare counts and weighted engagement by author group).
 - [ ] Analyse sentiment, including customer-authored records separately.
 - [ ] Review support flags and recurring pain points.
 - [ ] Document the current X API fields, access and metric restrictions.
