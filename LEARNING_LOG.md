@@ -258,6 +258,29 @@ Interpretation:
 - Business customer, community organisation, news/media, and scam-awareness organisation groups are very small (one or two records each).
 - Author type is essential context for the next sentiment analysis. Customer-authored sentiment should be analysed separately from bank-authored posts.
 
+### Task 03 — validated sentiment, time, and support PivotTables
+
+**Step 7 — Sentiment analysis**
+- All-posts sentiment: Positive 26, Neutral 15, Negative 11, Mixed 8 (60 total).
+- Customer-only sentiment: Negative 11 (39.29%), Positive 8 (28.57%), Mixed 7 (25.00%), Neutral 2 (7.14%) (28 total).
+- All 11 Negative labels belong to Customer-authored posts; seven of eight Mixed labels are Customer-authored.
+- The supplied sentiment labels are curated source fields, not model predictions developed in this exercise. Qualitative reading of negative/mixed customer text remains a separate review.
+
+**Step 8 — Time analysis**
+- Monthly post counts: April 2026 = 25; May = 27; June = 8; total = 60.
+- June is a partial month because the sample ends on 12 June 2026. Do not compare it as a complete month.
+- Weekday counts: Monday 6; Tuesday 11; Wednesday 11; Thursday 10; Friday 8; Saturday 7; Sunday 7; total = 60.
+- Tuesday and Wednesday are tied for the highest observed post count (11 each). This is descriptive only.
+
+**Step 8 — Customer-support flags**
+- `response_needed = Yes`: 11 posts.
+- Sentiment: 10 Negative and 1 Neutral.
+- Customer intent: Complaint 5; Question 5; Scam report 1.
+- Topic counts: Branch/ATM 3; Digital banking 3; Fraud & scams 2; Outage/service issue 2; Card services 1.
+- The PivotTable is validated. A private row-level `Customer_Support_Review` worksheet is still required to inspect the actual text, classify issue themes, and recommend actions. Do not invent details from the aggregate PivotTable.
+
+**Next:** complete the private row-level support/customer sentiment review, verify current X API access and metric constraints, and draft the InsightSpark proposal. Task 03 remains in progress until the proposal is submitted in Forage.
+
 ### Task 03 reflection prompts
 
 1. Why should sentiment be interpreted separately for CommBank-authored posts and customer-authored posts?
