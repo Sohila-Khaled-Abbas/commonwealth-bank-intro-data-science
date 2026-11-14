@@ -1,6 +1,6 @@
 # Task 03 — Propose Data Analysis Approaches
 
-> **Status:** In progress — dataset profiling, topic frequency, and engagement comparisons by topic, content format, and post type are complete; author-type analysis is the next Excel checkpoint; sentiment, support, API review, and proposal work remain.  
+> **Status:** In progress — dataset profiling and engagement comparisons by topic, format, post type, and author type are complete; all-posts and Customer-only sentiment PivotTables are validated; qualitative text review, support, time analysis, API review, and proposal work remain.  
 > **Required Forage deliverable:** A written proposal submitted in the Task 03 text field.  
 > **Dataset:** Forage-provided fictional Commonwealth Bank social-media sample. Keep the workbook private; it is marked for simulation use only.
 
@@ -278,18 +278,51 @@ The PivotTable reconciles to QA_Overview. CommBank-authored records contribute a
 
 ### Step 7 — Sentiment analysis
 
-Create a PivotTable:
+Create two PivotTable views using the supplied `sentiment_label` field. Use `post_id` as a Count in Values.
+
+**View 1 — all posts**
+- Rows: `sentiment_label`
+- Columns: `author_type`
+- Values: Count of `post_id`
+
+**View 2 — Customer-authored posts**
 - Rows: `sentiment_label`
 - Values: Count of `post_id`
-- Columns or report filter: `author_type`
+- Filter: `author_type = Customer`
 
-Complete two views:
-1. All posts, to understand the supplied sample's sentiment mix.
-2. Customer-authored posts only, to focus on customer conversation rather than CommBank's own communications.
+**Validated Excel results**
 
-Then review the actual customer-authored text for negative or mixed sentiment. Distinguish complaints, questions, scam reports, service incidents, and feature feedback. Do not interpret CommBank-authored educational or promotional posts as customer opinions.
+The all-posts PivotTable reconciles to 60 records and all six author-type totals from Step 6:
 
-The workbook's sentiment labels and scores are supplied curated fields. They are not model predictions generated or evaluated in this exercise. In a real workflow, sentiment should be treated as a triage signal and supported by human review for sarcasm, ambiguity, mixed emotion, and urgent financial-service concerns.
+| Sentiment | Business customer | CommBank | Community org | Customer | News/media | Scam awareness org | All posts |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Mixed | 1 | 0 | 0 | 7 | 0 | 0 | 8 |
+| Negative | 0 | 0 | 0 | 11 | 0 | 0 | 11 |
+| Neutral | 0 | 13 | 0 | 2 | 0 | 0 | 15 |
+| Positive | 1 | 13 | 2 | 8 | 1 | 1 | 26 |
+| **All posts** | **2** | **26** | **2** | **28** | **1** | **1** | **60** |
+
+The Customer-only PivotTable reconciles to 28 records:
+
+| Sentiment | Customer posts | Share |
+|---|---:|---:|
+| Mixed | 7 | 25.00% |
+| Negative | 11 | 39.29% |
+| Neutral | 2 | 7.14% |
+| Positive | 8 | 28.57% |
+| **Grand Total** | **28** | **100.00%** |
+
+**Interpretation**
+- All 11 Negative labels in the sample belong to Customer-authored posts.
+- Seven of the eight Mixed posts are Customer-authored; the remaining one is from a Business customer.
+- All 13 Neutral CommBank posts are bank-authored; two Customer-authored posts are Neutral.
+- The Customer-only view is the relevant population for describing customer-conversation sentiment. It is still a small, curated, fictional sample and is not a representative measure of actual customer satisfaction.
+
+**Separate qualitative review still required**
+
+The PivotTables validate the quantitative sentiment breakdown. Before closing the full sentiment review, filter the source table to `author_type = Customer` and `sentiment_label = Negative` or `Mixed`. Review `post_text`, `customer_intent`, and `response_needed`; classify recurring themes such as complaints, service incidents, questions, scam reports, or feature feedback. Keep a private review sheet with `post_id`, `sentiment_label`, `customer_intent`, `response_needed`, `issue_theme`, and `analyst_note`. Do not infer urgency from sentiment alone.
+
+The workbook's sentiment labels and scores are supplied curated fields, not predictions from a model trained or evaluated in this exercise. Treat them as triage indicators and use human review for ambiguity, sarcasm, mixed emotion, or urgent financial-service concerns.
 
 ### Step 8 — Time and customer-support analysis
 
@@ -370,7 +403,8 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Compare engagement by content format (weighted rates reconcile to QA_Overview).
 - [x] Compare engagement by post type (counts and weighted rates reconcile to QA_Overview).
 - [x] Reproduce and validate the author_type PivotTable (six categories; 60 posts; totals reconcile to QA_Overview).
-- [ ] Analyse sentiment, including customer-authored records separately.
+- [x] Reproduce all-posts and Customer-only sentiment PivotTables; both views reconcile to their expected record totals.
+- [ ] Review negative and mixed Customer-authored post text; document issue themes, intent, and response-needed flags.
 - [ ] Review support flags and recurring pain points.
 - [ ] Document the current X API fields, access and metric restrictions.
 - [ ] Write the InsightSpark proposal.
