@@ -1,6 +1,6 @@
 # Task 03 — Propose Data Analysis Approaches
 
-> **Status:** In progress — dataset profiling and engagement comparisons by topic, format, post type, and author type are complete; all-posts and Customer-only sentiment PivotTables are validated; qualitative text review, support, time analysis, API review, and proposal work remain.  
+> **Status:** Analysis validated — source profiling, quantitative analysis, time analysis, X API review, and the private 11-record response-needed text review are complete. The InsightSpark proposal has been drafted; Forage submission is not yet confirmed.  
 > **Required Forage deliverable:** A written proposal submitted in the Task 03 text field.  
 > **Dataset:** Forage-provided fictional Commonwealth Bank social-media sample. Keep the workbook private; it is marked for simulation use only.
 
@@ -46,6 +46,8 @@ The workbook includes formula-derived columns:
 - `day_of_week`: derived from `post_datetime`
 
 In the supplied sheet, these formulas occupy `S2:U61`. Their cached values were checked against the underlying metrics and dates.
+
+The supplied Forage source workbook contains five worksheets. The private working copy used for the completed analysis has **16 worksheets**: the five source/metadata sheets plus `QA_Overview`, `Topic_Analysis`, `Engagement_Analysis`, `Format_Analysis`, `PostType_Analysis`, `Author_Analysis`, `PVT_Sentiment_All`, `PVT_Sentiment_Customer`, `PVT_Time_Month`, `PVT_Time_Weekday`, and `Customer_Support_Review`. The workbook remains local and is not part of this public repository.
 
 ## 3. Initial profiling results
 
@@ -181,13 +183,23 @@ These are results from a small, fictional, curated learning dataset. They do not
 
 ### Customer support signals
 
-There are **11 records** with `response_needed = Yes`. These are customer-authored interactions and include complaints, questions, and a scam report. The sample highlights issues around:
-- Digital banking access, app timeouts, statement downloads, and NetBank recovery.
-- PayID transfer delays and outage information.
-- Branch / ATM availability and inaccurate location details.
-- Card-blocking questions and scam reporting.
+The source contains **11 Customer-authored records** with `response_needed = Yes`. The private working copy includes an 11-row `Customer_Support_Review` table with the source metadata, evidence-based issue themes, and recommended actions. The review was checked against the actual post text.
 
-These records can support a proposed service-triage workflow, but the synthetic flags should be treated as labelled examples, not as proof that an operational classifier would be accurate.
+| Recurring issue theme | Records | Evidence represented in the private review |
+|---|---:|---|
+| Digital banking access and functionality | 3 | Mobile app timeout, NetBank recovery after a device change, and statement-download refresh behaviour |
+| Branch / ATM service experience | 3 | Replacement-card support access, recurring ATM unavailability, and outdated branch-locator information |
+| Payment status and possible disruption | 2 | Pending transfer status and PayID transfer delays |
+| Fraud protection and reporting experience | 2 | A suspicious card-lock message and difficulty finding the in-app scam-reporting route |
+| Card services / mobile-wallet guidance | 1 | Apple Pay eligibility while a physical card is blocked during travel |
+| **Total** | **11** | **All 11 records have `response_needed = Yes`** |
+
+The intent split is five Complaints, five Questions, and one Scam report. The sentiment split is ten Negative and one Neutral. These counts describe the flagged subset only.
+
+Two similar-looking fraud-topic records represent different issues: one is a **potential phishing report**; the other is a **usability complaint about finding the scam-reporting feature**. A topic label alone does not determine customer intent or incident type. Do not treat the latter as a confirmed scam report.
+
+Recommended actions are proportionate routing suggestions, not completed customer-service resolutions. They include verified service-status checks, routing to digital banking/card/ATM teams, correction of branch-location data, and specialist review of a potential phishing report. No customer-level post text or row-level review records are published in this repository.
+
 
 ## 4. Guided analysis workflow
 
@@ -320,7 +332,7 @@ The Customer-only PivotTable reconciles to 28 records:
 
 **Separate qualitative review still required**
 
-The PivotTables validate the quantitative sentiment breakdown. Before closing the full sentiment review, filter the source table to `author_type = Customer` and `sentiment_label = Negative` or `Mixed`. Review `post_text`, `customer_intent`, and `response_needed`; classify recurring themes such as complaints, service incidents, questions, scam reports, or feature feedback. Keep a private review sheet with `post_id`, `sentiment_label`, `customer_intent`, `response_needed`, `issue_theme`, and `analyst_note`. Do not infer urgency from sentiment alone.
+The quantitative PivotTables validate the supplied sentiment categories. The completed manual review covers the **11 records flagged with `response_needed = Yes`** and checks their actual text against intent, issue theme, and recommended action. It should not be described as a full manual audit of every Negative or Mixed Customer-authored post: the seven Mixed Customer records are outside the 11-row flagged review unless they are separately inspected.
 
 The workbook's sentiment labels and scores are supplied curated fields, not predictions from a model trained or evaluated in this exercise. Treat them as triage indicators and use human review for ambiguity, sarcasm, mixed emotion, or urgent financial-service concerns.
 
@@ -424,16 +436,21 @@ Keep the review sheet, original Forage workbook, any copied `post_text`, and the
 
 #### Complete the evidence-based review
 
-For each flagged row:
+For every flagged row:
 1. Read the actual `post_text` in the source workbook.
-2. Assign an issue theme based on evidence in the wording (for example, ATM/branch access, digital banking, card servicing, service disruption, or suspected fraud).
-3. Recommend a proportionate action (for example, acknowledge and route, provide approved guidance, check incident status, or escalate to the appropriate fraud/security queue).
-4. Record uncertainty rather than guessing. Sentiment alone does not determine urgency or the correct action. In particular, do not label a generic fraud-topic complaint as a scam report unless the text supports that interpretation.
-5. Reconcile exactly 11 reviewed rows with the PivotTable before summarising recurring themes.
+2. Assign an issue theme based on the customer's wording.
+3. Recommend a proportionate action that routes the issue to an appropriate team or approved support channel.
+4. Record uncertainty. Sentiment alone does not determine urgency or the correct action.
+5. Reconcile the review to the 11 records with `response_needed = Yes`.
 
-**Current checkpoint:** monthly counts, weekday counts, and the 11-row support-flag PivotTable are validated. The manual row-level theme and action review is not yet confirmed complete.
+**Completed checkpoint:** all 11 flagged records were reviewed against their actual post text. The private `Customer_Support_Review` worksheet contains eight columns: `post_id`, `author_type`, `customer_intent`, `topic`, `sentiment_label`, `response_needed`, `issue_theme`, and `recommended_action`. It contains 11 data rows, all with `response_needed = Yes`.
+
+The issue-theme counts are Digital banking (3), Branch/ATM (3), Payment status / possible disruption (2), Fraud protection / reporting experience (2), and Card services (1). Preserve the distinction between a potential phishing report and a complaint about the discoverability of the in-app scam-reporting feature.
+
+**Workbook evidence note:** the uploaded 16-sheet working copy contains `Customer_Support_Review` but no separately named `PVT_Support_Flagged` worksheet. The 11-record review was therefore documented as a filtered support-review table, not as a separate saved PivotTable tab.
 
 The sample spans only part of April, May, and June 2026. Do not make strong seasonal or long-term trend claims from this short window.
+
 
 ### Step 9 — Review the X API and operational feasibility
 
@@ -499,18 +516,18 @@ For InsightSpark, propose a small, time-boxed pilot that:
 
 These findings document technical feasibility considerations, not confirmation that a Commonwealth Bank developer app, budget, or production permission has been obtained.
 
-### Step 10 — Draft the InsightSpark proposal
+### Step 10 — Prepare and submit the InsightSpark proposal
 
-The proposal should cover:
-1. Business objective and use cases.
-2. Collection method and fields.
-3. Data ingestion, validation, and storage.
-4. Topic, sentiment, engagement, trend, and customer-intent analysis.
-5. Operational actions and recommended reporting.
+The proposal draft has been prepared around the Forage requirements. It covers:
+1. Business objective and business use cases.
+2. X API collection approach and relevant fields.
+3. Ingestion, validation, deduplication, and database enrichment.
+4. Topic, sentiment, engagement, time-trend, and customer-intent analysis.
+5. Customer-support triage and business reporting.
 6. Privacy, platform-policy, bias, and representativeness limitations.
-7. Pilot scope, KPIs, and evaluation.
+7. A controlled pilot, evaluation measures, and operational feasibility.
 
-The proposal should distinguish what the curated sample demonstrates from what would need to be validated with real, authorised data.
+**Submission status:** the proposal is prepared, but submission in the Forage response field has not been confirmed. Do not mark Task 03 complete until the response is submitted and Forage confirms the saved/submitted state.
 
 ## 5. Recommended analytical definitions
 
@@ -540,22 +557,25 @@ For production X API use, calculate metrics from fields actually returned and au
 ## 7. Task completion checklist
 
 - [x] Inspect the supplied workbook and its data dictionary.
-- [x] Confirm the 60-row sample structure and baseline profile.
+- [x] Confirm the source sample structure: 60 records, 24 fields, unique post IDs, and date range.
+- [x] Reconcile the baseline QA totals: 125,989 simulated engagements, 2,906,190 views, and 4.34% weighted engagement rate.
 - [x] Reproduce topic frequencies in Excel (11 topics; 60 posts; totals reconciled).
 - [x] Compare engagement by topic (topic-level engagement, views, and weighted rates reconciled to QA_Overview).
 - [x] Compare engagement by content format (weighted rates reconcile to QA_Overview).
 - [x] Compare engagement by post type (counts and weighted rates reconcile to QA_Overview).
 - [x] Reproduce and validate the author_type PivotTable (six categories; 60 posts; totals reconcile to QA_Overview).
 - [x] Reproduce all-posts and Customer-only sentiment PivotTables; both views reconcile to their expected record totals.
-- [ ] Review negative and mixed Customer-authored post text; document issue themes, intent, and response-needed flags (do not infer from PivotTables).
 - [x] Reproduce monthly and weekday posting counts (60 posts; partial June window explicitly noted).
-- [x] Reproduce the `response_needed = Yes` PivotTable (11 records; 10 Negative, 1 Neutral; intent/topic totals reconciled).
-- [ ] Complete the private row-level `Customer_Support_Review` worksheet with evidence-based issue themes and recommended actions.
-- [ ] Summarise recurring support pain points from the actual post text.
+- [x] Identify the 11 source records with `response_needed = Yes` and reconcile their intent and sentiment totals.
+- [x] Complete the private 11-row `Customer_Support_Review` using actual post text, evidence-based themes, and proportionate actions.
+- [x] Summarise recurring support pain points from those 11 flagged post texts.
 - [x] Review and document current X API fields, search coverage, access, metrics, and published pay-per-use constraints (official documentation reviewed 14 November 2026).
-- [ ] Write the InsightSpark proposal.
-- [ ] Submit the proposal in the Forage Task 03 response field.
-- [ ] Update README and learning log to mark the task complete only after submission.
+- [x] Prepare the InsightSpark proposal draft.
+- [ ] Submit the proposal in the Forage Task 03 response field and confirm the submission.
+- [ ] Mark Task 03 complete only after Forage submission is confirmed.
+
+**Scope qualification:** the private manual text review is complete for all 11 response-needed records. It is not a claim that every Negative or Mixed Customer-authored post in the full 60-row source was manually audited.
+
 
 ## References
 
