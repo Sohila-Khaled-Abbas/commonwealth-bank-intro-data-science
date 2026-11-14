@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Social analytics</title><desc id="desc">Conversation bubbles and analytics bars icon.</desc>
+  <path d="M8 11h34a7 7 0 0 1 7 7v15a7 7 0 0 1-7 7H24l-9 8v-8h-7a7 7 0 0 1-7-7V18a7 7 0 0 1 7-7z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <path d="M18 28h6m4 0h6m4 0h3" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 53h25" stroke="#0F766E" stroke-width="2" stroke-linecap="round"/>
+  <rect x="35" y="43" width="5" height="10" rx="1" fill="#0F766E"/>
+  <rect x="44" y="36" width="5" height="17" rx="1" fill="#0F766E"/>
+  <rect x="53" y="29" width="5" height="24" rx="1" fill="#0F766E"/>
+</svg>
