@@ -167,5 +167,5 @@ Relationship register:
 
 - [Forage — Commonwealth Bank Introduction to Data Science, Task 04](https://www.theforage.com/virtual-experience/smwfytX3mcLboA9bf/commonwealth-bank/intro-data-science-sd7t/designing-a-database)
 - [Microsoft — Database Design Basics](https://support.microsoft.com/en-us/office/database-design-basics-eb2159cf-1e30-401a-8084-bd4f9c9ca1f5)
-- [Microsoft — Guide to Table Relationships](https://support.microsoft.com/en-us/office/guide-to-table-relationships-1eeb5a3b-9a0c-4c2d-8f8b-6d47d7a0b3e7)
+- [Microsoft — Guide to Table Relationships](https://support.microsoft.com/en-us/access/guide-to-table-relationships)
 - [Datanamic — Basics of Database Modeling](https://www.datanamic.com/support/lt-dez005-introduction-db-modeling.html)
