@@ -17,7 +17,7 @@ For an honest CV, place it under **Project-Based Experience**, **Virtual Experie
 - Used Excel Tables, structured references, SUMIFS, and COUNTIFS to answer business questions, then reconciled five calculated metrics through two PivotTables.
 - Prepared a 10,000-record customer dataset for a privacy-conscious release by removing direct identifiers and unnecessary sensitive fields, generalising registration dates to calendar years, and converting age and salary into bands. Validated a four-column values-only output with 40 quasi-identifier profiles, a minimum group size of 111, no groups below five, and five salary categories represented in every profile (minimum cell count: 12). Forage submission acceptance has not yet been verified.
 
-**Current learning activity — Task 03:** analysed a 60-record fictional social-media dataset in Excel. Completed baseline profiling, an 11-topic frequency analysis, and engagement comparisons by topic, content format, and post type. The sample totals 125,989 engagements across 2,906,190 views (4.34% weighted rate). Author-type analysis is the next checkpoint; sentiment, customer-support analysis, X API review, and the InsightSpark proposal remain in progress. Do not present Task 03 as completed yet.
+**Current learning activity — Task 03:** analysed a 60-record fictional social-media dataset in Excel. Completed baseline profiling, an 11-topic frequency analysis, and engagement comparisons by topic, content format, post type, and author type. The sample totals 125,989 engagements across 2,906,190 views (4.34% weighted rate). CommBank-authored posts account for 98.1% of recorded engagements; author-level rates are interpreted cautiously because groups differ in purpose and reach. Sentiment, customer-support analysis, X API review, and the InsightSpark proposal remain in progress. Do not present Task 03 as completed yet.
 
 ## Shorter one-line CV version
 
@@ -29,7 +29,7 @@ For an honest CV, place it under **Project-Based Experience**, **Virtual Experie
 
 **Description:**
 
-Completed the transaction-analysis exercise using Microsoft Excel Desktop, working with 50,783 records, data-quality checks, conditional aggregations, and PivotTable reconciliation. Completed the workbook analysis and privacy review for a 10,000-record customer dataset, preparing a four-field values-only CSV and documenting group-size and salary-diversity checks; Forage acceptance remains to be confirmed. For Task 03, profiled a 60-post fictional social-media dataset and completed topic-frequency and engagement comparisons by topic, content format, and post type. Author-type analysis, sentiment, support signals, X API review, and the InsightSpark proposal are still in progress.
+Completed the transaction-analysis exercise using Microsoft Excel Desktop, working with 50,783 records, data-quality checks, conditional aggregations, and PivotTable reconciliation. Completed the workbook analysis and privacy review for a 10,000-record customer dataset, preparing a four-field values-only CSV and documenting group-size and salary-diversity checks; Forage acceptance remains to be confirmed. For Task 03, profiled a 60-post fictional social-media dataset and completed topic-frequency and engagement comparisons by topic, content format, post type, and author type. Sentiment, support signals, X API review, and the InsightSpark proposal are still in progress.
 
 **Skills demonstrated / currently developing:** Microsoft Excel, Data Analysis, Data Quality, Data Aggregation, PivotTables, Data Privacy, Data Generalisation, Social Media Analytics, Sentiment Analysis, API Data Concepts, Business Analysis.
 
@@ -39,7 +39,7 @@ Completed the transaction-analysis exercise using Microsoft Excel Desktop, worki
 
 **Subtitle:** Excel analytics, privacy-aware data preparation, social-media insights, and database design.
 
-**Summary:** A task-by-task independent project based on a Forage virtual experience. Task 01 analysis is complete and reconciled. Task 02's workbook transformations, privacy checks, and four-column CSV preparation are complete, with platform submission pending confirmation. Task 03 profiling and engagement analyses by topic, format, and post type are complete for the 60-record fictional sample; author-type, sentiment, customer-support, API review, and proposal work remain in progress. The public repository shares methods, decisions, and aggregate findings while keeping Forage source workbooks and customer-level deliverables private.
+**Summary:** A task-by-task independent project based on a Forage virtual experience. Task 01 analysis is complete and reconciled. Task 02's workbook transformations, privacy checks, and four-column CSV preparation are complete, with platform submission pending confirmation. Task 03 profiling and engagement analyses by topic, format, post type, and author type are complete for the 60-record fictional sample; sentiment, customer-support, API review, and proposal work remain in progress. The public repository shares methods, decisions, and aggregate findings while keeping Forage source workbooks and customer-level deliverables private.
 
 **Repository:** https://github.com/Sohila-Khaled-Abbas/commonwealth-bank-intro-data-science
 
