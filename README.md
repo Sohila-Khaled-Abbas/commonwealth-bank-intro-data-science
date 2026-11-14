@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/FORAGE-Virtual%20Experience-176B58?style=for-the-badge" alt="Forage virtual experience" />
   </a>
   <img src="https://img.shields.io/badge/COMMONWEALTH%20BANK-Data%20Science-E4002B?style=for-the-badge" alt="Commonwealth Bank data science" />
-  <img src="https://img.shields.io/badge/STATUS-IN%20PROGRESS-D97706?style=for-the-badge" alt="Project status: in progress" />
+  <img src="https://img.shields.io/badge/STATUS-COMPLETED-15803D?style=for-the-badge" alt="Project status: completed" />
 </p>
 <p>
   <img src="https://img.shields.io/badge/Excel-Microsoft%20Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white" alt="Microsoft Excel" />
@@ -22,7 +22,7 @@
   <a href="https://github.com/Sohila-Khaled-Abbas/commonwealth-bank-intro-data-science/stargazers"><img src="https://img.shields.io/github/stars/Sohila-Khaled-Abbas/commonwealth-bank-intro-data-science?style=flat-square&label=stars" alt="GitHub stars" /></a>
 </p>
 
-**A task-by-task learning and portfolio project focused on practical data analysis, data handling, business reasoning, and reproducible documentation.**
+**A completed four-task data-science virtual job simulation documented as an independent, evidence-led portfolio project.**
 
 [Simulation Brief](https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t) · [Task 01 Guide](docs/task-01-data-aggregation-analysis.md) · [Task 02 Guide](docs/task-02-data-anonymisation.md) · [Task 03 Guide](docs/task-03-propose-data-analysis-approaches.md) · [Task 04 Guide](docs/task-04-designing-a-database.md) · [Privacy Techniques](docs/data-privacy-techniques.md) · [CV / LinkedIn Positioning](docs/project-experience-positioning.md) · [Local Setup](docs/local-setup-windows.md) · [Learning Log](LEARNING_LOG.md)
 
@@ -49,17 +49,19 @@
 
 ## Project overview
 
+The overall Forage completion page records **Completed November 14, 2026** and an assessment result of **100% (10/10 correct answers)**. [View the completion certificate](https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/smwfytX3mcLboA9bf_2sNmYuurxgpFYawco_6ae9f5fbcfb5bb576b61ccb2_1794678594628_completion_certificate.pdf).
+
 The simulation uses practical business scenarios to develop data-science and data-management skills. This repository keeps each exercise reviewable through task guides, privacy references, working notes, documented methods, and validation decisions. Source workbooks, customer-level data, and private deliverables remain local.
 
 | Project detail | Description |
 |---|---|
 | **Program** | Commonwealth Bank — Introduction to Data Science |
 | **Provider** | Forage |
-| **Format** | Self-paced virtual job simulation |
+| **Format** | Self-paced virtual job simulation · completed 14 November 2026 |
 | **Primary practice tool** | Microsoft Excel Desktop for Tasks 01–03 |
 | **Analytical methods** | Excel Tables, SUMIFS, COUNTIFS, PivotTables, data minimisation, generalisation, banding, disclosure-risk checks, CSV validation |
-| **Completed analyses** | Task 01 analysis; Task 02 workbook analysis and CSV preparation; Task 03 quantitative analysis and 11-record support-text review |
-| **Current focus** | Task 04 — relational schema prepared; Forage submission pending |
+| **Completed work** | Four tasks: Excel transaction analysis; privacy-aware customer-data preparation; social-media analysis and proposal; relational database design |
+| **Simulation status** | Completed 14 November 2026 · Forage assessment: 100% (10/10) |
 
 ## Learning roadmap
 
@@ -80,9 +82,9 @@ flowchart TD
 | Task | Topic | Skills / methods | Status |
 |:---:|---|---|:---:|
 | **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
-| **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, age/salary banding, k-anonymity-style and salary-diversity checks, CSV validation | <img src="https://img.shields.io/badge/CSV%20READY-2563EB?style=flat-square" alt="CSV ready; Forage upload not verified" /> |
-| **03** | Propose Data Analysis Approaches | Validated social-media profiling, topic/engagement/sentiment/time analysis, 11-record text review, X API feasibility, proposal draft | <img src="https://img.shields.io/badge/ANALYSIS%20VALIDATED%20%E2%80%94%20SUBMISSION%20PENDING-D97706?style=flat-square" alt="Analysis validated; Forage proposal submission pending confirmation" /> |
-| **04** | Designing a Database | Normalised relational schema, field definitions, keys, ERD, and interaction validation | <img src="https://img.shields.io/badge/SCHEMA%20READY%20%E2%80%94%20SUBMISSION%20PENDING-D97706?style=flat-square" alt="Task 04 schema prepared; Forage response submission pending" /> |
+| **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, age/salary banding, k-anonymity-style and salary-diversity checks, CSV validation | <img src="https://img.shields.io/badge/COMPLETE-15803D?style=flat-square" alt="Task 02 completed within the Forage simulation" /> |
+| **03** | Propose Data Analysis Approaches | Validated social-media profiling, topic/engagement/sentiment/time analysis, 11-record text review, X API feasibility, proposal draft | <img src="https://img.shields.io/badge/COMPLETE-15803D?style=flat-square" alt="Task 03 completed within the Forage simulation" /> |
+| **04** | Designing a Database | Normalised relational schema, field definitions, keys, ERD, and interaction validation | <img src="https://img.shields.io/badge/COMPLETE-15803D?style=flat-square" alt="Task 04 completed within the Forage simulation" /> |
 
 ---
 
@@ -149,7 +151,7 @@ The workbook analysis, transformation workflow, privacy checks, and values-only 
 
 **Verified aggregate results:** 10,000 release rows; four columns; zero blanks or `REVIEW` values; 40 quasi-identifier profiles; minimum profile size 111; zero records in groups smaller than five; all 40 profiles contain all five salary bands, with a minimum profile-by-salary count of 12. These are screening results, not a guarantee that re-identification is impossible.
 
-This task was completed independently: no Task 01 transaction data was joined or used. The CSV has been generated and structurally validated; Forage upload/acceptance has not yet been verified.
+This task was completed independently: no Task 01 transaction data was joined or used. The four-column values-only CSV was generated and structurally validated. The overall Forage simulation completion is confirmed; individual task-level upload receipts are not archived in this repository.
 
 **Resources:**
 - [Task 02 completed workflow, field decisions, and QA results](docs/task-02-data-anonymisation.md)
@@ -159,7 +161,7 @@ Keep the source workbook, working workbook, customer-level CSV, and any identifi
 
 ## Task 03 — Propose Data Analysis Approaches
 
-**Status:** Analysis validated; the InsightSpark proposal draft is prepared, but Forage submission is not yet confirmed. Task 03 remains open until the response is submitted.
+**Status:** Completed within the overall Forage simulation on 14 November 2026. The source profiling, quantitative and time analyses, private 11-record response-needed text review, X API feasibility review, and InsightSpark proposal work are documented.
 
 The original Forage source workbook contains five source/metadata worksheets and a main table with **60 fictional records across 24 fields** (`SocialMediaPosts`, A1:X61). The private working copy used for analysis contains **16 worksheets**: the five source sheets plus QA, topic, engagement, format, post-type, author-type, sentiment, time, and customer-support review outputs. The uploaded working copy is private and is not included in this repository.
 
@@ -204,7 +206,7 @@ The source contains 11 Customer-authored records with `response_needed = Yes`: f
 
 ### X API review and proposal
 
-The official X API field, search coverage, access, metric, and published pricing documentation was reviewed and recorded in the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md). No developer app, production credential, API budget, or production access has been obtained or verified. The InsightSpark proposal draft covers collection, ingestion, database enrichment, analytics, human-reviewed support triage, governance, and a controlled pilot. **Forage submission is pending confirmation; Task 03 is not yet marked complete.**
+The official X API field, search coverage, access, metric, and published pricing documentation was reviewed and recorded in the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md). No developer app, production credential, API budget, or production access has been obtained or verified. The InsightSpark proposal draft covers collection, ingestion, database enrichment, analytics, human-reviewed support triage, governance, and a controlled pilot. **The overall Forage simulation is marked completed; no live X API integration, developer app, production credential, API budget, or production access was created or verified.**
 
 See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for the field mapping, full validated tables, Excel workflow, privacy constraints, and remaining submission checkpoint.
 
@@ -276,11 +278,19 @@ See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) f
 
 ## Project-based experience
 
-This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 profiling, engagement comparisons, sentiment, monthly and weekday analysis, and the private 11-record customer-support text review are validated. The X API feasibility review and InsightSpark proposal draft are prepared; Forage proposal submission is not yet confirmed. Task 04's relational schema proposal is prepared: six core tables model accounts, posts, post references, mentions, hashtags, and hashtag associations; optional tables cover media, metric snapshots, and derived analysis. The design includes primary/foreign keys, cardinalities, an ER diagram, and validation scenarios. The Forage response has not yet been submitted or confirmed. This is not employment at Commonwealth Bank or a paid freelance engagement.
+This repository documents an independent project completed through the **Commonwealth Bank Introduction to Data Science virtual job simulation on Forage**. The Forage completion page records completion on 14 November 2026 and an assessment result of 100% (10/10). Across four tasks, the work covered Excel-based transaction analysis, privacy-aware customer-data preparation, social-media analysis and an InsightSpark proposal, and a relational database design for CommBank posts and public interactions. Task 03 includes analysis of a 60-record fictional social-media sample and a private text review of all 11 response-needed customer records. Task 04 defines six core tables, optional media/metric/analysis extensions, keys, relationships, an ER diagram, and validation scenarios. The public repository shares methods and aggregate results; source workbooks and row-level data remain private. This is a Forage virtual experience, not employment at Commonwealth Bank or a paid freelance engagement.
 
 **CV-ready title:** Data Analytics & Data Science Virtual Experience | Forage — Commonwealth Bank Simulation
 
-The verified scope includes analysis of 50,783 supermarket records in Excel, conditional aggregation and PivotTable reconciliation, plus a 10,000-record customer-data de-identification exercise with 40 generalised profiles, minimum group size 111, and salary-diversity checks. Task 03 includes validated topic, format, post-type, author-type, sentiment, time, and support-needed analysis for a 60-record fictional social-media sample (125,989 simulated engagements, 2,906,190 views, 4.34% weighted rate). All 11 response-needed customer records were reviewed against their actual text and summarised into recurring issue themes; the X API feasibility review and InsightSpark proposal draft are prepared. Forage proposal submission remains unconfirmed. Task 04 requirements review has started; its schema is not yet complete. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
+The verified scope includes analysis of 50,783 supermarket records in Excel using Tables, structured references, SUMIFS/COUNTIFS, data-quality checks, and two PivotTables to reconcile five metrics; preparation of a four-column values-only release from 10,000 customer records, including 40 quasi-identifier profiles (minimum group size 111) and five salary bands represented in every profile; analysis of 60 fictional social-media posts (125,989 simulated engagements, 2,906,190 views, 4.34% weighted rate), including a private text review of all 11 response-needed customer records and an X API-informed proposal; and a six-core-table relational database design with keys, relationships, an ER diagram, and validation scenarios. The overall Forage completion page records 100% (10/10) on 14 November 2026. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not describe this virtual experience as paid freelance work or employment at Commonwealth Bank.
+
+## Overall completion evidence
+
+- **Completion date:** 14 November 2026.
+- **Forage assessment:** 100% · 10/10 correct answers.
+- **Certificate:** [Download the Forage completion certificate](https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/smwfytX3mcLboA9bf_2sNmYuurxgpFYawco_6ae9f5fbcfb5bb576b61ccb2_1794678594628_completion_certificate.pdf).
+
+The completion page verifies the overall simulation. Per-task upload/response receipts are not separately archived in this repository.
 
 ## Quality and portfolio standards
 
