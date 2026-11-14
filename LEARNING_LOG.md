@@ -123,7 +123,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 ## Task 03 — Propose Data Analysis Approaches
 
 **Start date:** 2026-11-14  
-**Status:** In progress — profiling and engagement PivotTables validated; all-posts and Customer-only sentiment PivotTables reproduced; qualitative customer-text review and support analysis remain  
+**Status:** Analysis validated — profiling, quantitative analysis, time analysis, X API documentation review, and the private review of all 11 response-needed records are complete; proposal drafted; Forage submission not confirmed  
 **Required deliverable:** Written proposal submitted in Forage Task 03 response field
 
 | Activity | Techniques / focus | Validation / evidence | Status |
@@ -136,10 +136,10 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 | Engagement analysis by content format | Compare post count, engagements, views, weighted rate, and average engagements per post | Four formats reconcile to QA totals; video 5.17%, text + image 4.61%, link 4.13%, text 1.44% | Complete |
 | Engagement analysis by post type | Compare counts, total engagements, views, weighted rates, and average engagement volume | Four post types reconcile to QA totals; original posts 4.52%, replies 1.60%, mentions 1.51%, quote posts 1.39% | Complete |
 | Author-type analysis | Count posts and compare engagement by author group; weighted rate; validate six categories | 60 posts; totals reconcile to QA_Overview; CommBank 26 posts / 123,593 engagements / 2,754,800 views / 4.49%; Customer 28 / 1,597 / 96,990 / 1.65% | Complete |
-| Sentiment PivotTables | Overall sentiment by author type and Customer-only sentiment | All-posts: 26 positive, 15 neutral, 11 negative, 8 mixed (60 total); Customer-only: 11 negative (39.29%), 8 positive (28.57%), 7 mixed (25.00%), 2 neutral (7.14%) (28 total) | PivotTables validated; qualitative text review pending |
-| Customer support analysis | Response-needed flags and recurring intents | 11 records flagged Yes, with complaints, questions and one scam report | Pending Excel reproduction |
-| Review X API | Field mappings, recent/full archive, public/non-public metrics | Official X API references added to Task 03 guide | In progress |
-| Draft and submit proposal | Business value, data flow, KPIs, privacy, limitations | Forage proposal response field | Pending |
+| Sentiment PivotTables | Overall sentiment by author type and Customer-only sentiment | All-posts: 26 positive, 15 neutral, 11 negative, 8 mixed (60 total); Customer-only: 11 negative (39.29%), 8 positive (28.57%), 7 mixed (25.00%), 2 neutral (7.14%) (28 total) | Quantitative PivotTables validated; manual text review scope is separately recorded for the 11 flagged posts |
+| Customer support analysis | Filter response-needed records; review actual text, themes, and proportionate actions | 11 Customer-authored records; 5 Complaints, 5 Questions, 1 Scam report; 10 Negative and 1 Neutral; all 11 have reviewed themes/actions | Complete for the 11 flagged records |
+| Review X API | Field mappings, search coverage, public/non-public metrics, access, and published pricing | Official X API references and operational constraints documented in Task 03 guide (reviewed 2026-11-14) | Complete |
+| Draft and submit proposal | Business value, data flow, KPIs, privacy, limitations | InsightSpark proposal draft prepared; Forage response-field submission not confirmed | Draft prepared; submission pending |
 
 ### Task 03 — progress update through engagement-by-post-type analysis
 
@@ -158,7 +158,7 @@ Each PivotTable reconciles to 60 posts, 125,989 total engagements, 2,906,190 vie
 | Positive | 1 | 13 | 2 | 8 | 1 | 1 | 26 |
 | **All posts** | **2** | **26** | **2** | **28** | **1** | **1** | **60** |
 
-For Customer-authored posts only: Mixed 7 (25.00%), Negative 11 (39.29%), Neutral 2 (7.14%), and Positive 8 (28.57%), totalling 28 (100%). All 11 Negative labels are Customer-authored. The quantitative PivotTable checkpoint is validated; the separate review of negative/mixed post text and issue themes remains to be documented.
+For Customer-authored posts only: Mixed 7 (25.00%), Negative 11 (39.29%), Neutral 2 (7.14%), and Positive 8 (28.57%), totalling 28 (100%). All 11 Negative labels are Customer-authored. The quantitative PivotTable checkpoint is validated. The completed manual review covers the 11 records flagged with response_needed = Yes; it should not be described as a full manual audit of all Negative or Mixed Customer-authored posts.
 
 ### Task 03 data observations
 
@@ -272,12 +272,17 @@ Interpretation:
 - Weekday counts: Monday 6; Tuesday 11; Wednesday 11; Thursday 10; Friday 8; Saturday 7; Sunday 7; total = 60.
 - Tuesday and Wednesday are tied for the highest observed post count (11 each). This is descriptive only.
 
-**Step 8 — Customer-support flags**
-- `response_needed = Yes`: 11 posts.
-- Sentiment: 10 Negative and 1 Neutral.
+**Step 8 — Customer-support records and text review**
+
+- `response_needed = Yes`: 11 Customer-authored records.
+- Sentiment among the flagged subset: 10 Negative and 1 Neutral.
 - Customer intent: Complaint 5; Question 5; Scam report 1.
-- Topic counts: Branch/ATM 3; Digital banking 3; Fraud & scams 2; Outage/service issue 2; Card services 1.
-- The PivotTable is validated. A private row-level `Customer_Support_Review` worksheet is still required to inspect the actual text, classify issue themes, and recommend actions. Do not invent details from the aggregate PivotTable.
+- Evidence-based issue themes: Digital banking 3; Branch/ATM 3; Payment status / possible disruption 2; Fraud protection / reporting experience 2; Card services 1.
+- The private `Customer_Support_Review` sheet contains 11 rows and the fields `post_id`, `author_type`, `customer_intent`, `topic`, `sentiment_label`, `response_needed`, `issue_theme`, and `recommended_action`.
+- The actual text review distinguishes a potential phishing report from a complaint about the discoverability of the in-app scam-reporting feature. These require different routes and must not be conflated merely because both are labelled Fraud & scams.
+- The review's recommended actions are suggestions for approved team routing and verification; no real customer response or service resolution was performed.
+- The uploaded 16-sheet workbook contains the 11-row `Customer_Support_Review` table but no separate `PVT_Support_Flagged` tab. The support review is therefore described as a filtered 11-record table rather than a separately saved support PivotTable.
+
 
 **Step 9 — Official X API documentation review (14 November 2026)**
 
@@ -290,7 +295,7 @@ Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introd
 - Recorded the published pay-per-use price of US$0.005 per Post read and the 3-million-Post-read monthly cap. The pricing page warns that prices can change, so a live budget must be confirmed in the Developer Console.
 - No API account, app, credential, budget, or production access has been created or verified as part of this learning exercise.
 
-**Next:** complete the private row-level support/customer sentiment review using the actual post text, summarise recurring themes, and draft the InsightSpark proposal. Task 03 remains in progress until the proposal is submitted in Forage.
+**Next:** submit the prepared InsightSpark proposal in the Forage Task 03 response field and verify the saved/submitted state. The analysis and 11-record support-text review are documented; Task 03 remains in progress until submission is confirmed.
 
 ### Task 03 reflection prompts
 
@@ -302,6 +307,6 @@ Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introd
 
 ## Remaining simulation tasks
 
-- [ ] Task 03 — Social Media Data and Business Insights.
-- [ ] Task 04 — Database Design.
+- [ ] Task 03 — Analysis and proposal draft prepared; confirm Forage submission before marking complete.
+- [ ] Task 04 — Database Design (requirements review started; schema design and submission remain).
 - [ ] Review the full simulation and update the final portfolio summary.
