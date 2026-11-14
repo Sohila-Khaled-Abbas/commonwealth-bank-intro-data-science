@@ -326,13 +326,86 @@ The workbook's sentiment labels and scores are supplied curated fields, not pred
 
 ### Step 8 — Time and customer-support analysis
 
-- Group post counts by month and day of week.
-- Compare topic and sentiment across time.
-- Review all rows with `response_needed = Yes`.
-- Group response-needed posts by topic and customer intent.
-- Identify operational themes that could be routed to a customer-support queue.
+#### 8.1 Monthly posting pattern
 
-The sample covers only part of April, May, and part of June 2026. Do not make strong seasonal or long-term trend claims from this short window.
+Create a PivotTable from `SocialMediaPosts`:
+- Rows: `post_datetime`, grouped by **Years** and **Months**.
+- Values: Count of `post_id`.
+
+**Validated results**
+
+| Month | Posts | Share |
+|---|---:|---:|
+| April 2026 | 25 | 41.7% |
+| May 2026 | 27 | 45.0% |
+| June 2026 | 8 | 13.3% |
+| **Total** | **60** | **100%** |
+
+The source sample ends on 12 June 2026, so June is a partial month. Do not describe the lower June count as a month-over-month decline without adjusting for the incomplete period.
+
+#### 8.2 Weekday pattern
+
+Create a PivotTable:
+- Rows: `day_of_week`.
+- Values: Count of `post_id`.
+
+**Validated results**
+
+| Weekday | Posts |
+|---|---:|
+| Monday | 6 |
+| Tuesday | 11 |
+| Wednesday | 11 |
+| Thursday | 10 |
+| Friday | 8 |
+| Saturday | 7 |
+| Sunday | 7 |
+| **Total** | **60** |
+
+Tuesday and Wednesday tie at 11 posts. This small sample describes observed posting frequency only; it does not identify an optimal publishing time or prove an engagement effect.
+
+#### 8.3 Response-needed PivotTable
+
+Create a PivotTable named `PVT_Support_Flagged`:
+- Filters: `response_needed` → select `Yes`.
+- Rows: `customer_intent`, then `topic`.
+- Columns: `sentiment_label`.
+- Values: Count of `post_id`.
+
+**Validated aggregate results**
+
+| Customer intent | Topic | Negative | Neutral | Total |
+|---|---|---:|---:|---:|
+| Complaint | Branch/ATM | 2 | 0 | 2 |
+| Complaint | Digital banking | 2 | 0 | 2 |
+| Complaint | Fraud & scams | 1 | 0 | 1 |
+| Question | Branch/ATM | 1 | 0 | 1 |
+| Question | Card services | 0 | 1 | 1 |
+| Question | Digital banking | 1 | 0 | 1 |
+| Question | Outage/service issue | 2 | 0 | 2 |
+| Scam report | Fraud & scams | 1 | 0 | 1 |
+| **Total** | | **10** | **1** | **11** |
+
+Customer-intent totals are Complaint = 5, Question = 5, and Scam report = 1. Topic totals are Branch/ATM = 3, Digital banking = 3, Fraud & scams = 2, Outage/service issue = 2, and Card services = 1.
+
+#### 8.4 Build the private row-level review worksheet
+
+Create a worksheet named `Customer_Support_Review` with these columns:
+
+`post_id`, `author_type`, `customer_intent`, `topic`, `sentiment_label`, `response_needed`, `issue_theme`, `recommended_action`.
+
+Populate the first six columns from the 11 source rows where `response_needed = Yes`. Use a dynamic `FILTER` formula if available, or copy the filtered rows as values into the private working workbook. Keep this worksheet and the post text out of Git.
+
+For each flagged row:
+1. Read the actual `post_text` in the source workbook.
+2. Assign an issue theme based on evidence in the wording (for example, ATM/branch access, digital banking, card servicing, service disruption, or suspected fraud).
+3. Recommend a proportionate action (for example, acknowledge and route, provide approved guidance, check incident status, or escalate to the appropriate fraud/security queue).
+4. Record uncertainty rather than guessing. Sentiment alone does not determine urgency or the correct action.
+5. Reconcile exactly 11 reviewed rows with the PivotTable before summarising recurring themes.
+
+**Current checkpoint:** monthly counts, weekday counts, and the 11-row support-flag PivotTable are validated. The manual row-level theme and action review is not yet confirmed complete.
+
+The sample spans only part of April, May, and June 2026. Do not make strong seasonal or long-term trend claims from this short window.
 
 ### Step 9 — Review the X API and operational feasibility
 
@@ -404,8 +477,11 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Compare engagement by post type (counts and weighted rates reconcile to QA_Overview).
 - [x] Reproduce and validate the author_type PivotTable (six categories; 60 posts; totals reconcile to QA_Overview).
 - [x] Reproduce all-posts and Customer-only sentiment PivotTables; both views reconcile to their expected record totals.
-- [ ] Review negative and mixed Customer-authored post text; document issue themes, intent, and response-needed flags.
-- [ ] Review support flags and recurring pain points.
+- [ ] Review negative and mixed Customer-authored post text; document issue themes, intent, and response-needed flags (do not infer from PivotTables).
+- [x] Reproduce monthly and weekday posting counts (60 posts; partial June window explicitly noted).
+- [x] Reproduce the `response_needed = Yes` PivotTable (11 records; 10 Negative, 1 Neutral; intent/topic totals reconciled).
+- [ ] Complete the private row-level `Customer_Support_Review` worksheet with evidence-based issue themes and recommended actions.
+- [ ] Summarise recurring support pain points from the actual post text.
 - [ ] Document the current X API fields, access and metric restrictions.
 - [ ] Write the InsightSpark proposal.
 - [ ] Submit the proposal in the Forage Task 03 response field.
