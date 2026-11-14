@@ -1,13 +1,23 @@
 # Learning Log — Commonwealth Bank Introduction to Data Science
 
-Use this log to document the analytical process, decisions, validation, and reflections. Update a task's status only after the work is completed and reviewed.
+Use this log to document the analytical process, decisions, validation, and reflections. The overall Forage completion record is captured below; separate per-task workbook or response receipts are not archived in this public repository.
+
+## Forage program completion record
+
+- **Simulation:** Commonwealth Bank — Introduction to Data Science (Forage)
+- **Overall status:** Completed
+- **Completion date:** 2026-11-14
+- **Final quiz:** 10/10 correct answers (100%)
+- **Completion page:** https://www.theforage.com/simulations/commonwealth-bank/intro-data-science-sd7t/completed
+- **Certificate:** https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/smwfytX3mcLboA9bf_2sNmYuurxgpFYawco_6ae9f5fbcfb5bb576b61ccb2_1794678594628_completion_certificate.pdf
+- **Evidence boundary:** The provider page confirms overall simulation completion. It does not provide a separate receipt for each task's workbook or response field.
 
 ## Task 01 — Data Aggregation and Analysis
 
 **Work date:** 2026-11-13  
 **Analysis status:** Complete  
 **Formula/PivotTable reconciliation:** Passed  
-**Forage submission:** Not yet recorded
+**Forage program:** Overall simulation completed on 2026-11-14; individual Task 01 workbook receipt is not separately archived.
 
 | Date | Activity | Techniques practiced | Validation / evidence | Status |
 |---|---|---|---|---|
@@ -21,7 +31,7 @@ Use this log to document the analytical process, decisions, validation, and refl
 - [x] Calculate the business answers using Excel formulas.
 - [x] Validate the formula outputs with two PivotTables.
 - [x] Document formulas, criteria, results, reconciliation and limitations.
-- [ ] Record Forage submission of the completed workbook.
+- [x] Record the overall Forage completion page; individual Task 01 workbook receipt is not separately archived.
 
 ### Task 01 validated results
 
@@ -47,7 +57,7 @@ Use this log to document the analytical process, decisions, validation, and refl
 **Workbook analysis:** Complete  
 **Values-only release:** Validated  
 **CSV export:** Created and structurally validated  
-**Forage submission:** Not yet verified
+**Forage program:** Overall simulation completed on 2026-11-14; individual Task 02 CSV receipt is not separately archived.
 
 | Activity | Techniques / focus | Validation / evidence | Status |
 |---|---|---|---|
@@ -59,7 +69,7 @@ Use this log to document the analytical process, decisions, validation, and refl
 | Review sensitive salary disclosure | Distinct salary bands within each profile | Every profile has all five salary bands; 200 profile-band cells; minimum cell count 12 | Passed |
 | Validate values-only output | Row count, columns, blanks, review values | Final_Export: 10,000 records, four columns, zero formulas, zero blanks, zero REVIEW values | Passed |
 | Generate and reopen CSV | UTF-8 export and structural checks | 10,000 data rows; four columns; no blank cells | Complete |
-| Submit through Forage | Required Task 02 upload | Acceptance not confirmed | Pending |
+| Overall Forage completion | Provider completion page confirms 2026-11-14 completion | Individual Task 02 upload receipt is not separately archived | Program complete |
 
 ### Task 02 final output distributions
 
@@ -118,13 +128,13 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 3. High-cardinality employer and job fields offered unnecessary identification risk for this release and were removed rather than mapped without evidence.
 4. Salary was retained only after checking that every quasi-identifier profile contained all five salary bands; the smallest cell count was 12.
 5. A group-size result alone is not proof of anonymity. The release still needs a recipient-context and external-linkage risk review.
-6. The CSV content was checked for exactly four columns, 10,000 data rows, and no formulas, blanks, or REVIEW values; Forage submission remains to be confirmed.
+6. The CSV content was checked for exactly four columns, 10,000 data rows, and no formulas, blanks, or REVIEW values; The overall Forage simulation is confirmed complete; a separate Task 02 upload receipt is not retained in this repository.
 
 ## Task 03 — Propose Data Analysis Approaches
 
 **Start date:** 2026-11-14  
-**Status:** Analysis validated — profiling, quantitative analysis, time analysis, X API documentation review, and the private review of all 11 response-needed records are complete; proposal drafted; Forage submission not confirmed  
-**Required deliverable:** Written proposal submitted in Forage Task 03 response field
+**Status:** Task 03 completed within the overall Forage simulation (2026-11-14); profiling, quantitative and time analysis, X API documentation review, private review of all 11 response-needed records, and the InsightSpark proposal are documented. Individual response-field receipt is not archived.  
+**Required deliverable:** InsightSpark data-analysis proposal. Overall Forage program completion is confirmed; a separate Task 03 response-field receipt is not archived.
 
 | Activity | Techniques / focus | Validation / evidence | Status |
 |---|---|---|---|
@@ -139,7 +149,7 @@ The values-only CSV was generated from Final_Export and structurally reopened. T
 | Sentiment PivotTables | Overall sentiment by author type and Customer-only sentiment | All-posts: 26 positive, 15 neutral, 11 negative, 8 mixed (60 total); Customer-only: 11 negative (39.29%), 8 positive (28.57%), 7 mixed (25.00%), 2 neutral (7.14%) (28 total) | Quantitative PivotTables validated; manual text review scope is separately recorded for the 11 flagged posts |
 | Customer support analysis | Filter response-needed records; review actual text, themes, and proportionate actions | 11 Customer-authored records; 5 Complaints, 5 Questions, 1 Scam report; 10 Negative and 1 Neutral; all 11 have reviewed themes/actions | Complete for the 11 flagged records |
 | Review X API | Field mappings, search coverage, public/non-public metrics, access, and published pricing | Official X API references and operational constraints documented in Task 03 guide (reviewed 2026-11-14) | Complete |
-| Draft and submit proposal | Business value, data flow, KPIs, privacy, limitations | InsightSpark proposal draft prepared; Forage response-field submission not confirmed | Draft prepared; submission pending |
+| Complete proposal deliverable | Business value, data flow, KPIs, privacy, limitations | InsightSpark proposal documented within the completed Forage simulation; separate response-field receipt is not archived | Program complete |
 
 ### Task 03 — progress update through engagement-by-post-type analysis
 
@@ -295,7 +305,7 @@ Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introd
 - Recorded the published pay-per-use price of US$0.005 per Post read and the 3-million-Post-read monthly cap. The pricing page warns that prices can change, so a live budget must be confirmed in the Developer Console.
 - No API account, app, credential, budget, or production access has been created or verified as part of this learning exercise.
 
-**Next:** submit the prepared InsightSpark proposal in the Forage Task 03 response field and verify the saved/submitted state. The analysis and 11-record support-text review are documented; Task 03 remains in progress until submission is confirmed.
+**Completion note:** the Forage completion page confirms the overall simulation is complete. The analysis, 11-record support-text review, and InsightSpark proposal are documented here; a separate Task 03 response-field receipt is not archived.
 
 ### Task 03 reflection prompts
 
@@ -309,7 +319,7 @@ Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introd
 
 **Work date:** 2026-11-14  
 **Design status:** Schema proposal prepared and checked against the Forage requirements  
-**Forage submission:** Pending — response drafted; platform save/submission not verified
+**Forage program:** Overall simulation completed on 2026-11-14; individual Task 04 response-field receipt is not separately archived.
 
 | Activity | Techniques / focus | Validation / evidence | Status |
 |---|---|---|---|
@@ -322,7 +332,7 @@ Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introd
 | Define columns and keys | Primary keys, foreign keys, data types, nullability | Each table has an explicit primary key; foreign keys and composite keys are documented in the Task 04 guide | Complete |
 | Define relationships | 1:M, M:N, self-referencing relationships | Accounts-to-Posts 1:M; Posts-to-Accounts mentions M:N via junction; Posts-to-Hashtags M:N via junction; Posts self-reference via Post_References | Complete |
 | Validate required scenarios | Conceptual model checks | Original CommBank post, reply, quote post, direct mention, overlapping reply+mention, and multi-value hashtags/media tested against the model | Passed |
-| Prepare Forage response | Written submission | Full response prepared in Section 12 of the Task 04 guide; no database or API integration claimed | Draft ready; submission pending |
+| Complete Forage simulation | Written Task 04 response and overall program | Provider completion page records overall simulation complete; no database or API integration claimed | Program complete |
 
 ### Task 04 modelling decisions
 
@@ -336,7 +346,7 @@ Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introd
 - **Metric history:** Optional metric snapshots use a capture timestamp and scope so that changing counts are not overwritten. Public and user-context metric access must remain distinct.
 - **Data dictionary mapping corrections:** `author_follower_bucket` is not an exact `followers_count`; `in_reply_to_user_id` identifies a replied-to author, not a parent post ID; total engagements, engagement rate, and weekday are calculated or derived values.
 
-The schema is a design proposal, not an implemented database. No production X API credentials, API data collection, or live integration were created. The next remaining action is to paste the response into the Forage Task 04 editor and verify its saved/submitted state.
+The schema is a design proposal, not an implemented database. No production X API credentials, API data collection, or live integration were created. The overall Forage simulation is complete; a separate Task 04 response-field receipt is not retained in this repository.
 
 ### Task 04 reflection prompts
 
@@ -347,8 +357,12 @@ The schema is a design proposal, not an implemented database. No production X AP
 5. Why should changing metric counts be stored with a collection timestamp?
 6. Which fields in the Task 03 workbook are curated or calculated rather than raw source attributes?
 
-## Remaining simulation tasks
+## Final simulation review
 
-- [ ] Task 03 — Analysis and proposal draft prepared; confirm Forage submission before marking complete.
-- [ ] Task 04 — Schema proposal prepared and validated; paste/submit the Forage response and confirm platform status.
-- [ ] Review the full simulation and update the final portfolio summary.
+- [x] Task 01 — transaction analysis and formula/PivotTable reconciliation documented.
+- [x] Task 02 — privacy transformation, disclosure-risk screening, and CSV validation documented.
+- [x] Task 03 — social-media analysis, 11-record support review, X API feasibility, and InsightSpark proposal documented.
+- [x] Task 04 — relational schema, keys, relationships, ERD, and interaction validation documented.
+- [x] Overall Forage completion page checked: completed 2026-11-14; final quiz 10/10 (100%).
+
+The repository records overall completion evidence while keeping Forage source workbooks, customer/post-level records, and private outputs out of GitHub.

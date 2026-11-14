@@ -1,7 +1,7 @@
 # Task 04 — Designing a Database
 
 > **Design status:** Schema proposal prepared and checked against the Forage scenarios.  
-> **Forage submission:** Pending — paste the submission-ready response in Section 12 and verify that Forage saves or accepts it before marking the task complete.  
+> **Forage program:** Overall simulation completed on 14 November 2026; the provider completion page does not expose a separate Task 04 response-field receipt in this repository.  
 > **Scope:** Public X posts authored by CommBank, user replies, user quote posts, and public posts that directly mention the CommBank account. Private Direct Messages are outside this task's stated scope.
 
 ## 1. Task objective and required deliverable
@@ -488,8 +488,8 @@ The schema is designed for public posts and mentions. It does not include privat
 - [x] Define relationship cardinality and resolve many-to-many relationships with junction tables.
 - [x] Add an ER diagram and test the model against original posts, replies, quote posts, mentions, and overlapping interactions.
 - [x] Prepare the complete Forage response.
-- [ ] Paste the response into the Forage Task 04 response editor and submit/save it.
-- [ ] Verify the platform's saved/submitted state before marking Task 04 complete.
+- [x] Complete the Forage simulation; the provider completion page records the overall program as complete on 14 November 2026.
+- [x] Update the public project record to reflect overall program completion; a separate Task 04 response-field receipt is not archived.
 
 ## 14. References
 

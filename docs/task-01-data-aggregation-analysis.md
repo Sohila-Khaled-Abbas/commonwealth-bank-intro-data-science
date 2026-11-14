@@ -238,7 +238,7 @@ Recommended private output path:
 data/working/Task_01_Analysis_Completed.xlsx
 ```
 
-Keep the downloaded source workbook and any workbook containing the full Forage dataset out of the public repository. Submit the completed workbook through the Forage simulation interface. This repository contains the methodology and aggregate findings, not the restricted source data.
+Keep the downloaded source workbook and any workbook containing the full Forage dataset out of the public repository. The overall Forage completion page records the simulation as completed on 14 November 2026; a separate Task 01 workbook receipt is not archived here. This repository contains the methodology and aggregate findings, not the restricted source data.
 
 ## 9. Excel skills practiced
 

@@ -5,7 +5,7 @@ This folder contains the original Task 01 practice starter. Two additional compa
 - `task-02-data-anonymisation-workbook.xlsx`
 - `task-03-social-media-analysis-workbook.xlsx`
 
-The templates support reproducible practice and documentation. They contain aggregate results already validated in the learning log, plus worksheets for QA, field decisions, author-type analysis, sentiment, API mapping, and proposal planning.
+The overall Forage simulation is complete (14 November 2026; final quiz 10/10). The templates support reproducible practice and documentation. They contain aggregate results already validated in the learning log, plus worksheets for QA, field decisions, author-type analysis, sentiment, API mapping, and proposal planning.
 
 ## Important data-handling rules
 
@@ -25,6 +25,6 @@ The Task 04 working workbook is maintained locally at `data/working/Task04_Datab
 | Workbook | Purpose | Current state |
 |---|---|---|
 | Task 02 | Field inventory, anonymisation decisions, QA reference, release schema | Template aligned to the documented Registration_Year, Gender, Age_Band, and Salary_Band release |
-| Task 03 | Generic practice template for source-data profiling, QA, topic/format/post-type/author analysis, sentiment, time, support review, API mapping, and proposal planning | The private working copy used for analysis has 16 sheets (five source/metadata plus 11 QA/analysis/review sheets), 60 fictional records, and 24 source fields. Quantitative analyses and the 11-row response-needed text review are validated; the X API review and proposal draft are prepared; Forage submission is not confirmed |
+| Task 03 | Generic practice template for source-data profiling, QA, topic/format/post-type/author analysis, sentiment, time, support review, API mapping, and proposal planning | The private working copy used for analysis has 16 sheets (five source/metadata plus 11 QA/analysis/review sheets), 60 fictional records, and 24 source fields. Quantitative analyses and the 11-row response-needed text review are validated; the X API review and InsightSpark proposal are documented; overall Forage simulation completion is confirmed (14 November 2026); individual response-field receipts are not separately archived |
 
 All three generic companion workbooks are present in this folder. They are practice templates, not copies of Forage source files. Before updating or committing any workbook, inspect its sheets and hidden content to confirm it contains no source dataset, post text, customer-level records, or private exports.

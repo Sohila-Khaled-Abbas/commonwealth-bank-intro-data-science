@@ -1,7 +1,7 @@
 # Task 03 — Propose Data Analysis Approaches
 
-> **Status:** Analysis validated — source profiling, quantitative analysis, time analysis, X API review, and the private 11-record response-needed text review are complete. The InsightSpark proposal has been drafted; Forage submission is not yet confirmed.  
-> **Required Forage deliverable:** A written proposal submitted in the Task 03 text field.  
+> **Status:** Task 03 completed within the overall Forage simulation (completed 14 November 2026). Source profiling, quantitative and time analysis, X API review, the private 11-record response-needed text review, and the InsightSpark proposal are documented.  
+> **Completion evidence:** The provider completion page confirms the overall simulation is complete; a separate Task 03 response-field receipt is not archived in this repository.  
 > **Dataset:** Forage-provided fictional Commonwealth Bank social-media sample. Keep the workbook private; it is marked for simulation use only.
 
 ## 1. Task objective
@@ -527,7 +527,7 @@ The proposal draft has been prepared around the Forage requirements. It covers:
 6. Privacy, platform-policy, bias, and representativeness limitations.
 7. A controlled pilot, evaluation measures, and operational feasibility.
 
-**Submission status:** the proposal is prepared, but submission in the Forage response field has not been confirmed. Do not mark Task 03 complete until the response is submitted and Forage confirms the saved/submitted state.
+**Completion status:** the overall Forage simulation is confirmed complete on 14 November 2026. The public completion page does not provide a separate Task 03 response-field receipt, so this repository records program-level evidence without claiming a separately archived submission acknowledgement.
 
 ## 5. Recommended analytical definitions
 
@@ -571,8 +571,8 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Summarise recurring support pain points from those 11 flagged post texts.
 - [x] Review and document current X API fields, search coverage, access, metrics, and published pay-per-use constraints (official documentation reviewed 14 November 2026).
 - [x] Prepare the InsightSpark proposal draft.
-- [ ] Submit the proposal in the Forage Task 03 response field and confirm the submission.
-- [ ] Mark Task 03 complete only after Forage submission is confirmed.
+- [x] Complete the Forage simulation; the provider completion page records the overall program as complete on 14 November 2026.
+- [x] Update the public project documentation to reflect program-level completion; individual response-field receipts are not separately archived.
 
 **Scope qualification:** the private manual text review is complete for all 11 response-needed records. It is not a claim that every Negative or Mixed Customer-authored post in the full 60-row source was manually audited.
 
