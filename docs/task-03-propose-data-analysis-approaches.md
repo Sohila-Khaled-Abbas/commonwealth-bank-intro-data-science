@@ -409,25 +409,67 @@ The sample spans only part of April, May, and June 2026. Do not make strong seas
 
 ### Step 9 — Review the X API and operational feasibility
 
-Use the current official documentation, not only the older Forage PDF:
-- Search Posts: https://docs.x.com/x-api/posts/search/introduction
-- Data Dictionary: https://docs.x.com/x-api/fundamentals/data-dictionary
-- Metrics: https://docs.x.com/x-api/fundamentals/metrics
-- Getting access / Developer Console: https://docs.x.com/x-api/getting-started/getting-access
+**Documentation reviewed: 14 November 2026.** Use the current official X documentation rather than relying only on the older Forage PDF:
 
-Map actual fields carefully:
-- Post ID and text: `id`, `text`
-- Publication time: `created_at`
-- Author: `author_id` plus optional user expansions
-- Conversation: `conversation_id`, `in_reply_to_user_id`, referenced posts
-- Hashtags / mentions / URLs: `entities`
-- Topics / entities: `context_annotations`
-- Public engagement: likes, replies, reposts, quotes, impressions, bookmarks
-- URL clicks and some other analytics: non-public metrics requiring user-context access to the account's own content
+- [Search Posts](https://docs.x.com/x-api/posts/search/introduction)
+- [X API v2 Data Dictionary](https://docs.x.com/x-api/fundamentals/data-dictionary)
+- [Metrics](https://docs.x.com/x-api/fundamentals/metrics)
+- [Getting Access](https://docs.x.com/x-api/getting-started/getting-access)
+- [Pay-per-use pricing](https://docs.x.com/x-api/getting-started/pricing)
 
-Important API limitation: recent search covers the last seven days. Full-archive search reaches back to March 2006 but requires pay-per-use or Enterprise access. Recent Search supports up to 100 posts per request and Full-Archive Search up to 500, with pagination for larger result sets. Confirm account access, pricing, quotas, permitted use, and data-retention rules before proposing a production integration.
+#### 9.1 Field mapping
 
-The sample's `link_clicks` field should not be assumed to be universally available for all public posts. X documents URL clicks as non-public metrics and requires user-context authentication for the account's own content. Impressions, likes, reposts, and replies are listed as public metrics.
+Request only the fields required for the analysis, using `tweet.fields` and the relevant expansions:
+
+| Analytical need | X API field(s) | Use |
+|---|---|---|
+| Post identity and text | `id`, `text` | Deduplication, text review, topic and sentiment analysis |
+| Publication time | `created_at` | Time series and posting-pattern analysis |
+| Author | `author_id`; optionally expand `author_id` and request selected `user.fields` | Separate bank-authored and customer-authored content where permitted |
+| Conversation context | `conversation_id`, `in_reply_to_user_id`, `referenced_tweets` | Identify replies, quotes, reposts, and conversation relationships |
+| Hashtags, mentions, URLs | `entities` | Structured extraction of text entities |
+| Context and topics | `context_annotations`, where returned | Supplement keyword-based topic classification |
+| Language and media | `lang`, `attachments`; media expansion when needed | Language filtering and content-format analysis |
+
+The default Post fields include `id` and `text`; request additional fields and expansions explicitly. Do not assume every field is populated for every post.
+
+#### 9.2 Search coverage and pagination
+
+- **Recent Search:** searches the previous seven days and is documented as available to all developers; up to 100 posts per request.
+- **Full-Archive Search:** searches back to March 2006 and is available to pay-per-use and Enterprise customers; up to 500 posts per request.
+- Both endpoints support pagination for larger result sets. Store the collection window and query alongside each batch so that the analysis can be reproduced.
+
+A seven-day search window is not enough by itself for retrospective trend analysis. A longer historical baseline needs eligible Full-Archive access or a collection process that begins before the analysis period.
+
+#### 9.3 Metrics: public versus account-owner context
+
+The current Metrics documentation distinguishes these categories:
+
+| Metric | Availability documented by X | Practical implication |
+|---|---|---|
+| Likes, replies, reposts, quotes, impressions, bookmarks | `public_metrics` | Candidate public engagement measures when returned |
+| Video views | `public_metrics.view_count` on the expanded Media object | Treat separately from post-level impressions; request media expansions |
+| URL clicks, profile clicks, total engagements | `non_public_metrics` | Requires user-context authentication and applies to posts owned by the authenticated account |
+| Organic and promoted performance | `organic_metrics`, `promoted_metrics` | User-context metrics for the account's own content; promoted metrics apply to promoted posts |
+
+X documents a 30-day availability limit for non-public, organic, and promoted metrics. Do not plan to retrieve private click or account-performance metrics for arbitrary customer posts. Public post impressions are listed in `public_metrics`; do not incorrectly classify every impression metric as private.
+
+The Forage workbook's `link_clicks` field is part of its simulated engagement calculation. It must not be treated as a universally available public metric in a real integration. For customer-authored posts, calculate engagement from public metrics actually returned and authorised. Use a consistent denominator—such as post impressions when available—and keep video views as a separate media measure unless the reporting definition explicitly combines them.
+
+#### 9.4 Access, cost, and operational controls
+
+The current Getting Access guide describes creating a developer account, accepting the Developer Agreement and Policy, creating an app, and generating credentials. A Bearer Token supports read-only public-data requests; OAuth user-context authentication is needed for owner-only metrics. Store credentials in a secret manager or environment variables, request minimum scopes, and never commit keys or tokens to Git.
+
+The published pay-per-use pricing page currently lists **US$0.005 per Post read** and a cap of **3 million Post reads per monthly billing cycle** for the pay-per-usage plan. Prices can change; verify the Developer Console before approving a budget. The pilot should estimate expected Post reads, pagination volume, refresh cadence, and retention before implementation.
+
+For InsightSpark, propose a small, time-boxed pilot that:
+1. Uses approved brand and service-related search queries and only permitted public data.
+2. Deduplicates by Post ID and records collection time, query, fields requested, and API response status.
+3. Separates bank-owned content from public customer conversations before comparing sentiment or engagement.
+4. Routes potential complaints and scam reports to human reviewers; it does not publish automated customer replies or make account decisions.
+5. Applies access controls, data minimisation, retention/deletion rules, and the current X Developer Agreement and Policy.
+
+These findings document technical feasibility considerations, not confirmation that a Commonwealth Bank developer app, budget, or production permission has been obtained.
 
 ### Step 10 — Draft the InsightSpark proposal
 
@@ -482,7 +524,7 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Reproduce the `response_needed = Yes` PivotTable (11 records; 10 Negative, 1 Neutral; intent/topic totals reconciled).
 - [ ] Complete the private row-level `Customer_Support_Review` worksheet with evidence-based issue themes and recommended actions.
 - [ ] Summarise recurring support pain points from the actual post text.
-- [ ] Document the current X API fields, access and metric restrictions.
+- [x] Review and document current X API fields, search coverage, access, metrics, and published pay-per-use constraints (official documentation reviewed 14 November 2026).
 - [ ] Write the InsightSpark proposal.
 - [ ] Submit the proposal in the Forage Task 03 response field.
 - [ ] Update README and learning log to mark the task complete only after submission.
@@ -494,5 +536,6 @@ For production X API use, calculate metrics from fields actually returned and au
 - [X API — Data Dictionary](https://docs.x.com/x-api/fundamentals/data-dictionary)
 - [X API — Metrics](https://docs.x.com/x-api/fundamentals/metrics)
 - [X API — Getting Access](https://docs.x.com/x-api/getting-started/getting-access)
+- [X API — Pay-per-use pricing](https://docs.x.com/x-api/getting-started/pricing)
 - [Forage — Twitter Sentiment Analysis overview](https://cdn.theforage.com/vinternships/companyassets/2sNmYuurxgpFYawco/y2NzZJASdgERdYR4S/1784127137044/Twitter_Sentiment_Analysis_A_Brief_Overview_With_Real_Example.pdf)
 - [Forage — X/Twitter API Getting Started PDF](https://cdn.theforage.com/vinternships/companyassets/2sNmYuurxgpFYawco/y2NzZJASdgERdYR4S/1675682056660/getting_started.pdf)
