@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Excel analysis</title><desc id="desc">Spreadsheet grid icon.</desc>
+  <rect x="7" y="7" width="50" height="50" rx="9" fill="#E8F5EE" stroke="#217346" stroke-width="2"/>
+  <path d="M22 7v50M7 24h50M7 40h50" fill="none" stroke="#217346" stroke-width="1.7" opacity=".55"/>
+  <path d="M13 18l7 12-7 12h5l5-8 5 8h5l-7-12 7-12h-5l-5 8-5-8z" fill="#217346"/>
+</svg>
