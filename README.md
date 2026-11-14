@@ -59,7 +59,7 @@ The simulation uses practical business scenarios to develop data-science and dat
 | **Primary practice tool** | Microsoft Excel Desktop for Tasks 01–03 |
 | **Analytical methods** | Excel Tables, SUMIFS, COUNTIFS, PivotTables, data minimisation, generalisation, banding, disclosure-risk checks, CSV validation |
 | **Completed analyses** | Task 01 analysis; Task 02 workbook analysis and CSV preparation; Task 03 quantitative analysis and 11-record support-text review |
-| **Current focus** | Task 04 — Database Design |
+| **Current focus** | Task 04 — relational schema prepared; Forage submission pending |
 
 ## Learning roadmap
 
@@ -82,7 +82,7 @@ flowchart TD
 | **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
 | **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, age/salary banding, k-anonymity-style and salary-diversity checks, CSV validation | <img src="https://img.shields.io/badge/CSV%20READY-2563EB?style=flat-square" alt="CSV ready; Forage upload not verified" /> |
 | **03** | Propose Data Analysis Approaches | Validated social-media profiling, topic/engagement/sentiment/time analysis, 11-record text review, X API feasibility, proposal draft | <img src="https://img.shields.io/badge/ANALYSIS%20VALIDATED%20%E2%80%94%20SUBMISSION%20PENDING-D97706?style=flat-square" alt="Analysis validated; Forage proposal submission pending confirmation" /> |
-| **04** | Designing a Database | Relational design for CommBank posts, replies, quote retweets, and direct mentions | <img src="https://img.shields.io/badge/IN%20PROGRESS-2563EB?style=flat-square" alt="Task 04 requirements review started" /> |
+| **04** | Designing a Database | Normalised relational schema, field definitions, keys, ERD, and interaction validation | <img src="https://img.shields.io/badge/SCHEMA%20READY%20%E2%80%94%20SUBMISSION%20PENDING-D97706?style=flat-square" alt="Task 04 schema prepared; Forage response submission pending" /> |
 
 ---
 
@@ -276,7 +276,7 @@ See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) f
 
 ## Project-based experience
 
-This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 profiling, engagement comparisons, sentiment, monthly and weekday analysis, and the private 11-record customer-support text review are validated. The X API feasibility review and InsightSpark proposal draft are prepared; Forage proposal submission is not yet confirmed. Task 04 requirements have been reviewed and relational database design is now in progress. It is not employment at Commonwealth Bank or a paid freelance engagement.
+This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 profiling, engagement comparisons, sentiment, monthly and weekday analysis, and the private 11-record customer-support text review are validated. The X API feasibility review and InsightSpark proposal draft are prepared; Forage proposal submission is not yet confirmed. Task 04's relational schema proposal is prepared: six core tables model accounts, posts, post references, mentions, hashtags, and hashtag associations; optional tables cover media, metric snapshots, and derived analysis. The design includes primary/foreign keys, cardinalities, an ER diagram, and validation scenarios. The Forage response has not yet been submitted or confirmed. This is not employment at Commonwealth Bank or a paid freelance engagement.
 
 **CV-ready title:** Data Analytics & Data Science Virtual Experience | Forage — Commonwealth Bank Simulation
 
