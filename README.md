@@ -287,18 +287,21 @@ See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) f
 | [Task 04 starter guide](docs/task-04-designing-a-database.md) | Database-design workflow and evidence checklist; refine against the exact Forage prompt |
 | [Privacy techniques](docs/data-privacy-techniques.md) | Direct identifiers, quasi-identifiers, pseudonymisation, linkage attacks, and k-anonymity |
 | [Project positioning](docs/project-experience-positioning.md) | Accurate CV, LinkedIn, portfolio, and interview wording |
-| [Excel starter workbook](workbooks/Task_01_Excel_Practice_Starter.xlsx) | Task 01 practice sheets, formula reference, PivotTable guide, and blank analysis area |
+| [Excel starter workbook](workbooks/task-01-excel-practice-starter.xlsx) | Task 01 practice sheets, formula reference, PivotTable guide, and blank analysis area |
+| [Contribution standards](CONTRIBUTING.md) | Evidence, privacy, documentation, and commit conventions |
+| [Security and privacy policy](SECURITY.md) | Sensitive-data handling and incident response |
+| [Repository maintenance](docs/repository-maintenance.md) | Task status vocabulary, pre-commit checks, and safe Git sync |
 | [Workbook directory notes](workbooks/README.md) | Task 02 and Task 03 companion workbook scope, local source-data handling, and reproducibility notes |
 | [Learning log](LEARNING_LOG.md) | Task progress, verified results, decisions, and reflection prompts |
 | [Windows setup](docs/local-setup-windows.md) | Clone, private data folders, Excel workflow, and safe Git practices |
 
 ## Project-based experience
 
-This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 dataset profiling and engagement comparisons by topic, content format, and post type are complete; author-type analysis is complete; sentiment, support, API review, and proposal work are still in progress. It is not employment at Commonwealth Bank or a paid freelance engagement.
+This repository is an independent, task-by-task project based on the Commonwealth Bank Introduction to Data Science virtual experience on Forage. Task 01 is complete and reconciled. Task 02's workbook analysis, privacy checks, and CSV preparation are complete, while Forage upload/acceptance is not yet verified. Task 03 profiling, engagement comparisons, sentiment PivotTables, monthly and weekday counts, and the 11-record response-needed PivotTable are validated. The private row-level customer/support review, X API feasibility review, and InsightSpark proposal remain in progress. Task 04 is planned. It is not employment at Commonwealth Bank or a paid freelance engagement.
 
 **CV-ready title:** Data Analytics & Data Science Virtual Experience | Forage — Commonwealth Bank Simulation
 
-The verified scope includes analysis of 50,783 supermarket records in Excel, conditional aggregation and PivotTable reconciliation, plus a 10,000-record customer-data de-identification exercise with 40 generalised profiles, minimum group size 111, and salary-diversity checks. Task 03 includes validated topic, format, post-type, and author-type comparisons for a 60-record fictional social-media sample (125,989 engagements, 2,906,190 views, 4.34% weighted rate); sentiment, support, API, and proposal work remain pending. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
+The verified scope includes analysis of 50,783 supermarket records in Excel, conditional aggregation and PivotTable reconciliation, plus a 10,000-record customer-data de-identification exercise with 40 generalised profiles, minimum group size 111, and salary-diversity checks. Task 03 includes validated topic, format, post-type, author-type, sentiment, time, and response-needed aggregate analyses for a 60-record fictional social-media sample (125,989 engagements, 2,906,190 views, 4.34% weighted rate). Row-level review, X API feasibility, and the InsightSpark proposal remain pending. See [CV and LinkedIn positioning guidance](docs/project-experience-positioning.md). Do not claim later tasks as completed until they have been performed and validated.
 
 ## Quality and portfolio standards
 
@@ -308,6 +311,8 @@ The verified scope includes analysis of 50,783 supermarket records in Excel, con
 - **Privacy and licensing:** Do not publish Forage-provided materials marked for simulation-only use.
 - **Honest representation:** Describe completed work as a virtual job simulation and independent learning project, not paid freelance experience or employment.
 - **Evidence-led completion:** Change task badges and completion dates only after work has been completed and reviewed.
+- **Accessible visuals:** Use original SVG diagrams with descriptive alternative text; keep the underlying workflow documented in Markdown.
+- **Repository hygiene:** Follow [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [maintenance checklist](docs/repository-maintenance.md).
 
 ## References
 
