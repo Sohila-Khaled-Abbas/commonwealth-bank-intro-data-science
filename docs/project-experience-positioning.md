@@ -19,9 +19,11 @@ For an honest CV, place it under **Project-Based Experience**, **Virtual Experie
 
 **Task 03 — analysis validated; Forage proposal submission pending confirmation:** analysed a 60-record fictional social-media dataset in Excel. Completed source profiling, 11-topic frequency analysis, engagement comparisons by topic, format, post type, and author type, both sentiment PivotTables, monthly and weekday analysis, and the official X API field/access/metric review. The sample totals 125,989 simulated engagements across 2,906,190 views (4.34% weighted rate). CommBank-authored posts account for 98.1% of recorded engagements; author groups differ in purpose and reach, so this is not a customer-satisfaction comparison. Reviewed the actual text of all 11 Customer-authored records flagged for response and documented issue themes and recommended actions in the private workbook. Recurring themes include digital banking, branch/ATM service, payment status, fraud protection/reporting, and card services. The proposal draft is prepared, but Forage submission is not confirmed. No production API access, credentials, or budget has been obtained.
 
+**Task 04 — schema proposal prepared; Forage submission pending:** designed a normalised relational model for CommBank posts and public user interactions. Defined six core tables for accounts, posts, replies/quotes, mentions, and hashtags, plus optional media, time-stamped metric, and analysis extensions. Specified fields, primary and foreign keys, relationship cardinalities, an ER diagram, and test scenarios. The Forage response is drafted but has not yet been submitted or confirmed.
+
 ## Shorter one-line CV version
 
-**Commonwealth Bank Data Science Virtual Experience (Forage) — Independent Project:** Excel analysis of 50K+ supermarket records; privacy-aware transformation and QA of a 10K-record customer dataset; and validated topic, engagement, sentiment, time, and 11-record customer-support text analysis of a 60-post fictional sample. X API feasibility and the InsightSpark proposal draft prepared; Forage proposal submission pending confirmation.
+**Commonwealth Bank Data Science Virtual Experience (Forage) — Independent Project:** Excel analysis of 50K+ supermarket records; privacy-aware transformation and QA of a 10K-record customer dataset; validated topic, engagement, sentiment, time, and 11-record customer-support text analysis of a 60-post fictional sample; and a relational database schema proposal for CommBank posts and public interactions, with keys, relationships, an ER diagram, and validation scenarios. X API feasibility and the InsightSpark proposal draft are prepared; Task 03 and Task 04 Forage submissions remain pending confirmation.
 
 ## LinkedIn project description
 
@@ -39,7 +41,7 @@ Completed the transaction-analysis exercise using Microsoft Excel Desktop, worki
 
 **Subtitle:** Excel analytics, privacy-aware data preparation, social-media insights, and database design.
 
-**Summary:** A task-by-task independent project based on a Forage virtual experience. Task 01 analysis is complete and reconciled. Task 02's workbook transformations, privacy checks, and four-column CSV preparation are complete, with platform submission pending confirmation. Task 03 profiling, engagement, author-type, sentiment, time, and response-needed analysis are validated for the 60-record fictional sample. All 11 flagged customer records were reviewed against their actual text, and recurring issue themes and recommended actions were recorded privately. The X API feasibility review and InsightSpark proposal draft are prepared; Forage submission is not yet confirmed. The public repository shares methods, decisions, and aggregate findings while keeping Forage source workbooks and customer-level deliverables private.
+**Summary:** A task-by-task independent project based on a Forage virtual experience. Task 01 analysis is complete and reconciled. Task 02's workbook transformations, privacy checks, and four-column CSV preparation are complete, with platform submission pending confirmation. Task 03 profiling, engagement, author-type, sentiment, time, and response-needed analysis are validated for the 60-record fictional sample. All 11 flagged customer records were reviewed against their actual text, and recurring issue themes and recommended actions were recorded privately. The X API feasibility review and InsightSpark proposal draft are prepared; Forage submission is not yet confirmed. A normalised relational schema proposal for Task 04 has also been prepared, including core interaction tables, keys, relationship cardinalities, and validation cases; its Forage response is pending submission. The public repository shares methods, decisions, and aggregate findings while keeping Forage source workbooks and customer-level deliverables private.
 
 **Repository:** https://github.com/Sohila-Khaled-Abbas/commonwealth-bank-intro-data-science
 
@@ -56,6 +58,6 @@ Completed the transaction-analysis exercise using Microsoft Excel Desktop, worki
 1. Keep Task 01 as complete because its five metrics were reconciled.
 2. Task 02 workbook analysis, transformation, and release QA are complete; do not say Forage accepted the CSV until the platform confirms it.
 3. Keep Task 03 in progress until the prepared InsightSpark proposal is submitted and the Forage response status is confirmed.
-4. Do not claim Task 04 database design as completed before doing the work.
+4. Task 04's schema proposal is prepared; keep the Forage task pending until its written response is submitted and the platform status is confirmed.
 5. Do not describe this simulation as paid freelance work, employment, or a direct engagement with Commonwealth Bank.
 6. When tasks are complete, update the bullets to reflect the work actually delivered and the tools actually used.
