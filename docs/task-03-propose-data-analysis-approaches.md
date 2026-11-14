@@ -191,11 +191,7 @@ These records can support a proposed service-triage workflow, but the synthetic 
 
 ## 4. Guided analysis workflow
 
-A companion Task 03 workbook template is available separately. It contains the validated aggregate summaries from the completed topic, format, and post-type PivotTables, a source-data input template, QA baseline, author-type worksheet, sentiment worksheet, API field mapping, and proposal outline. The Forage source workbook is not embedded; retain it locally because it is marked for simulation use only.
-
-## 4. Guided analysis workflow
-
-Complete the steps in order and record your own Excel outputs. Keep the original workbook unchanged and work only in a separate copy.
+Complete the steps in order and record your own Excel outputs. Keep the original workbook unchanged and work only in a separate copy. The companion workbook is a structured analysis template; it does not contain the Forage source dataset.
 
 ### Step 1 — Protect and profile the workbook
 
@@ -212,91 +208,90 @@ Use a PivotTable with:
 - Values: Count of `post_id`
 - Sort: Largest to smallest
 
-Then inspect selected text and hashtags to understand what each topic contains. The workbook already has curated topic labels, so present the frequency summary as supplied-topic analysis, not as a topic model you developed.
+The completed PivotTable has 11 topics and 60 posts. Digital banking is most frequent (13), followed by Fraud & scams (11) and Financial wellbeing (9). The top three topics account for 33 posts (55%). The dataset supplies the topic labels, so describe this as analysis of curated topic categories, not a topic model developed in this exercise.
 
-### Step 3 — Engagement analysis
+### Step 3 — Engagement analysis by topic
 
-Build PivotTables or summary tables by `topic`, `content_format`, and `post_type`.
+Use a PivotTable:
+- Rows: `topic`
+- Values: Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
+- Calculate weighted engagement rate = Sum of total engagements / Sum of views.
 
-Compare:
-- Total engagements
-- Total views
-- Weighted engagement rate = total engagements / total views
-- Post count
+The completed PivotTable reconciles to 60 posts, 125,989 engagements, and 2,906,190 views. Fraud & scams leads total engagements (36,283) and has the highest topic weighted rate (5.33%). Digital banking is most frequent but its weighted rate is 3.92%, below the overall rate of 4.34%. See the complete topic table in Section 3.
 
-Do not compare only total engagement counts: high-reach posts naturally have more opportunities to receive interactions. Separate original CommBank posts from customer replies, mentions, and quotes. Small groups (for example, four video posts) should be interpreted cautiously.
+### Step 4 — Engagement analysis by content format
 
-#### Excel checkpoint: engagement by content format
+Create a PivotTable:
+- Rows: `content_format`
+- Values: Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
+- Weighted rate = Sum of total engagements / Sum of views.
 
-A second engagement PivotTable was completed with:
-- **Rows:** `content_format`
-- **Values:** Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
-- **Weighted engagement rate:** Sum of total engagements / Sum of views
-
-The Excel results reconcile to the QA_Overview totals (60 posts, 125,989 engagements, and 2,906,190 views).
-
-| Content format | Posts | Total engagements | Total views | Weighted engagement rate | Average engagements / post |
+| Content format | Posts | Total engagements | Total views | Weighted rate | Average engagements / post |
 |---|---:|---:|---:|---:|---:|
 | Link | 6 | 21,738 | 526,900 | 4.13% | 3,623.0 |
 | Text | 36 | 3,809 | 264,990 | 1.44% | 105.8 |
 | Text + image | 14 | 73,358 | 1,590,300 | 4.61% | 5,239.9 |
 | Text + video | 4 | 27,084 | 524,000 | 5.17% | 6,771.0 |
-| **Total / overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
 
-Interpretation:
-1. **Text + video** has the highest weighted rate (5.17%) and average engagement volume per post (6,771), but it is based on only four posts.
-2. **Text + image** produces the highest total engagements (73,358) across 14 posts and a 4.61% weighted rate, above the 4.34% overall baseline.
-3. **Link** posts have a 4.13% weighted rate across six posts.
-4. **Text-only** is the most frequent format (36 of 60 posts, 60%) but has the lowest weighted rate (1.44%) and the lowest average engagement volume per post (about 106).
-5. These comparisons are descriptive, not causal. Topic, post purpose, author type, audience size, timing, and distribution may differ by format. The four-video sample is too small to declare video the universally best format.
-6. The simulated `total_engagements` field includes link clicks. Treat these results as the workbook's defined measure and do not assume all components are available as public metrics for every post through the production X API.
+Text + video has the highest weighted rate, but there are only four records. Text + image has the highest total engagements. Text is the most common format (60% of records) but has the lowest weighted rate. These comparisons are descriptive, not causal; content purpose, topic, author, reach, and timing may differ across formats.
 
-### Step 4 — Author-type analysis
+### Step 5 — Engagement analysis by post type
 
-Create a PivotTable using:
-- Rows: `author_type`
+Create a PivotTable:
+- Rows: `post_type`
 - Values: Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
-- Optional filter: `post_type`
+- Weighted rate = Sum of total engagements / Sum of views.
 
-Calculate weighted engagement rate as Sum of total engagements / Sum of views. The source profile indicates expected author counts of Customer 28, CommBank 26, Business customer 2, Community org 2, Scam awareness org 1, and News/media 1. These are source-profile counts; reproduce and validate them in Excel before treating the PivotTable as complete.
-
-Do not automatically equate author type with customer sentiment. Analyse customer-authored records separately from CommBank-authored content and keep the small organisation groups descriptive only.
-
-### Step 5 — Sentiment analysis
-
-Build a PivotTable:
-- Rows: `sentiment_label`
-- Values: Count of `post_id`
-- Optional columns/filter: `author_type` or `post_type`
-
-Then create a second analysis of Customer-authored records only. Review the text for negative or mixed conversations and distinguish genuine complaints from questions, scam reports, and feature feedback.
-
-#### Excel checkpoint: engagement by post type
-
-A third engagement PivotTable was completed with:
-- **Rows:** `post_type`
-- **Values:** Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
-- **Weighted engagement rate:** Sum of total engagements / Sum of views
-
-The PivotTable reconciles to the baseline QA totals (60 posts, 125,989 engagements, 2,906,190 views).
-
-| Post type | Posts | Total engagements | Total views | Weighted engagement rate | Average engagements / post |
+| Post type | Posts | Total engagements | Total views | Weighted rate | Average engagements / post |
 |---|---:|---:|---:|---:|---:|
 | Mention | 17 | 1,112 | 73,530 | 1.51% | 65.4 |
 | Original post | 24 | 123,337 | 2,730,800 | 4.52% | 5,139.0 |
 | Quote post | 3 | 621 | 44,600 | 1.39% | 207.0 |
 | Reply | 16 | 919 | 57,260 | 1.60% | 57.4 |
-| **Total / overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
+| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** | **2,099.8** |
 
-Interpretation:
-1. Original posts represent 24 of 60 records (40%) but account for 123,337 of 125,989 engagements (about 97.9%). Their weighted rate is 4.52%, slightly above the 4.34% overall rate.
-2. Mentions and replies have much lower observed engagement volume per record and weighted rates (1.51% and 1.60%). These records often represent conversation or service interactions rather than broadcast content, so the metrics should not be treated as a like-for-like content-quality ranking.
-3. Quote posts number only three; their 1.39% rate is too small a sample for a stable conclusion.
-4. Post type alone does not establish who authored a post. Cross-tabulate with `author_type` before describing original posts as CommBank-authored or mentions/replies as customer-authored.
-5. Engagement differences are descriptive, not causal. Topic, format, audience size, follower bucket, and timing may differ by post type.
-6. The workbook's simulated `total_engagements` includes link clicks. Do not assume this composite metric maps directly to universally available public X API metrics.
+Original posts are 40% of records but contribute about 97.9% of observed engagements. Mentions and replies serve different conversational purposes, so do not treat their lower interaction totals as weaker customer interest or poorer content quality. Quote posts have only three observations. Post type does not tell us who authored a post; use `author_type` separately.
 
-### Step 6 — Time and customer-support analysis
+### Step 6 — Engagement analysis by author type
+
+Create a PivotTable:
+- Rows: `author_type`
+- Values: Count of `post_id`, Sum of `total_engagements`, and Sum of `views`
+- Optional report filter: `post_type`, left at All.
+
+Weighted rate = Sum of total engagements / Sum of views.
+
+**Validated Excel results:**
+
+| Author type | Posts | Total engagements | Total views | Weighted rate |
+|---|---:|---:|---:|---:|
+| Customer | 28 | 1,597 | 96,990 | 1.65% |
+| CommBank | 26 | 123,593 | 2,754,800 | 4.49% |
+| Business customer | 2 | 97 | 5,600 | 1.73% |
+| Community org | 2 | 237 | 11,100 | 2.14% |
+| News/media | 1 | 328 | 31,000 | 1.06% |
+| Scam awareness org | 1 | 137 | 6,700 | 2.04% |
+| **Grand Total** | **60** | **125,989** | **2,906,190** | **4.34%** |
+
+The PivotTable reconciles to QA_Overview. CommBank-authored records contribute about 98.1% of total engagements and have a 4.49% weighted rate. Customer-authored records have a 1.65% weighted rate. This is not a customer-satisfaction comparison: author groups differ in purpose, reach, and content type. The five non-core organisational categories contain only one or two posts each and should be interpreted cautiously.
+
+### Step 7 — Sentiment analysis
+
+Create a PivotTable:
+- Rows: `sentiment_label`
+- Values: Count of `post_id`
+- Columns or report filter: `author_type`
+
+Complete two views:
+1. All posts, to understand the supplied sample's sentiment mix.
+2. Customer-authored posts only, to focus on customer conversation rather than CommBank's own communications.
+
+Then review the actual customer-authored text for negative or mixed sentiment. Distinguish complaints, questions, scam reports, service incidents, and feature feedback. Do not interpret CommBank-authored educational or promotional posts as customer opinions.
+
+The workbook's sentiment labels and scores are supplied curated fields. They are not model predictions generated or evaluated in this exercise. In a real workflow, sentiment should be treated as a triage signal and supported by human review for sarcasm, ambiguity, mixed emotion, and urgent financial-service concerns.
+
+### Step 8 — Time and customer-support analysis
 
 - Group post counts by month and day of week.
 - Compare topic and sentiment across time.
@@ -306,7 +301,7 @@ Interpretation:
 
 The sample covers only part of April, May, and part of June 2026. Do not make strong seasonal or long-term trend claims from this short window.
 
-### Step 7 — Review the X API and operational feasibility
+### Step 9 — Review the X API and operational feasibility
 
 Use the current official documentation, not only the older Forage PDF:
 - Search Posts: https://docs.x.com/x-api/posts/search/introduction
@@ -328,7 +323,7 @@ Important API limitation: recent search covers the last seven days. Full-archive
 
 The sample's `link_clicks` field should not be assumed to be universally available for all public posts. X documents URL clicks as non-public metrics and requires user-context authentication for the account's own content. Impressions, likes, reposts, and replies are listed as public metrics.
 
-### Step 8 — Draft the InsightSpark proposal
+### Step 10 — Draft the InsightSpark proposal
 
 The proposal should cover:
 1. Business objective and use cases.
@@ -374,7 +369,7 @@ For production X API use, calculate metrics from fields actually returned and au
 - [x] Compare engagement by topic (topic-level engagement, views, and weighted rates reconciled to QA_Overview).
 - [x] Compare engagement by content format (weighted rates reconcile to QA_Overview).
 - [x] Compare engagement by post type (counts and weighted rates reconcile to QA_Overview).
-- [ ] Validate the author_type PivotTable (six categories; 60 posts; compare counts and weighted engagement by author group).
+- [x] Reproduce and validate the author_type PivotTable (six categories; 60 posts; totals reconcile to QA_Overview).
 - [ ] Analyse sentiment, including customer-authored records separately.
 - [ ] Review support flags and recurring pain points.
 - [ ] Document the current X API fields, access and metric restrictions.
