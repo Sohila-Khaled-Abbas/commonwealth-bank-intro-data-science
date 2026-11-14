@@ -139,7 +139,7 @@ The completed Excel analysis used `SUMIFS` and `COUNTIFS` and was independently 
 
 The source table contained **50,783** records. The formula outputs matched the corresponding PivotTable values. See the [Task 01 analysis guide](docs/task-01-data-aggregation-analysis.md) for data-quality checks, exact formulas, full PivotTable breakdowns, and limitations.
 
-**Practice workbook:** [Task 01 Excel Practice Starter](workbooks/Task_01_Excel_Practice_Starter.xlsx)  
+**Practice workbook:** [Task 01 Excel Practice Starter](workbooks/task-01-excel-practice-starter.xlsx)  
 **Step-by-step instructions:** [Task 01 — Data Aggregation and Analysis](docs/task-01-data-aggregation-analysis.md)
 
 </details>
