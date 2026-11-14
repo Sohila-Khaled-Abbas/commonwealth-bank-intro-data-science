@@ -394,13 +394,41 @@ Create a worksheet named `Customer_Support_Review` with these columns:
 
 `post_id`, `author_type`, `customer_intent`, `topic`, `sentiment_label`, `response_needed`, `issue_theme`, `recommended_action`.
 
-Populate the first six columns from the 11 source rows where `response_needed = Yes`. Use a dynamic `FILTER` formula if available, or copy the filtered rows as values into the private working workbook. Keep this worksheet and the post text out of Git.
+#### Recommended setup — safe inside an Excel Table
+
+A common `#SPILL!` cause is placing a dynamic-array formula such as `FILTER(...)` directly inside an Excel Table. A Table cell expects one value, while `FILTER` returns multiple rows and columns. Use a scalar `INDEX(FILTER(...))` formula in each Table column instead.
+
+1. Keep `Customer_Support_Review` as an Excel Table if you want filters and structured formatting.
+2. In the first data row of the `post_id` column, enter:
+
+   ```excel
+   =IFERROR(INDEX(FILTER(SocialMediaPosts[post_id],SocialMediaPosts[response_needed]="Yes"),ROWS($A$2:A2)),"")
+   ```
+
+3. Use the same row selector in the other five source columns, changing only the source field:
+
+   | Review column | Formula for its first data row |
+   |---|---|
+   | `author_type` | `=IFERROR(INDEX(FILTER(SocialMediaPosts[author_type],SocialMediaPosts[response_needed]="Yes"),ROWS($A$2:A2)),"")` |
+   | `customer_intent` | `=IFERROR(INDEX(FILTER(SocialMediaPosts[customer_intent],SocialMediaPosts[response_needed]="Yes"),ROWS($A$2:A2)),"")` |
+   | `topic` | `=IFERROR(INDEX(FILTER(SocialMediaPosts[topic],SocialMediaPosts[response_needed]="Yes"),ROWS($A$2:A2)),"")` |
+   | `sentiment_label` | `=IFERROR(INDEX(FILTER(SocialMediaPosts[sentiment_label],SocialMediaPosts[response_needed]="Yes"),ROWS($A$2:A2)),"")` |
+   | `response_needed` | `=IFERROR(INDEX(FILTER(SocialMediaPosts[response_needed],SocialMediaPosts[response_needed]="Yes"),ROWS($A$2:A2)),"")` |
+
+4. Fill each formula down for 11 rows. In a Table, Excel may automatically fill the calculated column. Confirm that the row selector increments from 1 through 11.
+5. Confirm the IDs are `SM003`, `SM006`, `SM012`, `SM017`, `SM019`, `SM025`, `SM030`, `SM035`, `SM043`, `SM045`, and `SM058`, and that every row has `response_needed = Yes`.
+
+If you prefer a **normal worksheet range rather than an Excel Table**, clear the entire intended spill area (for example, `A2:F12`), make sure no merged cells or other values obstruct it, and enter the original six-column `FILTER` formula only in `A2`. Do not place that multi-cell formula inside a Table. If Excel still reports `#SPILL!`, select the warning icon beside the cell and read the specific obstruction message before changing anything else.
+
+Keep the review sheet, original Forage workbook, any copied `post_text`, and the completed private analysis workbook out of Git. These are local working materials, not repository assets.
+
+#### Complete the evidence-based review
 
 For each flagged row:
 1. Read the actual `post_text` in the source workbook.
 2. Assign an issue theme based on evidence in the wording (for example, ATM/branch access, digital banking, card servicing, service disruption, or suspected fraud).
 3. Recommend a proportionate action (for example, acknowledge and route, provide approved guidance, check incident status, or escalate to the appropriate fraud/security queue).
-4. Record uncertainty rather than guessing. Sentiment alone does not determine urgency or the correct action.
+4. Record uncertainty rather than guessing. Sentiment alone does not determine urgency or the correct action. In particular, do not label a generic fraud-topic complaint as a scam report unless the text supports that interpretation.
 5. Reconcile exactly 11 reviewed rows with the PivotTable before summarising recurring themes.
 
 **Current checkpoint:** monthly counts, weekday counts, and the 11-row support-flag PivotTable are validated. The manual row-level theme and action review is not yet confirmed complete.
