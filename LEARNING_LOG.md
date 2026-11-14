@@ -279,7 +279,18 @@ Interpretation:
 - Topic counts: Branch/ATM 3; Digital banking 3; Fraud & scams 2; Outage/service issue 2; Card services 1.
 - The PivotTable is validated. A private row-level `Customer_Support_Review` worksheet is still required to inspect the actual text, classify issue themes, and recommend actions. Do not invent details from the aggregate PivotTable.
 
-**Next:** complete the private row-level support/customer sentiment review, verify current X API access and metric constraints, and draft the InsightSpark proposal. Task 03 remains in progress until the proposal is submitted in Forage.
+**Step 9 — Official X API documentation review (14 November 2026)**
+
+Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introduction), [Data Dictionary](https://docs.x.com/x-api/fundamentals/data-dictionary), [Metrics](https://docs.x.com/x-api/fundamentals/metrics), [Getting Access](https://docs.x.com/x-api/getting-started/getting-access), and [pay-per-use pricing](https://docs.x.com/x-api/getting-started/pricing) documentation.
+
+- Mapped post identity, text, creation time, author, conversation, reply/reference, entity, context, language, and media fields to the proposed analysis.
+- Confirmed Recent Search covers the previous seven days (up to 100 posts per request); Full-Archive Search reaches back to March 2006 (up to 500 posts per request) and requires pay-per-use or Enterprise access. Both support pagination.
+- Separated public post metrics (likes, replies, reposts, quotes, impressions, bookmarks) from account-owner metrics such as URL clicks, profile clicks, and total engagements. Owner-context metrics require user-context authentication and are subject to a 30-day availability limit.
+- Noted that video views are returned through the expanded Media object and should not be silently combined with post impressions.
+- Recorded the published pay-per-use price of US$0.005 per Post read and the 3-million-Post-read monthly cap. The pricing page warns that prices can change, so a live budget must be confirmed in the Developer Console.
+- No API account, app, credential, budget, or production access has been created or verified as part of this learning exercise.
+
+**Next:** complete the private row-level support/customer sentiment review using the actual post text, summarise recurring themes, and draft the InsightSpark proposal. Task 03 remains in progress until the proposal is submitted in Forage.
 
 ### Task 03 reflection prompts
 
