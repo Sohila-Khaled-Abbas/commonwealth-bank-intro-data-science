@@ -21,7 +21,7 @@ For an honest CV, place it under **Project-Based Experience**, **Virtual Experie
 
 ## Shorter one-line CV version
 
-**Commonwealth Bank Data Science Virtual Experience (Forage) — Independent Project:** Excel analysis of 50K+ supermarket records, conditional aggregation and PivotTable reconciliation; privacy-aware transformation and QA of a 10K-record customer dataset; and ongoing social-media analysis of a 60-post fictional sample using topic and engagement PivotTables.
+**Commonwealth Bank Data Science Virtual Experience (Forage) — Independent Project:** Excel analysis of 50K+ supermarket records; privacy-aware transformation and QA of a 10K-record customer dataset; and validated topic, engagement, sentiment, time, and 11-record customer-support text analysis of a 60-post fictional sample. X API feasibility and the InsightSpark proposal draft prepared; Forage proposal submission pending confirmation.
 
 ## LinkedIn project description
 
