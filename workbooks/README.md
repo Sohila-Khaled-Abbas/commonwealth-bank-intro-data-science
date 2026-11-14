@@ -16,6 +16,10 @@ The templates support reproducible practice and documentation. They contain aggr
 - The user's private Task 03 working copy includes customer-level post text and an 11-row support-review sheet. Keep the full workbook and row-level content out of this public repository; publish only aggregate findings and methodology.
 - Keep author-level or customer-level extracts private. Publish aggregate findings and methodology only.
 
+## Task 04 private design workbook
+
+The Task 04 working workbook is maintained locally at `data/working/Task04_Database_Design.xlsx`. It is a private design/requirements workbook, not a Forage source-data workbook or a public companion template. Keep it out of GitHub along with all other files under `data/raw/` and `data/working/`. The public Task 04 schema proposal and submission text are documented in [the Task 04 guide](../docs/task-04-designing-a-database.md).
+
 ## Workbook status
 
 | Workbook | Purpose | Current state |
