@@ -264,7 +264,7 @@ Interpretation:
 - All-posts sentiment: Positive 26, Neutral 15, Negative 11, Mixed 8 (60 total).
 - Customer-only sentiment: Negative 11 (39.29%), Positive 8 (28.57%), Mixed 7 (25.00%), Neutral 2 (7.14%) (28 total).
 - All 11 Negative labels belong to Customer-authored posts; seven of eight Mixed labels are Customer-authored.
-- The supplied sentiment labels are curated source fields, not model predictions developed in this exercise. Qualitative reading of negative/mixed customer text remains a separate review.
+- The supplied sentiment labels are curated source fields, not model predictions developed in this exercise. The completed manual review is limited to the 11 records flagged for response; a broader reading of all Negative and Mixed Customer-authored records is a separate optional audit and is not claimed as complete.
 
 **Step 8 — Time analysis**
 - Monthly post counts: April 2026 = 25; May = 27; June = 8; total = 60.
