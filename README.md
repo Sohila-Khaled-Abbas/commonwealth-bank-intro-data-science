@@ -58,8 +58,8 @@ The simulation uses practical business scenarios to develop data-science and dat
 | **Format** | Self-paced virtual job simulation |
 | **Primary practice tool** | Microsoft Excel Desktop for Tasks 01–03 |
 | **Analytical methods** | Excel Tables, SUMIFS, COUNTIFS, PivotTables, data minimisation, generalisation, banding, disclosure-risk checks, CSV validation |
-| **Completed analyses** | Task 01 — Data Aggregation and Analysis; Task 02 — Data Anonymisation workbook analysis and CSV preparation |
-| **Current focus** | Task 03 — Social Media Data and Business Insights |
+| **Completed analyses** | Task 01 analysis; Task 02 workbook analysis and CSV preparation; Task 03 quantitative analysis and 11-record support-text review |
+| **Current focus** | Task 04 — Database Design |
 
 ## Learning roadmap
 
@@ -81,8 +81,8 @@ flowchart TD
 |:---:|---|---|:---:|
 | **01** | Data Aggregation and Analysis | Excel Tables, `COUNTIFS`, `SUMIFS`, PivotTables, validation | <img src="https://img.shields.io/badge/ANALYSIS%20COMPLETE-15803D?style=flat-square" alt="Analysis complete" /> |
 | **02** | Data Anonymisation | Direct and quasi-identifiers, generalisation, age/salary banding, k-anonymity-style and salary-diversity checks, CSV validation | <img src="https://img.shields.io/badge/CSV%20READY-2563EB?style=flat-square" alt="CSV ready; Forage upload not verified" /> |
-| **03** | Propose Data Analysis Approaches | Social-media topic, sentiment, engagement, trend, customer-support analysis, X API mapping, proposal writing | <img src="https://img.shields.io/badge/ANALYSIS%20IN%20PROGRESS-D97706?style=flat-square" alt="Analysis in progress" /> |
-| **04** | Designing a Database | Database structure, entities, attributes, relationships, and schema communication | <img src="https://img.shields.io/badge/PLANNED-64748B?style=flat-square" alt="Planned" /> |
+| **03** | Propose Data Analysis Approaches | Validated social-media profiling, topic/engagement/sentiment/time analysis, 11-record text review, X API feasibility, proposal draft | <img src="https://img.shields.io/badge/ANALYSIS%20VALIDATED%20%E2%80%94%20SUBMISSION%20PENDING-D97706?style=flat-square" alt="Analysis validated; Forage proposal submission pending confirmation" /> |
+| **04** | Designing a Database | Relational design for CommBank posts, replies, quote retweets, and direct mentions | <img src="https://img.shields.io/badge/IN%20PROGRESS-2563EB?style=flat-square" alt="Task 04 requirements review started" /> |
 
 ---
 
@@ -159,77 +159,57 @@ Keep the source workbook, working workbook, customer-level CSV, and any identifi
 
 ## Task 03 — Propose Data Analysis Approaches
 
-Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling, engagement comparisons by topic, content format, post type, and author type, and both sentiment PivotTables are validated. Time analysis is also validated: 25 posts in April, 27 in May, and 8 in June 2026 (the sample ends on June 12); weekday counts are Tuesday 11, Wednesday 11, Thursday 10, Friday 8, Saturday 7, Sunday 7, and Monday 6. The response-needed PivotTable reconciles to 11 records: 10 Negative and 1 Neutral. The flagged records group into five complaints, five questions, and one scam report. The official X API field, search-access, metrics, and published pricing documentation has been reviewed and documented. The private row-level qualitative review and InsightSpark proposal remain open.
+**Status:** Analysis validated; the InsightSpark proposal draft is prepared, but Forage submission is not yet confirmed. Task 03 remains open until the response is submitted.
 
-### Validated topic and engagement results
+The original Forage source workbook contains five source/metadata worksheets and a main table with **60 fictional records across 24 fields** (`SocialMediaPosts`, A1:X61). The private working copy used for analysis contains **16 worksheets**: the five source sheets plus QA, topic, engagement, format, post-type, author-type, sentiment, time, and customer-support review outputs. The uploaded working copy is private and is not included in this repository.
 
-The topic PivotTable contains 11 categories and reconciles to 60 records. Digital banking is the most frequent topic (13 posts), followed by Fraud & scams (11) and Financial wellbeing (9). These three categories represent 33 of 60 records (55%).
+### Validated analysis
 
-The topic-level engagement PivotTable reconciles to **125,989 total engagements** and **2,906,190 views**. The overall weighted engagement rate is **4.34%**.
+| Measure | Result |
+|---|---:|
+| Records / distinct post IDs | 60 / 60 |
+| Duplicate post IDs | 0 |
+| Blank post IDs / post text | 0 / 0 |
+| Blank hashtags | 29 |
+| Date range | 15 April – 12 June 2026 |
+| Total simulated engagements | 125,989 |
+| Total simulated views | 2,906,190 |
+| Weighted engagement rate | 4.34% |
 
-| Topic | Posts | Total engagements | Weighted engagement rate |
+The sample's total-engagement formula includes likes, replies, reposts, quote posts, and simulated link clicks. The 4.34% weighted rate is total engagements divided by total views; it is not the unweighted mean of row-level rates. The simulated link-click field must not be represented as a universally available public X API metric.
+
+### Topic and engagement findings
+
+Digital banking is the most frequent topic (13 posts), followed by Fraud & scams (11) and Financial wellbeing (9). Together they account for 33 of 60 records (55%). Fraud & scams leads topic-level total engagement (36,283) and weighted engagement rate (5.33%). Security education has the highest average engagement volume per post (4,472) across five posts.
+
+| Content format | Posts | Total engagements | Weighted rate |
 |---|---:|---:|---:|
-| Fraud & scams | 11 | 36,283 | 5.33% |
-| Financial wellbeing | 9 | 23,309 | 4.54% |
-| Security education | 5 | 22,360 | 5.08% |
-| Digital banking | 13 | 21,176 | 3.92% |
-| Card services | 4 | 8,303 | 4.31% |
-| Community | 4 | 8,279 | 3.48% |
-| Business banking | 3 | 2,671 | 4.46% |
-| Sustainability | 2 | 1,787 | 1.76% |
-| Outage/service issue | 5 | 1,714 | 1.30% |
-| Branch/ATM | 3 | 90 | 1.57% |
-| Customer support | 1 | 17 | 0.81% |
+| Link | 6 | 21,738 | 4.13% |
+| Text | 36 | 3,809 | 1.44% |
+| Text + image | 14 | 73,358 | 4.61% |
+| Text + video | 4 | 27,084 | 5.17% |
+| **Total** | **60** | **125,989** | **4.34%** |
 
-Fraud & scams has the highest total engagements and topic-level weighted rate. Security education has the highest average engagements per post (4,472), based on 22,360 engagements across five posts. Digital banking appears most often but its weighted rate (3.92%) is below the overall 4.34%. These are descriptive results from a small fictional sample, not evidence of real CommBank campaign performance or customer opinion. The workbook's total-engagement measure includes link clicks; the guide explains why this should not be assumed to be a generally available public X metric.
+Original posts account for 123,337 engagements (about 97.9%) from 24 records and have a 4.52% weighted rate. By author type, CommBank-authored records contribute 123,593 engagements across 26 posts, while Customer-authored records contribute 1,597 across 28 posts. These differences reflect unlike purposes and reach; they are not a customer-satisfaction comparison.
 
-### Engagement by content format
+### Sentiment, time, and customer support
 
-The format PivotTable also reconciles to the QA totals. Text + video has the highest weighted engagement rate (5.17%) across four posts; Text + image has the highest total engagement (73,358) across 14 posts and a 4.61% weighted rate. Text-only is the most common format (36 posts, 60% of the sample), but its weighted rate is 1.44%. The small video sample and differences in topic, purpose, author and reach mean these are descriptive associations, not evidence that format alone caused engagement.
+The all-posts sentiment PivotTable reconciles to 26 Positive, 15 Neutral, 11 Negative, and 8 Mixed records. For 28 Customer-authored posts, the breakdown is 11 Negative (39.29%), 8 Positive (28.57%), 7 Mixed (25.00%), and 2 Neutral (7.14%). The supplied sentiment labels are curated fields, not model predictions developed in this exercise.
 
-| Content format | Posts | Total engagements | Views | Weighted rate |
-|---|---:|---:|---:|---:|
-| Link | 6 | 21,738 | 526,900 | 4.13% |
-| Text | 36 | 3,809 | 264,990 | 1.44% |
-| Text + image | 14 | 73,358 | 1,590,300 | 4.61% |
-| Text + video | 4 | 27,084 | 524,000 | 5.17% |
-| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
+Monthly counts are April 25, May 27, and June 8; June is partial because the sample ends on 12 June. Weekday counts are Tuesday 11, Wednesday 11, Thursday 10, Friday 8, Saturday 7, Sunday 7, and Monday 6. These small-sample counts are descriptive and do not establish seasonality or an optimal posting schedule.
 
-### Engagement by post type
+The source contains 11 Customer-authored records with `response_needed = Yes`: five Complaints, five Questions, and one Scam report; ten are labelled Negative and one Neutral. All 11 were reviewed against their actual text in the private `Customer_Support_Review` sheet. The recurring themes are Digital banking (3), Branch/ATM (3), Payment status / possible disruption (2), Fraud protection / reporting experience (2), and Card services (1). The fraud-related records were distinguished: one is a potential phishing report; the other is a complaint about finding the in-app scam-reporting feature. These are support-routing recommendations, not completed service resolutions.
 
-The post-type PivotTable reconciles to the same 60 posts, 125,989 engagements, and 2,906,190 views. Original posts account for 123,337 engagements (about 97.9%) from 24 records, with a 4.52% weighted rate. Mentions (17 posts) and replies (16 posts) have weighted rates of 1.51% and 1.60%; quote posts are represented by only three records. Because post types have different purposes, and post type does not itself identify the author, these results should be interpreted alongside `author_type` rather than as a direct content-quality ranking.
+**Workbook evidence note:** the 16-sheet working copy contains `Customer_Support_Review` but no separate `PVT_Support_Flagged` worksheet. The support review is documented as an 11-record filtered table, not as a saved PivotTable tab. The manual text-review scope covers the 11 response-needed records, not every Negative or Mixed Customer-authored post in the full dataset.
 
-| Post type | Posts | Total engagements | Views | Weighted rate |
-|---|---:|---:|---:|---:|
-| Original post | 24 | 123,337 | 2,730,800 | 4.52% |
-| Mention | 17 | 1,112 | 73,530 | 1.51% |
-| Reply | 16 | 919 | 57,260 | 1.60% |
-| Quote post | 3 | 621 | 44,600 | 1.39% |
-| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
+### X API review and proposal
 
-### Engagement by author type
+The official X API field, search coverage, access, metric, and published pricing documentation was reviewed and recorded in the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md). No developer app, production credential, API budget, or production access has been obtained or verified. The InsightSpark proposal draft covers collection, ingestion, database enrichment, analytics, human-reviewed support triage, governance, and a controlled pilot. **Forage submission is pending confirmation; Task 03 is not yet marked complete.**
 
-The author-type PivotTable was validated across all six categories. CommBank-authored records account for 123,593 engagements across 26 posts and 2,754,800 views (4.49% weighted rate). Customer-authored records account for 1,597 engagements across 28 posts and 96,990 views (1.65%). CommBank posts contributed about 98.1% of recorded engagements in this sample. This is not a customer-satisfaction comparison: author groups have different purposes, content types, and reach. The smaller non-core author groups have only one or two records.
+See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for the field mapping, full validated tables, Excel workflow, privacy constraints, and remaining submission checkpoint.
 
-| Author type | Posts | Total engagements | Views | Weighted rate |
-|---|---:|---:|---:|---:|
-| Customer | 28 | 1,597 | 96,990 | 1.65% |
-| CommBank | 26 | 123,593 | 2,754,800 | 4.49% |
-| Business customer | 2 | 97 | 5,600 | 1.73% |
-| Community org | 2 | 237 | 11,100 | 2.14% |
-| Scam awareness org | 1 | 137 | 6,700 | 2.04% |
-| News/media | 1 | 328 | 31,000 | 1.06% |
-| **Overall** | **60** | **125,989** | **2,906,190** | **4.34%** |
 
-### Time and customer-support findings
 
-The monthly PivotTable reconciles to 60 posts: April 25 (41.7%), May 27 (45.0%), and June 8 (13.3%). June is partial because the sample ends on June 12, 2026. Weekday counts are Tuesday 11, Wednesday 11, Thursday 10, Friday 8, Saturday 7, Sunday 7, and Monday 6. These are descriptive counts from a short simulated sample, not evidence of long-term seasonality or an optimal publishing schedule.
-
-The `response_needed = Yes` PivotTable reconciles to 11 records: 10 Negative and one Neutral. Customer intent consists of five Complaints, five Questions, and one Scam report. The topic split is Branch/ATM (3), Digital banking (3), Fraud & scams (2), Outage/service issue (2), and Card services (1). The row-level `Customer_Support_Review` worksheet and manual theme/action review are the next checkpoint; do not infer the content or urgency of an individual post from aggregate counts.
-
-**Remaining Task 03 work:** complete the private row-level customer/support review, summarise recurring themes from the actual post text, and write and submit the InsightSpark proposal. The current X API technical review is documented in the Task 03 guide; account-specific access, budget, and production approvals are not assumed. Do not mark Task 03 complete until the proposal is submitted through Forage.
-
-See the [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) for formulas, complete topic-level results, interpretation, API mapping, limitations, and the step-by-step workflow.
 
 ## Repository structure
 
@@ -283,7 +263,7 @@ See [Local Setup — Windows and Microsoft Excel](docs/local-setup-windows.md) f
 | [Task 01 guide](docs/task-01-data-aggregation-analysis.md) | Completed Excel analysis, formulas, PivotTables, data-quality checks, and reconciliation |
 | [Task 02 guide](docs/task-02-data-anonymisation.md) | Data inventory, transformation decisions, linkage, privacy checks, and CSV delivery |
 | [Task 03 guide](docs/task-03-propose-data-analysis-approaches.md) | Social-media profiling, engagement, sentiment, support review, X API feasibility, and proposal |
-| [Task 04 starter guide](docs/task-04-designing-a-database.md) | Database-design workflow and evidence checklist; refine against the exact Forage prompt |
+| [Task 04 guide](docs/task-04-designing-a-database.md) | Task-specific relational database design for CommBank posts, replies, quote retweets, and direct mentions |
 | [Privacy techniques](docs/data-privacy-techniques.md) | Direct identifiers, quasi-identifiers, pseudonymisation, linkage attacks, and k-anonymity |
 | [Project positioning](docs/project-experience-positioning.md) | Accurate CV, LinkedIn, portfolio, and interview wording |
 | [Excel starter workbook](workbooks/task-01-excel-practice-starter.xlsx) | Task 01 practice sheets, formula reference, PivotTable guide, and blank analysis area |
