@@ -148,7 +148,7 @@ Keep the source workbook, working workbook, customer-level CSV, and any identifi
 
 ## Task 03 — Propose Data Analysis Approaches
 
-Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling and engagement comparisons by topic, content format, post type, and author type are complete. The next analysis is sentiment, followed by time/customer-support analysis, current X API review, and the InsightSpark proposal.
+Task 03 is in progress. The supplied workbook contains 60 fictional social-media records across 24 fields and five worksheets. Dataset profiling and engagement comparisons by topic, content format, post type, and author type are complete. The all-posts and Customer-only sentiment PivotTables are now validated: 26 positive, 15 neutral, 11 negative, and 8 mixed labels overall; the 28 Customer-authored records comprise 11 negative, 8 positive, 7 mixed, and 2 neutral. Qualitative review of negative/mixed customer text remains before time/customer-support analysis, the current X API review, and the InsightSpark proposal.
 
 ### Validated topic and engagement results
 
