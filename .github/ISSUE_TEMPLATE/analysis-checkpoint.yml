@@ -1,0 +1,49 @@
+name: Analysis checkpoint
+description: Record a reproducible learning or validation checkpoint
+title: "[checkpoint]: "
+labels: ["learning-log"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include Forage source files, customer-level data, social post text, personal information, or credentials in this issue.
+  - type: input
+    id: task
+    attributes:
+      label: Task and step
+      placeholder: "Task 03 — Step 8"
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Method
+      description: Record fields, filters, formulas, PivotTable layout, or design method.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation evidence
+      description: Aggregate counts and reconciliation checks only.
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: Interpretation and limitations
+    validations:
+      required: false
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Planned
+        - In progress
+        - Analysis validated
+        - Prepared locally
+        - Submitted
+        - Complete
+    validations:
+      required: true
