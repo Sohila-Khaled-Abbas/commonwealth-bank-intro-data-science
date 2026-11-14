@@ -43,7 +43,7 @@ Excel was used as an analytical environment, not only as a final reporting tool:
 ## Public evidence
 
 - [GitHub repository](https://github.com/Sohila-Khaled-Abbas/commonwealth-bank-intro-data-science)
-- [Forage completion certificate](https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/smwfytX3mcLboA9bf_2sNmYuurxgpFYawco_6ae9f5fbcfb5bb576b61ccb2_1794678594629_completion_certificate.pdf)
+- [Forage completion certificate](https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/smwfytX3mcLboA9bf_2sNmYuurxgpFYawco_6ae9f5fbcfb5bb576b61ccb2_1794678594628_completion_certificate.pdf)
 - [Task 01 guide](task-01-data-aggregation-analysis.md)
 - [Task 02 guide](task-02-data-anonymisation.md)
 - [Task 03 guide](task-03-propose-data-analysis-approaches.md)
