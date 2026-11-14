@@ -305,8 +305,50 @@ Reviewed the current [Search Posts](https://docs.x.com/x-api/posts/search/introd
 4. Which fields are directly available from the official X API, and which metrics require account-owner authentication or separate analytics?
 5. What limitations arise from using 60 fictional, curated records?
 
+## Task 04 — Designing a Database
+
+**Work date:** 2026-11-14  
+**Design status:** Schema proposal prepared and checked against the Forage requirements  
+**Forage submission:** Pending — response drafted; platform save/submission not verified
+
+| Activity | Techniques / focus | Validation / evidence | Status |
+|---|---|---|---|
+| Review the task requirements | Identify required data subjects and interaction types | CommBank-authored posts, user replies, user quote posts, and public direct mentions identified; private Direct Messages excluded | Complete |
+| Define the data grain | Distinguish posts from relationships | One row per unique post; replies and quote posts are separate Posts records; mentions are separate post-to-account associations | Complete |
+| Build the field inventory | Map Task 03 fields and additional X API concepts | 24 Task 03 fields mapped; added author ID, username, conversation ID, referenced post details, mentions, hashtags, and media keys | Complete |
+| Correct source-to-schema mappings | Distinguish raw API attributes from derived or curated fields | Post type derived from references/author; mention flag represented as an account association; follower bucket not treated as an exact count; calculated fields kept out of source tables | Complete |
+| Define core entities | Normalisation and relational modelling | Accounts, Posts, Post_References, Post_Mentions, Hashtags, and Post_Hashtags | Complete |
+| Add optional analytics extensions | Historical metrics and analysis provenance | Post_Media, Post_Metric_Snapshots, and Post_Analysis separated from the required core | Complete |
+| Define columns and keys | Primary keys, foreign keys, data types, nullability | Each table has an explicit primary key; foreign keys and composite keys are documented in the Task 04 guide | Complete |
+| Define relationships | 1:M, M:N, self-referencing relationships | Accounts-to-Posts 1:M; Posts-to-Accounts mentions M:N via junction; Posts-to-Hashtags M:N via junction; Posts self-reference via Post_References | Complete |
+| Validate required scenarios | Conceptual model checks | Original CommBank post, reply, quote post, direct mention, overlapping reply+mention, and multi-value hashtags/media tested against the model | Passed |
+| Prepare Forage response | Written submission | Full response prepared in Section 12 of the Task 04 guide; no database or API integration claimed | Draft ready; submission pending |
+
+### Task 04 modelling decisions
+
+- **Public content only:** "Direct mentions" is interpreted as public posts that mention the CommBank account. Private Direct Messages are outside the stated task.
+- **One post, one record:** Original posts, replies, and quote posts share the Posts table; their relationships are represented separately.
+- **References vs mentions:** `referenced_tweets` identifies the post being replied to or quoted. `entities.mentions` identifies account mentions. The concepts are not interchangeable.
+- **Stable identifiers:** Use X platform IDs as text keys. Usernames are mutable profile attributes, not primary keys.
+- **Conversation grouping:** Retain `conversation_id` on Posts as the root-conversation identifier; a separate Conversations table is not needed for this scope.
+- **Repeating values:** Use Post_Mentions and Post_Hashtags rather than arrays or delimited strings in one row.
+- **Source vs analysis:** Topic, sentiment, customer intent, and response-needed labels are separate derived analysis outputs.
+- **Metric history:** Optional metric snapshots use a capture timestamp and scope so that changing counts are not overwritten. Public and user-context metric access must remain distinct.
+- **Data dictionary mapping corrections:** `author_follower_bucket` is not an exact `followers_count`; `in_reply_to_user_id` identifies a replied-to author, not a parent post ID; total engagements, engagement rate, and weekday are calculated or derived values.
+
+The schema is a design proposal, not an implemented database. No production X API credentials, API data collection, or live integration were created. The next remaining action is to paste the response into the Forage Task 04 editor and verify its saved/submitted state.
+
+### Task 04 reflection prompts
+
+1. Why should a reply or quote post be stored as a separate post rather than as a duplicate of the CommBank post?
+2. Why are post references and account mentions modelled separately?
+3. What problem does a junction table solve for Posts-to-Accounts and Posts-to-Hashtags?
+4. Why are usernames unsuitable as primary keys?
+5. Why should changing metric counts be stored with a collection timestamp?
+6. Which fields in the Task 03 workbook are curated or calculated rather than raw source attributes?
+
 ## Remaining simulation tasks
 
 - [ ] Task 03 — Analysis and proposal draft prepared; confirm Forage submission before marking complete.
-- [ ] Task 04 — Database Design (requirements review started; schema design and submission remain).
+- [ ] Task 04 — Schema proposal prepared and validated; paste/submit the Forage response and confirm platform status.
 - [ ] Review the full simulation and update the final portfolio summary.
