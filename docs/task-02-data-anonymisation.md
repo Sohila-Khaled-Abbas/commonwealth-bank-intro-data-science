@@ -183,6 +183,10 @@ The local filename is mobile_customers_anonymised.csv. Keep this row-level deliv
 
 The final release sheet uses Registration_Year, and the QA check shows four distinct registration years. The workbook's preliminary inventory and transformation-log wording for date_registered still refers to month/quarter generalisation. Update those two notes to **registration year** before treating the workbook as a fully reconciled audit artifact.
 
+### Companion workbook template
+
+A separate Task 02 workbook template accompanies this guide. It provides a field inventory, aggregate QA reference, and release-schema worksheet. It is a documentation/template artifact only; it does not contain the private source records or the actual submitted CSV. The verified release schema documented above is `Registration_Year`, `Gender`, `Age_Band`, and `Salary_Band`.
+
 ## 7. Reproduction notes
 
 The following Excel formulas were used in the formula-driven Release_Ready sheet.
